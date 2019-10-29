@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 10px;
+  /*background: #f1f1f1;*/
+  background-color: lightpurple;
+  color: black;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  text-align: center;
+  background-image: url("capture.jpg");
+  background-repeat: no-repeat;
+  
+}
+
+.header h1 {
+  font-size: 50px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: black;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+/* Fake image */
+.losangeles {
+  background-image: url("capture1.jpg");
+  width: 100%;
+  padding: 20px;
+}
+.lasvegas {
+  background-image: url("lasvegas.jpg");
+  width: 100%;
+  padding: 20px;
+}
+.portland {
+  background-image: url("portland.jpg");
+  width: 100%;
+  padding: 20px;
+}
+.seattle {
+  background-image: url("seattle.jpg");
+  width: 100%;
+  padding: 20px;
+}
+.sanfrancisco {
+  background-image: url("sanfrancisco.jpg");
+  width: 100%;
+  padding: 20px;
+}
+.losangeles,.lasvegas,.portland,.seattle,.sanfrancisco {
+	background-repeat: no-repeat;
+}
+/* Add a card effect for articles */
+.card {
+  background-color: black;
+  padding: 20px;
+  margin-top: 20px;
+  color: white;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Nameless Trip</h1>
+</div>
+
+<div class="topnav">
+  <a href="trip.html">Home</a>
+  <a href="#">Trip Planner</a>
+  <a href="#">Add Trip</a>
+  <a href="#" style="float:right">Log in</a>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>Los Angeles</h2>
+      <div class="losangeles" style="height:500px;"></div>
+    </div>
+
+    <div class="card">
+      <h2>Las Vegas</h2>
+      <div class="lasvegas" style="height:500px;"></div>
+    </div>
+
+	<div class="card">
+      <h2>Portland</h2>
+      <div class="portland" style="height:500px;"></div>
+    </div>
+
+	<div class="card">
+      <h2>Seattle</h2>
+      <div class="seattle" style="height:500px;"></div>
+    </div>
+
+	<div class="card">
+      <h2>San Francisco</h2>
+      <div class="sanfrancisco" style="height:500px;"></div>
+    </div>
+
+
+  </div>
+</div>
+
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+
+</body>
+</html>
