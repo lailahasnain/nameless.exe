@@ -1,3 +1,4 @@
+
 //constructor for the Trip
 function Trip(name , loc , dep , ret , hot , air , trans){
   this.tripName = name;
@@ -38,9 +39,8 @@ function submitter(){
   var Tripper = new Trip(name1,loc,dep,ret,hot,air,trans);
   var myJson = JSON.stringify(Tripper);
   //localstorage.setItem("Trip", myJson);
-  window.alert(myJson);
-
-  var database = firebase.database().ref;
-
-  database.child("Name").set(myJson);
+  //window.alert(myJson);
+  isBool = true;
+  localStorage.setItem('boolean' ,isBool )
+  localStorage.setItem('json' , myJson)
 }
