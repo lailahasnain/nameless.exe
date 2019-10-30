@@ -127,11 +127,39 @@ footer ul
     list-style: none;
 }
 
-#footer_logo {
-    position: absolute;
-    left: 50%;
-    bottom: -100px;
-    width: 150px;
-    height: 150px;
-    margin-left: -70px;
+
+
+.Title {
+    font-family: "Brush Script MT", "Brush Script Std", cursive;
+    font-size: 100px;
+    text-align: center;
+}
+
+.form_prompt 
+{
+    text-align:left;
+    width: 40%;
+    font-size: 25px;
+}
+
+.form_input {
+    font-size: 25px;
+}
+
+th, td {
+    width: 100%;
+    text-align: left;
+    padding: 50px
+}
+
+#Submit_button
+{
+    top: -150px;
+    left: 50px;
+    width: 48.5%;
+}
+
+.hidden 
+{
+    display: none;
 }
