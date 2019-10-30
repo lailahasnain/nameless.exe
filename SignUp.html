@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="signup.css">
+
+    <title>Sign up</title>
+</head>
+
+<body>
+    <div class="main" align="center">
+        <p class="su">Sign up</p>
+        <form class="form1" align="center">
+            <input class="first" type="text" placeholder="Full Name" required autofocus>
+            <input class="mail" type="email" placeholder="Email Address" required>
+            <input class="pass1" type="password" placeholder="Choose Password" required>
+            <input class="pass2" type="password" placeholder="Retype Password" required>
+            <input placeholder="Birthday" class="cal" type="text" onfocus="(this.type='date')" id="date" required>
+            <select class="country" required>
+                <option value="" disabled selected hidden="">Country</option>
+                <option value="volvo">United States</option>
+            </select>
+            <div class="gen">
+                <p>Gendar:</p>
+                <input type="radio" name="gender" value="male"> Male
+                <br>
+                <input type="radio" name="gender" value="female"> Female
+                <br>
+                <input type="radio" name="gender" value="other"> Other
+            </div>
+            <input class="submit" type="submit" value="Sign up" align="center">
+        </form>
+    </div>
+    <div class="bottom">
+    </div>
+</body>
+
+</html>
