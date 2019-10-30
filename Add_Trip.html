@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -51,7 +51,7 @@
         <h1 class="Title">Add Trip</h1>
         <br /><br /><br />
 
-        <form>
+        <form onsubmit = "submitter()"  >
             <center>
                 <table style="padding: 30px;">
                     <tr>
@@ -99,7 +99,7 @@
                         <!-- Airline -->
                         <th class="form_prompt">Airline:</th>
                         <td>
-                            <select name="cars" class="form_input">
+                            <select name="air" class="form_input">
                                 <option>< Select an option ></option>
                                 <option value="all">Allegiant Air</option>
                                 <option value="amer">American Airlines</option>
@@ -114,7 +114,7 @@
                         <!-- Transportation -->
                         <th class="form_prompt">Transportation:</th>
                         <td>
-                            <select name="cars" class="form_input">
+                            <select name="trans" class="form_input">
                                 <option>< Select an option ></option>
                                 <option value="car">Car</option>
                                 <option value="mb">Motorbike</option>
@@ -175,5 +175,29 @@
         </div>
         <hr />
     </footer>
-</body>  
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBVegs12P1vIbzvxwH50Wx_Vf_whbKOjRw",
+    authDomain: "nameless-6658d.firebaseapp.com",
+    databaseURL: "https://nameless-6658d.firebaseio.com",
+    projectId: "nameless-6658d",
+    storageBucket: "nameless-6658d.appspot.com",
+    messagingSenderId: "123994460644",
+    appId: "1:123994460644:web:de0abc92e4072378eeb7f1",
+    measurementId: "G-HEJ8LGN152"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script src = "Add_Trip.js"></script>
+</body>
 </html>
