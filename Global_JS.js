@@ -1,4 +1,6 @@
 // JavaScript source code
+
+// Function that will parse through and display hotels based on the selected location
 $(document).ready(function () {
 
     $("#visiting_location").change(function () {
@@ -137,3 +139,10 @@ $(document).ready(function () {
     });
 
 });
+
+// Display email from taking in input from the newsletter form
+function disp_email()
+{
+    var x = document.getElementById("email").value;
+    window.alert("Your email is: " + x + "!");
+}

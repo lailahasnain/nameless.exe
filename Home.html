@@ -44,50 +44,52 @@
 
     <!-- Main Content -->
     <div class="content">
-        <!-- All of the page's content goes here!!! -->
-
+        
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <!-- Left Div -->
-        <div id="foot_left" style="float: left;">
-            <p style="font-size: 50px; color: red;"><u>Nameless.exe</u></p>
-            <p style="font-size: 30px;">Sign up for our Newsletter</p>
-            <form action="/action_page.php">
-                E-mail: <input type="email" name="emailaddress">
-                <input type="submit">
-            </form>
-            <br />
-            <p>Copyright &copy; 2019-2020</p>
-        </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <!-- Left Div -->
+            <div id="foot_left" style="float: left;">
+                <p style="font-size: 50px; color: red;"><u>Nameless.exe</u></p>
+                <p style="font-size: 30px;">Sign up for our Newsletter</p>
 
-        <!-- Center image -->
-        <img src="/Images/logo.png" id="footer_logo" alt="Logo" width="200" height="200" />
+                <!-- Newsletter Sign-up -->
+                <form action="welcome.php" method="post">
+                    E-mail: <input type="email" name="emailaddress">
+                    <input type="submit" value="Send">
+                </form>
 
-        <!-- Right Div -->
-        <div id="foot_right" style="float:right;">
-            <p style="font-size: 50px; color: red;"><u>Explore More</u></p>
-
-            <!-- Side-by-Side list of our menu items -->
-            <div id='parent_div_1'>
-                <ul>
-                    <li style="color: white;"><a href="Home.html">Home</a></li>
-                    <li><a href="Trip_Planner.html">Trip Planner</a></li>
-                    <li><a href="Account.html">Account</a></li>
-                </ul>
+                <br />
+                <p>Copyright &copy; 2019-2020</p>
             </div>
 
-            <div id='parent_div_2'>
-                <ul>
-                    <li><a href="My_Trip.html">My Trip</a></li>
-                    <li><a href="Add_Trip.html">Add Trip</a></li>
-                    <li><a href="Sign_in.html">Sign-in/Sign-up</a></li>
-                </ul>
+            <!-- Center image -->
+            <img src="/Images/logo.png" id="footer_logo" alt="Logo" width="200" height="200" />
+
+            <!-- Right Div -->
+            <div id="foot_right" style="float:right;">
+                <p style="font-size: 50px; color: red;"><u>Explore More</u></p>
+
+                <!-- Side-by-Side list of our menu items -->
+                <div id='parent_div_1'>
+                    <ul>
+                        <li style="color: white;"><a href="Home.html">Home</a></li>
+                        <li><a href="Trip_Planner.html">Trip Planner</a></li>
+                        <li><a href="Account.html">Account</a></li>
+                    </ul>
+                </div>
+
+                <div id='parent_div_2'>
+                    <ul>
+                        <li><a href="My_Trip.html">My Trip</a></li>
+                        <li><a href="Add_Trip.html">Add Trip</a></li>
+                        <li><a href="Sign_in.html">Sign-in/Sign-up</a></li>
+                    </ul>
+                </div>
+                <p>400 W Big Springs Rd., Riverside, CA, 92507<br />Winston Chung Hall Rm. 133</p>
             </div>
-            <p>400 W Big Springs Rd., Riverside, CA, 92507<br />Winston Chung Hall Rm. 133</p>
-        </div>
-        <hr />
-    </footer>
+            <hr />
+        </footer>
 </body>
 </html>
