@@ -127,6 +127,13 @@ footer ul
     list-style: none;
 }
 
+/* Side-by-side divs for the login/logout buttons
+#parent_div_3, #parent_div_4 {
+    width: 220px;
+    height: 200px;
+    float: left;
+    color: white;
+}*/
 
 
 .Title {
