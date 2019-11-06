@@ -11,6 +11,27 @@
             height: 150px;
             margin-left: -70px;
         }
+
+		div.gallery {
+			margin: 5px;
+			border: 1px solid #ccc;
+			float: left;
+			width: 400px;
+		}
+		div.gallery:hover {
+			
+			border: 1px solid #777;
+		}
+		div.gallery img {
+			width: 100%;
+			height: auto;
+		}
+		div.desc {
+			
+			padding: 15px;
+			text-align: center;
+		}
+
     </style>
 
     <!-- This is for the favicon and Title that is displayed on the tab. Multiple links are for multiple devices. -->
@@ -30,7 +51,7 @@
     <header>
         <div class="container">
             <a href="Home.html">
-                <img src="/Images/logo.png" alt="logo" class="logo" />
+                <img src="Images/logo.png" alt="logo" class="logo" />
             </a>
             <nav>
                 <ul>
@@ -45,6 +66,13 @@
         </div>
     </header>
 
+	<!-- Image Gallery -->
+	<div class="gallery">
+		<a target="_blank" href="#hello">
+			<img src="repos/lasvegas.jpg" width="600" height="400">
+		</a>
+		<div class="desc">Add a description of the image here </div>
+	</div>
     <!-- Main Content -->
     <div class="content">
     </div>
@@ -69,7 +97,7 @@
             </div>
 
             <!-- Center image -->
-            <img src="/Images/logo.png" id="footer_logo" alt="Logo" width="200" height="200" />
+            <img src="Images/logo.png" id="footer_logo" alt="Logo" width="200" height="200" />
 
             <!-- Right Div -->
             <div id="foot_right" style="float:right;">
