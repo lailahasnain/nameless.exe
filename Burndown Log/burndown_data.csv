@@ -1,1 +1,45 @@
 Index,Card Name,Sprint Number,Story Points,Completed?
+1,"Create ""Homepage"" according to specs.",1,4,1
+2,Verify that 5 different tests work with different parameters,1,5,1
+3,Pass all data into algorithm for summation,1,2,1
+4,Test basic functionality of input boxes,1,6,1
+5,Add a Trip functionality,1,7,1
+6,Create the UI in code for Add Trip,1,7,1
+7,"Create a button for ""Add Trip"". This moves from ""Homepage"" to ""Add Trip""",1,1,1
+8,Trip Information as checklist,1,2,1
+9,"Write code for the user account, login/logout",1,5,1
+10,Create UI for the user account section,1,4,1
+11,Create algorithm to calculate all data values input from filled-out form,1,3,1
+12,Create UI for Add Trip,1,9,1
+13,Create a form for new user accounts,1,8,0
+14,Create database to store current and past user information in user accounts,1,5,0
+15,Create a burndown log program,2,10,1
+16,Add data to burndown log,2,10,1
+17,Expense Total UI,1,4,0
+18,Calculator - Expenses,1,5,0
+19,Create personalized data for a user,2,5,0
+20,Display personal recommendation for a user,2,3,0
+21,Compile data for an individual user,2,7,0
+22,Calculate individual user data,2,5,0
+23,Create method to send notification to user's email,2,8,0
+24,"Allow user to select or deselect notification option, i.e. check mark",2,7,0
+25,Compile list of current trip data,2,5,0
+26,Find image of hotel location that the user wants to stay at,2,6,0
+27,From all compiled data (plus image) into an email style format,2,4,0
+28,Test sending an email to a user,2,5,0
+29,Test sending an email with compiled data to a user,2,5,0
+30,Test over the course of multiple trips with multiple users (email trip info),2,7,0
+31,Allow for saving trip data per user,3,9,0
+32,Allow for preselecting trip information to save for later viewing,3,7,0
+33,Create a functional itinerary page,3,10,0
+34,Create page to hold itineraries,3,10,0
+35,Create link on nav bar to itineraries,3,1,0
+36,Create HTML page that lists Tips/Advice,3,3,0
+37,Create navigator button for Tips/Advice,3,1,0
+38,Create data for sample trip,3,4,0
+39,Create a page for Sample Trip,3,7,0
+40,Enable functionality for Sample Trip,3,10,0
+41,Link page on nav bar for Sample Trip,3,1,0
+42,"Create HTML pages for each city, listing all popular attractions",2,7,0
+43,Link sites that allow user to buy tickets off that website,2,3,0
+44,Link all cities in homepage to corresponding HTML page,2,2,0

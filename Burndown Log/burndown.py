@@ -7,7 +7,7 @@ Created on Fri Nov  1 03:37:13 2019
 from matplotlib import pyplot as plt
 from matplotlib import style
 from datetime import date, timedelta
-import numpy as np
+#import numpy as np
 import re
 import csv
 import time
@@ -41,6 +41,7 @@ total_sprints = 3.0
 total_sp_alloted = 0.0
 total_sp_completed = 0.0
 d1 = date(2019, 10, 14)
+d3 = date(2019, 12, 4)
 
 # Global variables
 path = ""
@@ -232,6 +233,15 @@ def get_days():
     
     return (d2 - d1).days
 
+def remaining_days():
+    s = date.today()            # Get the datetime obj for today's date
+    s = str(s)                  # Convert datetime obj into string
+    s = re.sub("-", " ", s)     # Replace '-' with spaces
+    s = s.split()           # Split string by spaces and push ihto an array
+    d2 = date(int(s[0]), int(s[1]), int(s[2]))
+    
+    return (d3 - d2).days
+
 def compute():
     global total_sp_alloted, total_sp_completed
     
@@ -289,8 +299,10 @@ def compute():
     
     # Show how many days we have been working on the project.    
     working_days = get_days()
+    remain = remaining_days()
     
     print("We have been working on this project for a total of:", working_days, "days!")
+    print("We have a total of:", remain, "remaining days!")
     time.sleep(5)
 
 def enter_date():

@@ -15,6 +15,9 @@
 
     <!-- This is for the favicon and Title that is displayed on the tab. Multiple links are for multiple devices. -->
     <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- Needed to make Javascript file run properly -->
+    <script type="text/javascript" src="Global_JS.js"></script> <!-- External Javascript file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" /> <!-- For external CSS file-->
     <link rel="stylesheet" href="Global.css" />
     <title>Home</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/Images/favicon_io/apple-touch-icon.png">
@@ -54,10 +57,12 @@
                 <p style="font-size: 30px;">Sign up for our Newsletter</p>
 
                 <!-- Newsletter Sign-up -->
-                <form action="welcome.php" method="post">
-                    E-mail: <input type="email" name="emailaddress">
-                    <input type="submit" value="Send">
+                <form action="test.html" method="get">
+                    <input type="email" id="emailaddress" />
+                    <button onclick="disp_email()">Submit</button>
                 </form>
+                <button onclick="myFunction()">Try it</button>
+
 
                 <br />
                 <p>Copyright &copy; 2019-2020</p>
