@@ -1,7 +1,7 @@
 ﻿body 
 {
     margin: 0;
-    background: #fc9803;
+    background: white;
     font-family: 'Work Sans', sans-serif;
     font-weight: 300;
 }
@@ -14,7 +14,7 @@
 
 header
 {
-    background: #55d6aa;
+    background: black;
 }
 
 .logo
@@ -55,13 +55,13 @@ nav li
 
 nav a
 {
-    color: #444;
+    color: white;
     text-decoration: none;
     text-transform: uppercase;
 }
 nav a:hover
 {
-    color: #000;
+    color: white;
 }
 
 nav a::before
@@ -71,7 +71,6 @@ nav a::before
     height: 5px;
     width: 100%;
     background-color: #444;
-
     position: absolute;
     top: 0;
     width: 0%;
@@ -82,6 +81,7 @@ nav a::before
 nav a:hover::before
 {
     width: 100%;
+
 }
 
 footer 
