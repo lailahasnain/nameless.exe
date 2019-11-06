@@ -27,7 +27,16 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         if (user != null) {
             var email_id = user.email
-            document.getElementById("user_para").innerHTML = "Welcome user: " + email_id
+            var email_verified = user.emailVerified;
+
+            if (email_verified) {
+                document.getElementById("verify_btn").style.display = "none";
+            }
+            else {
+                document.getElementById("verify_btn").style.display = "block";
+            }
+            document.getElementById("user_para").innerHTML = "Welcome: " + email_id + "<br/>" + 
+                                                             "Verified: " + email_verified;
         }
     } else {
         // No user is signed in.
@@ -90,3 +99,16 @@ function getInputVal(id) {
     return document.getElementById(id).value;
 }
 // End - Use this so you don't have to constantly write out 'document.getElementID [...]'
+
+function SendVerification()
+{
+    var user = firebase.auth().currentUser;
+
+    user.sendEmailVerification().then(function () {
+        // Email sent.
+        window.alert("Verification sent!");
+    }).catch(function (error) {
+        // An error happened.
+        window.alert("An error occurred!" + error.message);
+    });
+}
