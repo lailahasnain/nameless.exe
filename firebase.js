@@ -112,3 +112,32 @@ function SendVerification()
         window.alert("An error occurred!" + error.message);
     });
 }
+
+// ---------------------------------------------------------------------------
+//         Everything above is for the user login. Below is Add Trip
+// ---------------------------------------------------------------------------
+function submit_Add_Trip() {
+    var name = document.getElementById("nickname");
+    var loc = document.getElementById("visiting_location");
+    var dep = document.getElementById("depart");
+    var ret = document.getElementById("return");
+    var hot = document.getElementById("hotel");
+    var air = document.getElementById("Airline");
+    var trans = document.getElementById("transp");
+    var submit = document.getElementById("Submit_button");
+
+    // Test to see if they are being read
+    console.display("Name: " + name);
+    console.display("Location: " + loc);
+    console.display("Deaprt: " + dep);
+    console.display("Return: " + ret);
+    console.display("Hotel: " + hot);
+    console.display("Airline: " + air);
+    console.display("Transportation: " + trans);
+    
+
+    //window.alert("Working!");
+    var firebase = firebase.database().ref();
+
+    firebaseRef.child("Text").set("Some Value");
+}

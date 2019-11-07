@@ -48,7 +48,7 @@
     font-size: 23px;
 }
 
-.un {
+.un, .pass{
     width: 76%;
     color: rgb(38, 50, 56);
     font-weight: 700;
@@ -72,7 +72,7 @@ form.form1 {
     padding-top: 40px;
 }
 
-.pass {
+/*.pass {
     width: 76%;
     color: rgb(38, 50, 56);
     font-weight: 700;
@@ -90,7 +90,7 @@ form.form1 {
     text-align: center;
     margin-bottom: 27px;
     font-family: 'Ubuntu', sans-serif;
-}
+}*/
 
 
     .un:focus, .pass:focus {
@@ -129,5 +129,4 @@ a {
     .main {
         border-radius: 0px;
     }
-}
-  
+}​
