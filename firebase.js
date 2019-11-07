@@ -22,6 +22,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         // User is signed in.
         document.getElementById("user_div").style.display = "block";
         document.getElementById("login_div").style.display = "none";
+        document.getElementById("signup_div").style.display = "none";
 
         var user = firebase.auth().currentUser;
 
@@ -42,6 +43,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         // No user is signed in.
         document.getElementById("user_div").style.display = "none";
         document.getElementById("login_div").style.display = "block";
+        document.getElementById("signup_div").style.display = "block";
     }
 });
 // End - Check for user login
@@ -56,21 +58,37 @@ function logout() {
 function sign_up() {
     // window.alert("Working!!!");
 
-    var userEmail = getInputVal("email_field");
-    var userPassword = getInputVal("password_field");
+    // All data being pulled in from user creation form. Be careful with dates. They make things act weird. Original code from SignUp.html file broke this code.
+    var name = getInputVal("name");
+    var userEmail = getInputVal("email");
+    var pass1 = getInputVal("Pass1");
+    var pass2 = getInputVal("Pass2");
+    //var bday = getInputVal("bday");
+    //var country = getInputVal("country");
+    var gender = getInputVal("gender");
 
-    // window.alert(userEmail + " " + userPassword)
+    // window.alert("Creating user: " + name + " " + userEmail + " " + pass1 + " " + pass2 + " " + date + " " + country + " " + gender);
 
-    firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
+    // Verify that the passwords match before trying to create an account.
+    if (name != '' && userEmail != '' && (pass1 == pass2)) {
+        //console.log("True!");
+        firebase.auth().createUserWithEmailAndPassword(userEmail, pass2).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
 
-        window.alert("Error: " + errorMessage);
-    });
+            window.alert("Error: " + errorMessage);
+        });
 
-    send_email();
+        // If no errors, this is the only modal that will appear
+        window.alert("Account created succesfully!");
+    }
+    else
+    {
+        // If something is missing from any field, this modal will appear.
+        window.alert("Account creation failed!\nPlease verify you have filled out all of the fields.");
+    }
 }
 // End - This contains the code to make the a new user in Firebase (non-SQL) database
 
