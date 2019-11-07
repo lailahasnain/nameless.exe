@@ -18,6 +18,31 @@ var AddTrip = firebase.database().ref('Add Trip');
 // JavaScript source code
 document.getElementById('contact_form').addEventListener('submit', submitForm);
 
+var user_email = "Unknown User";
+
+// Check for user login
+// Begin - Check for user login
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in.
+
+        var user = firebase.auth().currentUser;
+
+        if (user != null) {
+            user_email = user.email;
+        }
+    } else {
+        // If no user
+    }
+});
+// End - Check for user login
+
+
+
+
+
+
+
 // Submit Form
 function submitForm(e) {
     e.preventDefault();
@@ -31,6 +56,7 @@ function submitForm(e) {
     var tra = getInputVal('transp');
 
     // Test to see if the values are working
+    console.log("User Email: " + user_email);
     console.log("Name: " + name);
     console.log("Location: " + loc);
     console.log("Depart: " + dep);
@@ -40,7 +66,7 @@ function submitForm(e) {
     console.log("Transportation: " + tra);
 
     // Save Message
-    saveMessage(name, loc, dep, ret, hot, air, tra);
+    saveMessage(user_email, name, loc, dep, ret, hot, air, tra);
 
     // Clears form
     document.getElementById('contact_form').reset();
@@ -53,10 +79,12 @@ function getInputVal(id)
 }
 
 // Save message to firebase
-function saveMessage(name, loc, dep, ret, hot, air, tra) {
+function saveMessage(user_email, name, loc, dep, ret, hot, air, tra) {
     var newMessageRef = AddTrip.push();
     newMessageRef.set({
+        User_Email: user_email,
         Name: name,
+        Location: loc,
         Departure: dep,
         Return: ret,
         Hotel: hot,
