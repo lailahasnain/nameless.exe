@@ -12,10 +12,6 @@ appId: "1:275124553602:web:abf30c6a1f81d56230719b"
   firebase.initializeApp(firebaseConfig);
 // End - Your web app's Firebase configuration
 
-
-
-
-
 // Begin - Check for user login
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -52,6 +48,8 @@ function logout() {
     firebase.auth().signOut();
     // Clears form
     document.getElementById('email_field').reset();
+    document.getElementById('Pass1').reset();
+    document.getElementById('Pass2').reset();
 }
 
 // Begin - This contains the code to make the a new user in Firebase (non-SQL) database
@@ -59,26 +57,22 @@ function sign_up() {
     // window.alert("Working!!!");
 
     // All data being pulled in from user creation form. Be careful with dates. They make things act weird. Original code from SignUp.html file broke this code.
-    var name = getInputVal("name");
-    var userEmail = getInputVal("email");
-    var pass1 = getInputVal("Pass1");
-    var pass2 = getInputVal("Pass2");
-    //var bday = getInputVal("bday");
-    //var country = getInputVal("country");
-    //var gender = getInputVal("gender");
+    var email = getInputVal("emailaddress");
+    var pass_one = getInputVal("Pass_one");
+    var pass_two = getInputVal("Pass_two");
 
     // window.alert("Creating user: " + name + " " + userEmail + " " + pass1 + " " + pass2 + " " + date + " " + country + " " + gender);
 
     // Verify that the passwords match before trying to create an account.
-    if (name != '' && userEmail != '' && (pass1 == pass2)) {
-        //console.log("True!");
-        firebase.auth().createUserWithEmailAndPassword(userEmail, pass2).catch(function (error) {
+    if (email != "" && (pass_one == pass_two)) {
+        console.log("Email: " + email);
+        console.log("Password: " + pass_one);
+
+        firebase.auth().createUserWithEmailAndPassword(email, pass_one).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
             // ...
-
-            window.alert("Error: " + errorMessage);
         });
 
         // If no errors, this is the only modal that will appear
@@ -89,6 +83,11 @@ function sign_up() {
         // If something is missing from any field, this modal will appear.
         window.alert("Account creation failed!\nPlease verify you have filled out all of the fields.");
     }
+
+    // Reset values
+    email = "";
+    pass1 = "";
+    pass2 = "";
 }
 // End - This contains the code to make the a new user in Firebase (non-SQL) database
 
