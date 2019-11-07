@@ -65,7 +65,7 @@ function sign_up() {
     var pass2 = getInputVal("Pass2");
     //var bday = getInputVal("bday");
     //var country = getInputVal("country");
-    var gender = getInputVal("gender");
+    //var gender = getInputVal("gender");
 
     // window.alert("Creating user: " + name + " " + userEmail + " " + pass1 + " " + pass2 + " " + date + " " + country + " " + gender);
 
