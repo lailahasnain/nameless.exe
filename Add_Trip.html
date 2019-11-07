@@ -1,15 +1,38 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <style>
+        /* Footer CSS */
         #footer_logo {
             position: absolute;
             left: 50%;
-            bottom: -810px;
+            bottom: -200px;
             width: 150px;
             height: 150px;
             margin-left: -70px;
+        }
+
+        /* Side-by-side buttons CSS */
+        #button1, #button2{
+            cursor: pointer;
+            border-radius: 5em;
+            color: #fff;
+            background: linear-gradient(to right, #9C27B0, #E040FB);
+            border: 0;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 13px;
+            box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+            width: 200px;
+            height: 40px;
+        }
+        
+        #button_container{
+            text-align: center;
         }
     </style>
 
@@ -17,7 +40,13 @@
     <meta charset="utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- Needed to make Javascript file run properly -->
     <script type="text/javascript" src="Global_JS.js"></script> <!-- External Javascript file -->
+    <!-- Signup page CSS stuff -->
+    <link rel="stylesheet" href="loginpagestyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="Global.css" /> <!-- External CSS file -->
+    <!-- /Signup page CSS stuff -->
     <title>Add Trip</title> <!-- Tab title -->
     <!-- Different picture sizes for different devices. Favicon. -->
     <link rel="apple-touch-icon" sizes="180x180" href="/Images/favicon_io/apple-touch-icon.png">
@@ -48,91 +77,87 @@
     <!-- Main Content -->
     <div class="content">
         <!-- All of the page's content goes here!!! -->
-        <h1 class="Title">Add Trip</h1>
-        <br /><br /><br />
+        <div class="Add_main" id="login_div">
+            <p class="sign" align="center">Add Trip</p>
 
-        <form action = "My_Trip.html" onsubmit = "submitter()"  >
-            <center>
-                <table style="padding: 30px;">
-                    <tr>
-                        <!-- Trip nickname -->
-                        <th class="form_prompt">Trip Name:</th>
-                        <td><input type="text" class="form_input" placeholder="< Enter a nickname >" /></td>
-                    </tr>
-                    <tr>
-                        <th class="form_prompt">Location:</th>
-                        <td>
-                            <!-- Location - Use this name for JS function-->
-                            <select class="form_input" name="location" id="visiting_location">
-                                <option value="0">< Select an option ></option>
-                                <option value="1">Seattle, Washington</option>
-                                <option value="2">Bellingham, Washington</option>
-                                <option value="3">Portland, Oregon</option>
-                                <option value="4">San Francisco, California</option>
-                                <option value="5">Los Angeles, California</option>
-                                <option value="6">Phoenix, Arizona</option>
-                                <option value="7">Las Vegas, Nevada</option>
-                                <option value="8">Reno, Nevada</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <!-- Departure -->
-                        <th class="form_prompt">Departure:</th>
-                        <td><input type="datetime-local" class="form_input" /></td>
-                    </tr>
-                    <tr>
-                        <!-- Return -->
-                        <th class="form_prompt">Return:</th>
-                        <td><input type="datetime-local" class="form_input" /></td>
-                    </tr>
-                    <tr>
-                        <!-- Hotel selection. Use JS to pull different hotels up-->
-                        <th class="form_prompt">Hotel:</th>
-                        <td>
-                            <select id="hotel" name="hotel" class="form_input">
-                                <option>< Please pick a location first ></option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <!-- Airline -->
-                        <th class="form_prompt">Airline:</th>
-                        <td>
-                            <select name="air" class="form_input">
-                                <option>< Select an option ></option>
-                                <option value="all">Allegiant Air</option>
-                                <option value="amer">American Airlines</option>
-                                <option value="delta">Delta Airlines</option>
-                                <option value="front">Frontier Airlines</option>
-                                <option value="blue">JetBlue</option>
-                                <option value="south">Southwest Airlines</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <!-- Transportation -->
-                        <th class="form_prompt">Transportation:</th>
-                        <td>
-                            <select name="trans" class="form_input">
-                                <option>< Select an option ></option>
-                                <option value="car">Car</option>
-                                <option value="mb">Motorbike</option>
-                                <option value="mc">Motorcycle</option>
-                                <option value="bus">Bus</option>
-                                <option value="train">Train</option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-                <!-- Space and a submit button -->
+            <!-- Nickname -->
+            <form id="contact_form">
+                <div class="block">
+                    <label>Nickname</label>
+                    <input class="form_input" type="text" id="nickname" placeholder="< Enter your trip nickname >"/>
+                </div>
+                <!-- Location - Use this name for JS function-->
+                <div class="block">
+                    <label>Location</label>
+                    <select class="form_input" name="location" id="visiting_location">
+                        <option value="0">< Select an option ></option>
+                        <option value="1">Seattle, Washington</option>
+                        <option value="2">Bellingham, Washington</option>
+                        <option value="3">Portland, Oregon</option>
+                        <option value="4">San Francisco, California</option>
+                        <option value="5">Los Angeles, California</option>
+                        <option value="6">Phoenix, Arizona</option>
+                        <option value="7">Las Vegas, Nevada</option>
+                        <option value="8">Reno, Nevada</option>
+                    </select>
+                </div>
+                <!-- Depart -->
+                <div class="block">
+                    <label>Departure</label>
+                    <input type="datetime-local" class="form_input" id="depart" />
+                </div>
+                <!-- Return -->
+                <div class="block">
+                    <label>Return</label>
+                    <input type="datetime-local" class="form_input" id="return" />
+                </div>
+                <!-- Hotel -->
+                <div class="block">
+                    <label>Hotel</label>
+                    <select id="hotel" name="hotel" class="form_input">
+                        <option>< Please pick a location first ></option>
+                    </select>
+                </div>
+                <!-- Airline -->
+                <div class="block">
+                    <label>Airline</label>
+                    <select id="Airline" name="air" class="form_input">
+                        <option>< Select an option ></option>
+                        <option value="all">Allegiant Air</option>
+                        <option value="amer">American Airlines</option>
+                        <option value="delta">Delta Airlines</option>
+                        <option value="front">Frontier Airlines</option>
+                        <option value="blue">JetBlue</option>
+                        <option value="south">Southwest Airlines</option>
+                    </select>
+                </div>
+                <!-- Transportation -->
+                <div class="block">
+                    <label>Transportation</label>
+                    <select id="transp" name="trans" class="form_input">
+                        <option>< Select an option ></option>
+                        <option value="car">Car</option>
+                        <option value="mb">Motorbike</option>
+                        <option value="mc">Motorcycle</option>
+                        <option value="bus">Bus</option>
+                        <option value="train">Train</option>
+                    </select>
+                </div>
+
+                <!-- Add space between content and buttons -->
                 <br /><br />
-                <input type="submit" id="Submit_button" />
-            </center>
-        </form>
-        <!-- Space between submit button and footer -->
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+                <!-- <a class="submit" align="center">Sign in</a><br /> -->
+                <div id="button_container">
+                    <button onclick="Cancel()" id="button1">Sign In</button>
+                    <button id="button2">Submit</button>
+                </div>
+            </form>
+
+        </div>
     </div>
+    <!-- /End main contenct -->
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -175,29 +200,13 @@
         </div>
         <hr />
     </footer>
+    <!-- /Footer -->
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script src="firebase_push.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyBVegs12P1vIbzvxwH50Wx_Vf_whbKOjRw",
-    authDomain: "nameless-6658d.firebaseapp.com",
-    databaseURL: "https://nameless-6658d.firebaseio.com",
-    projectId: "nameless-6658d",
-    storageBucket: "nameless-6658d.appspot.com",
-    messagingSenderId: "123994460644",
-    appId: "1:123994460644:web:de0abc92e4072378eeb7f1",
-    measurementId: "G-HEJ8LGN152"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
-<script src = "Add_Trip.js"></script>
 </body>
 </html>

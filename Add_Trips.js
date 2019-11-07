@@ -1,3 +1,17 @@
+// Begin - Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyDeMIN3Pxd-G7dMsrfTvWaQfxrK1-RWdac",
+    authDomain: "nameless-exe-database.firebaseapp.com",
+    databaseURL: "https://nameless-exe-database.firebaseio.com",
+    projectId: "nameless-exe-database",
+    storageBucket: "nameless-exe-database.appspot.com",
+    messagingSenderId: "275124553602",
+    appId: "1:275124553602:web:abf30c6a1f81d56230719b"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+// End - Your web app's Firebase configuration
+
 
 //constructor for the Trip
 function Trip(name , loc , dep , ret , hot , air , trans){
@@ -34,7 +48,7 @@ function submitter(){
   var air = accessor[5].value;
   var trans = accessor[6].value;
 
-  //window.alert(name1);
+  window.alert(name1);
 
   var Tripper = new Trip(name1,loc,dep,ret,hot,air,trans);
   var myJson = JSON.stringify(Tripper);

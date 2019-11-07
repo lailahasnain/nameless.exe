@@ -12,16 +12,13 @@ appId: "1:275124553602:web:abf30c6a1f81d56230719b"
   firebase.initializeApp(firebaseConfig);
 // End - Your web app's Firebase configuration
 
-
-
-
-
 // Begin - Check for user login
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
         document.getElementById("user_div").style.display = "block";
         document.getElementById("login_div").style.display = "none";
+        document.getElementById("signup_div").style.display = "none";
 
         var user = firebase.auth().currentUser;
 
@@ -42,6 +39,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         // No user is signed in.
         document.getElementById("user_div").style.display = "none";
         document.getElementById("login_div").style.display = "block";
+        document.getElementById("signup_div").style.display = "block";
     }
 });
 // End - Check for user login
@@ -50,27 +48,46 @@ function logout() {
     firebase.auth().signOut();
     // Clears form
     document.getElementById('email_field').reset();
+    document.getElementById('Pass1').reset();
+    document.getElementById('Pass2').reset();
 }
 
 // Begin - This contains the code to make the a new user in Firebase (non-SQL) database
 function sign_up() {
     // window.alert("Working!!!");
 
-    var userEmail = getInputVal("email_field");
-    var userPassword = getInputVal("password_field");
+    // All data being pulled in from user creation form. Be careful with dates. They make things act weird. Original code from SignUp.html file broke this code.
+    var email = getInputVal("emailaddress");
+    var pass_one = getInputVal("Pass_one");
+    var pass_two = getInputVal("Pass_two");
 
-    // window.alert(userEmail + " " + userPassword)
+    // window.alert("Creating user: " + name + " " + userEmail + " " + pass1 + " " + pass2 + " " + date + " " + country + " " + gender);
 
-    firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
+    // Verify that the passwords match before trying to create an account.
+    if (email != "" && (pass_one == pass_two)) {
+        console.log("Email: " + email);
+        console.log("Password: " + pass_one);
 
-        window.alert("Error: " + errorMessage);
-    });
+        firebase.auth().createUserWithEmailAndPassword(email, pass_one).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+        });
 
-    send_email();
+        // If no errors, this is the only modal that will appear
+        window.alert("Account created succesfully!");
+    }
+    else
+    {
+        // If something is missing from any field, this modal will appear.
+        window.alert("Account creation failed!\nPlease verify you have filled out all of the fields.");
+    }
+
+    // Reset values
+    email = "";
+    pass1 = "";
+    pass2 = "";
 }
 // End - This contains the code to make the a new user in Firebase (non-SQL) database
 
@@ -111,4 +128,33 @@ function SendVerification()
         // An error happened.
         window.alert("An error occurred!" + error.message);
     });
+}
+
+// ---------------------------------------------------------------------------
+//         Everything above is for the user login. Below is Add Trip
+// ---------------------------------------------------------------------------
+function submit_Add_Trip() {
+    var name = document.getElementById("nickname");
+    var loc = document.getElementById("visiting_location");
+    var dep = document.getElementById("depart");
+    var ret = document.getElementById("return");
+    var hot = document.getElementById("hotel");
+    var air = document.getElementById("Airline");
+    var trans = document.getElementById("transp");
+    var submit = document.getElementById("Submit_button");
+
+    // Test to see if they are being read
+    console.display("Name: " + name);
+    console.display("Location: " + loc);
+    console.display("Deaprt: " + dep);
+    console.display("Return: " + ret);
+    console.display("Hotel: " + hot);
+    console.display("Airline: " + air);
+    console.display("Transportation: " + trans);
+    
+
+    //window.alert("Working!");
+    var firebase = firebase.database().ref();
+
+    firebaseRef.child("Text").set("Some Value");
 }
