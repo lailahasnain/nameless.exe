@@ -15,9 +15,15 @@
 		/* Create three equal columns that floats next to each other */
 	.column {
 		float: left;
-		width: 33.33%;
+		text-align: center;
 		
 
+	}
+	.column.left {
+		width: 33.33%
+	}
+	.column.right {
+		width: 66.66%
 	}
 
 		/* Clear floats after the columns */
@@ -29,12 +35,48 @@
 
 	/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 	@media screen and (max-width:600px) {
-		.column {
+		.column.left {
+			width: 100%;
+		}
+		.column.right {
 			width: 100%;
 		}
 	}
+	a.hotels {
+		color: white;
+		text-align: center;
+		text-decoration: none;
 	
-	.content{ background-image: url("repos/Capture.JPG");}
+		
+	}
+	ul {
+		list-style-type: none;
+		
+	}
+	li.hotels {
+		margin: 30px;
+		background-color: #87CEFA;
+		padding: 10px;
+		max-width: 200px;
+		margin: auto;
+		margin-bottom: 5px;
+	}
+	.grid-container {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		grid-template-rows: 200px 200px;
+		grid-gap: 0;
+		background-color: white;
+		padding: 10px;
+	}
+
+	.grid-container > div {
+		background-repeat: no-repeat;
+		background-size: cover;
+		text-align: center;
+		
+		font-size: 30px;
+	}
     </style>
 
     <!-- This is for the favicon and Title that is displayed on the tab. Multiple links are for multiple devices. -->
@@ -74,21 +116,30 @@
     <div class="content">
 		<div class="row">
 			
-			<div class="column">
-				<h2 style="text-align: center;"> Hotels to Visit </h2>
-				<div style="border: 2px solid black;">
-					why is this text bigger than the other text just kidding
-					was a fuck up. i fixed it now
+			<div class="column left">
+				<h2> Hotels to Visit </h2>
+				<div>
+					<ul>
+						<li class="hotels"><a class="hotels" href="#casino"> Bellagio Hotel </a> </li>
+						<li class="hotels"><a class="hotels" href="#casino"> Stratosphere Hotel </a> </li>
+						<li class="hotels"><a class="hotels" href="#casino"> MGM Grand  </a> </li>
+						<li class="hotels"><a class="hotels" href="#casino"> The Mirage  </a> </li>
+					</ul>
 				</div>
 			</div>
 
-			<div class="column">
+			<div class="column right">
 
-				<h2 style="text-align: center;"> History of LA </h2>
+				<h2> Popular Attractions </h2>
 
-				<div style="border: 2px solid black;">
-					Los is lowkey a place hwere you want to get shot upso ghetto
-					as fuck i'm surpised my family is still alive'
+				<div class="grid-container">
+					<div style="background-image: url(repos/strip.jpg);"></div>
+					<div style="background-image: url(repos/fremont.jpg);"></div>
+					<div style="background-image: url(repos/helicopter.jpg);"></div>
+					<div style="background-image: url(repos/ventiangon.jpg);"></div>
+					<div style="background-image: url(repos/fountainshow.jpg);"></div>
+					<div style="background-image: url(repos/caesar.jpg);"></div>
+					
 				</div>
 			
 			</div>
@@ -97,9 +148,8 @@
 			
 			</div>
 		</div>
-		
 	</div>
-
+		
         <!-- Footer -->
         <footer class="footer">
             <!-- Left Div -->
@@ -120,7 +170,7 @@
             </div>
 
             <!-- Center image -->
-            <img src="Images/logo.png" id="footer_logo" alt="Logo" width="200" height="200" />
+           <!-- <img src="Images/logo.png" id="footer_logo" alt="Logo" width="200" height="200" />*/ -->
 
             <!-- Right Div -->
             <div id="foot_right" style="float:right;">
@@ -129,7 +179,7 @@
                 <!-- Side-by-Side list of our menu items -->
                 <div id='parent_div_1'>
                     <ul>
-                        <li style="color: white;"><a href="Home.html">Home</a></li>
+                        <li class="hotels" style="color: white;"><a href="Home.html">Home</a></li>
                         <li><a href="Trip_Planner.html">Trip Planner</a></li>
                         <li><a href="Account.html">Account</a></li>
                     </ul>

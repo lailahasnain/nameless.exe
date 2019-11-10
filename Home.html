@@ -13,26 +13,36 @@
         }
 
 		div.gallery {
-			margin: 5px;
-			float: left;
-			max-width: 20%;
-			padding: 30px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			padding: 0 4px;
 		}
-		div.gallery:hover {
-			
-			
+		
+		div.column {
+
+		flex: 50%;
+		max-width: 25%;
+		padding: 0 4px;
+		margin-auto;
+
 		}
-		div.gallery img {
+
+		div.column img {
+			margin-top: 8px;
+			vertical-align: middle;
 			width: 100%;
-			height: auto;
-			border: 5px solid black;
+	
 		}
-		div.desc {
-			
-			padding: 15px;
-			text-align: center;
-			font-weight: bold;
-		}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  div.column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
 
     </style>
 
@@ -67,58 +77,48 @@
             </nav>
         </div>
     </header>
-
+	
 	<!-- Image Gallery -->
 	<div class="gallery">
+		
+		<div class="column">
 		<a target="_blank" href="tripdetails.html">
 			<img src="repos/lasvegas.jpg"/>
 		</a>
-		<div class="desc">Las Vegas </div>
-
+		
 		<a target="_blank" href="#hello">
 			<img src="repos/reno.jpg" />
 		</a>
-		<div class="desc">Reno, Nevada</div>
-	</div>
 
-	<div class="gallery">
 		<a target="_blank" href="#hello">
 			<img src="repos/portland.jpg" />
 			
 		</a>
-		<div class="desc">Portland, Oregon </div>
 
 		<a target="_blank" href="#hello">
 			<img src="repos/phoenix.jpeg" />
 		</a>
-		<div class="desc">Phoenix Arizona</div>
-	</div>
+		</div>
 
-	
-	<div class="gallery">
+		<div class="column">
 		<a target="_blank" href="#hello">
 			<img src="repos/sanfrancisco.jpg" />
 		</a>
-		<div class="desc">San Francisco, California</div>
 
 		<a target="_blank" href="#hello">
 			<img src="repos/bellingham.jpg" />
 		</a>
-		<div class="desc">Bellingham, Washington</div>
-	</div>
-
-	<div class="gallery">
+	
 		<a target="_blank" href="#hello">
 			<img src="repos/seattle.jpg" />
 		</a>
-		<div class="desc">Seattle, Washington</div>
 
 		<a target="_blank" href="www.google.com">
 			<img src="repos/Capture1.JPG" />
 		</a>
-		<div class="desc">Los Angeles, California</div>
+		</div>
 	</div>
-
+	
     <!-- Main Content -->
     <div class="content">
     </div>
