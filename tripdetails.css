@@ -1,0 +1,71 @@
+
+
+	.column {
+		float: left;
+		text-align: center;
+		
+
+	}
+	.column.left {
+		width: 33.33%
+	}
+	.column.right {
+		width: 66.66%
+	}
+
+		/* Clear floats after the columns */
+	.row:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+	@media screen and (max-width:600px) {
+		.column.left {
+			width: 100%;
+		}
+		.column.right {
+			width: 100%;
+		}
+	}
+	a.hotels {
+		color: white;
+		text-align: center;
+		text-decoration: none;
+	
+		
+	}
+	ul {
+		list-style-type: none;
+		
+	}
+	li.hotels {
+		margin: 30px;
+		background-color: #87CEFA;
+		padding: 10px;
+		max-width: 200px;
+		margin: auto;
+		margin-bottom: 5px;
+	}
+	.grid-container {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		grid-template-rows: auto auto;
+		grid-gap: 0;
+		background-color: white;
+		padding: 10px;
+	}
+
+	.grid-container > div {
+		background-repeat: no-repeat;
+		background-size: cover;
+		text-align: center;
+		color: white;
+		padding: 70px 0px;
+		font-size: 30px;
+		f
+	}
+	a.hotels {
+		background-color: #87CEFA; 
+	}
