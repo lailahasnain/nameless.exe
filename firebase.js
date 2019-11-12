@@ -88,6 +88,9 @@ function sign_up() {
     email = "";
     pass1 = "";
     pass2 = "";
+
+    // Auto refresh the page
+    document.location.href = "Sign_In.html";
 }
 // End - This contains the code to make the a new user in Firebase (non-SQL) database
 
@@ -123,7 +126,7 @@ function SendVerification()
 
     user.sendEmailVerification().then(function () {
         // Email sent.
-        window.alert("Verification sent!");
+        window.alert("Verification sent!\nPlease check your email.\n\nOnce you verify, refresh this page!");
     }).catch(function (error) {
         // An error happened.
         window.alert("An error occurred!" + error.message);
