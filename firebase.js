@@ -158,3 +158,28 @@ function submit_Add_Trip() {
 
     firebaseRef.child("Text").set("Some Value");
 }
+
+function forgot_password() {
+    var email = getInputVal("email_field");
+
+    if (email != "") {
+        var auth = firebase.auth();
+        //var emailAddress = "user@example.com";
+        console.log("Email passed: ", email);
+
+        auth.sendPasswordResetEmail(email).then(function () {
+            // Email sent.
+            window.alert("Email has been sent. Please check your email.");
+        }).catch(function (error) {
+            // An error happened.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+
+            window.alert("Error: " + errorMessage);
+        });
+    }
+    else {
+        window.alert("Please enter your email address.");
+        console.log("Email is invalid.");
+    }
+}
