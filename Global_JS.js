@@ -7,7 +7,7 @@ $(document).ready(function () {
 
         var el = $(this);
 
-        if (el.val() === "1")
+        if (el.val() === "Seattle, Washington")
         {
             $("#hotel option:last-child").remove();
             $("#hotel option:last-child").remove();
@@ -22,7 +22,7 @@ $(document).ready(function () {
             $("#hotel").append("   <option>Crowne Plaza (Seattle)</option>");
             $("#hotel").append("   <option>Hyatt at Olive 8 (Seattle)</option>");
         }
-        else if (el.val() === "2")
+        else if (el.val() === "Bellingham, Washington")
         {
             $("#hotel option:last-child").remove();
             $("#hotel option:last-child").remove();
@@ -37,7 +37,7 @@ $(document).ready(function () {
             $("#hotel").append("   <option>GuestHouse Inn (Bellingham)</option>");
             $("#hotel").append("   <option>Holiday Inn (Bellingham)</option>");
         }
-        else if (el.val() === "3")
+        else if (el.val() === "Portland, Oregon")
         {
             $("#hotel option:last-child").remove();
             $("#hotel option:last-child").remove();
@@ -52,7 +52,7 @@ $(document).ready(function () {
             $("#hotel").append("   <option>Travelodge (Portland)</option>");
             $("#hotel").append("   <option>Travelodge by Wyndam (Portland)</option>");
         }
-        else if (el.val() === "4")
+        else if (el.val() === "San Francisco, California")
         {
             $("#hotel option:last-child").remove();
             $("#hotel option:last-child").remove();
@@ -67,7 +67,7 @@ $(document).ready(function () {
             $("#hotel").append("   <option>Motel 6 (San Francisco)</option>");
             $("#hotel").append("   <option>Hotel Crowne Plaza (San Francisco)</option>");
         }
-        else if (el.val() === "5")
+        else if (el.val() === "Los Angeles, California")
         {
             $("#hotel option:last-child").remove();
             $("#hotel option:last-child").remove();
@@ -82,7 +82,7 @@ $(document).ready(function () {
             $("#hotel").append("   <option>Lux Uptown Apts. (Los Angeles)</option>");
             $("#hotel").append("   <option>Hotel Embassy (Los Angeles)</option>");
         }
-        else if (el.val() === "6")
+        else if (el.val() === "Phoenix, Arizona")
         {
             $("#hotel option:last-child").remove();
             $("#hotel option:last-child").remove();
@@ -97,7 +97,7 @@ $(document).ready(function () {
             $("#hotel").append("   <option>GuestHouse Inn (Phoenix)</option>");
             $("#hotel").append("   <option>Holiday Inn (Phoenix)</option>");
         }
-        else if (el.val() === "7")
+        else if (el.val() === "Las Vegas, Nevada")
         {
             $("#hotel option:last-child").remove();
             $("#hotel option:last-child").remove();
@@ -112,7 +112,7 @@ $(document).ready(function () {
             $("#hotel").append("   <option>Four Queens (Las Vegas)</option>");
             $("#hotel").append("   <option>The Venetian (Las Vegas)</option>");
         }
-        else if (el.val() === "8")
+        else if (el.val() === "Reno, Nevada")
         {
             $("#hotel option:last-child").remove();
             $("#hotel option:last-child").remove();

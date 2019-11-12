@@ -121,7 +121,7 @@ function getInputVal(id) {
 // End - Use this so you don't have to constantly write out 'document.getElementID [...]'
 
 function SendVerification()
-{
+{ 
     var user = firebase.auth().currentUser;
 
     user.sendEmailVerification().then(function () {
