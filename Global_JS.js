@@ -152,3 +152,12 @@ function fn1()
     var str = document.getElementById("text1").value;
     alert("Value inside the textbox is: ", + str);
 }
+
+function email_record()
+{
+    var choice = document.getElementById('e_r').value;
+    window.alert("Succesful");
+    console.log("Success!!!");
+
+    window.alert("Your chosen value is: " + choice);
+}

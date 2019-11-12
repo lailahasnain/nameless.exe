@@ -33,6 +33,8 @@ firebase.auth().onAuthStateChanged(function (user) {
         }
     } else {
         // If no user
+        window.alert("Please sign in before continuing with this form. Data will not be saved.");
+        console.log("Please sign in before continuing with this form. Data will not be saved.");
     }
 });
 // End - Check for user login

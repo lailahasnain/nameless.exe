@@ -6,7 +6,7 @@
         #footer_logo {
             position: absolute;
             left: 50%;
-            bottom: -540px;
+            bottom: -240px;
             width: 150px;
             height: 150px;
             margin-left: -70px;
@@ -15,15 +15,9 @@
 
     <!-- This is for the favicon and Title that is displayed on the tab. Multiple links are for multiple devices. -->
     <meta charset="utf-8" />
-    <!-- Signup page CSS stuff -->
-    <link rel="stylesheet" href="loginpagestyle.css">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="signup.css">
-    <link rel="stylesheet" href="Global.css" /> <!-- External CSS file -->
-    <!-- /Signup page CSS stuff -->
-    <title>Sign-In</title>
+    <link rel="stylesheet" href="Global.css" />
+    <script type="text/javascript" src="Global_JS.js"></script> <!-- External Javascript file -->
+    <title>Expenses</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/Images/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon_io/favicon-16x16.png">
@@ -52,38 +46,65 @@
     <!-- Main Content -->
     <div class="content">
         <!-- All of the page's content goes here!!! -->
-        <div class="main" id="login_div">
-            <p class="sign" align="center">Sign in</p>
-            <input class="un " type="email" align="center" placeholder="E-mail" id="email_field">
-            <input class="pass" type="password" align="center" placeholder="Password" id="password_field">
-            <!-- <a class="submit" align="center">Sign in</a><br /> -->
-            <button onclick="login()" class="submit">Sign In</button><br /><br />
-            <p class="forgot" align="center"><a href="#">Forgot Password</a>
+        <center><h1 id="Expenses">Expenses Page</h1></center>
+        <center><h1>Note: This data cannot be recovered once you navigate away from this page.</h1></center>
+        <br /><br /><br />
+
+        <!-- Setup page contents -->
+        <table class="test" style="margin-left: 300px;">
+            <!-- Row 1 - Hotel stuff -->
+            <tr>
+                <td>Hotel Pricing</td>
+                <td>Hotel Name</td>
+                <td>Price</td>
+            </tr>
+            <!-- Row 2 - Airline stuff -->
+            <tr>
+                <td>Airline Pricing</td>
+                <td>Airline Name</td>
+                <td>Price</td>
+            </tr>
+            <!-- Row 3 - Transportation stuff-->
+            <tr>
+                <td>Transportation</td>
+                <td>Transportation method</td>
+                <td>Price</td>
+            </tr>
+            <!-- Row 4 - Subtotal -->
+            <tr>
+                <td>Sub-Total</td>
+                <td>+ Tax rate</td>
+            </tr>
+            <!-- Total -->
+            <tr>
+                <td>Total</td>
+                <td>Actual data</td>
+            </tr>
+        </table>
+
+        <!-- Create space -->
+        <br /><br /><br />
+
+        <!-- Ask if they want an email sent -->
+        <div id='parent_div_3_expenses'>
+            <br />
+            <p style="margin-left: 300px; font-size: 30px;">Do you want a copy sent to your email for your own records?</p>
         </div>
 
-        <div class="loggedin-div" id="user_div">
-            <h3>Welcome user</h3>
-            <p id="user_para">Welcome to Nameless.exe's Travel Planner. You're currently logged in.</p>
-            <button onclick="logout()">Logout</button><br />
-            <button id="verify_btn" onclick="SendVerification()">Send Verification</button><br />
-            <center><img src="Images\logo.png" style="height:200px; width:200px;" /></center>
+        <div id='parent_div_4_expenses' style="margin: 50px; margin-bottom: 20px;">
+            <select style="font-size: 25px;" id="e_r" required>
+                <option value="">Yes/No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
         </div>
 
+        <!-- More space -->
+        <br /><br /><br />
 
-        <!-- Sign Up section -->
-        <div class="main_sign_up" align="center" id="signup_div">
-            <p class="su">Sign up</p>
-            <form class="form1" align="center">
-                <input id="emailaddress" class="mail" type="email" placeholder="Email Address" required>
-                <input id="Pass_one" class="pass1" type="password" placeholder="Choose Password" required>
-                <input id="Pass_two" class="pass2" type="password" placeholder="Retype Password" required>
-                <button class="submit_new_user" onclick="sign_up()">Sign Up</button>
-            </form>
-        </div>
-        <div class="bottom">
-        </div>
+        <!-- Submit button -->
+        <button onclick="email_record()" style="font-size: 15px;">Submit</button>
 
-        <br /><br /><br /><br />
     </div>
 
     <!-- Footer -->
@@ -127,11 +148,5 @@
         </div>
         <hr />
     </footer>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
-    <script src="firebase.js"></script>
 </body>
 </html>
