@@ -6,7 +6,7 @@
         #footer_logo {
             position: absolute;
             left: 50%;
-            bottom: -140px;
+            bottom: -360px;
             width: 150px;
             height: 150px;
             margin-left: -70px;
@@ -16,7 +16,6 @@
     <!-- This is for the favicon and Title that is displayed on the tab. Multiple links are for multiple devices. -->
     <meta charset="utf-8" />
     <link rel="stylesheet" href="Global.css" />
-    <script type="text/javascript" src="Global_JS.js"></script> <!-- External Javascript file -->
     <title>Expenses</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/Images/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon_io/favicon-32x32.png">
@@ -52,33 +51,52 @@
 
         <!-- Setup page contents -->
         <table class="test" style="margin-left: 300px;">
+            <!-- Title: Nickname -->
+            <tr>
+                <td><!-- Remains empty for proper spacing --></td>
+                <td id="nn" style="text-decoration: underline"><b>Trip Nickname</b></td>
+                <td><!-- Remains empty for proper spacing --></td>
+            </tr>
+            <!-- Base information -->
+            <tr>
+                <td><b>Email on File</b></td>
+                <td id="emailaddress" style="color: blue;"><b>user@email.com</b></td>
+            </tr>
+            <!-- Row 0 - Base information -->
+            <tr>
+                <td id="loca"><b>Location</b></td>
+                <td id="depa">Departure</td>
+                <td id="retu">Return</td>
+            </tr>
             <!-- Row 1 - Hotel stuff -->
             <tr>
-                <td>Hotel Pricing</td>
-                <td>Hotel Name</td>
-                <td>Price</td>
+                <td><b>Hotel Pricing</b></td>
+                <td id="Hotel_name">Hotel Name</td>
+                <td id="Hotel_price">Price</td>
             </tr>
             <!-- Row 2 - Airline stuff -->
             <tr>
-                <td>Airline Pricing</td>
-                <td>Airline Name</td>
-                <td>Price</td>
+                <td><b>Airline Pricing</b></td>
+                <td id="Airline_name">Airline Name</td>
+                <td id="Airline_Price">Price</td>
             </tr>
             <!-- Row 3 - Transportation stuff-->
             <tr>
-                <td>Transportation</td>
-                <td>Transportation method</td>
-                <td>Price</td>
+                <td><b>Transportation</b></td>
+                <td id="Trans_method">Transportation method</td>
+                <td id="Trans_price">Price</td>
             </tr>
             <!-- Row 4 - Subtotal -->
             <tr>
-                <td>Sub-Total</td>
-                <td>+ Tax rate</td>
+                <td><b>Sub-Total</b></td>
+                <td id="Tax_rate">+ <%> Tax rate</td>
+                <td id="sub_total">Sub Total value</td>
             </tr>
             <!-- Total -->
             <tr>
-                <td>Total</td>
-                <td>Actual data</td>
+                <td><!-- Remains empty for proper spacing --></td>
+                <td><b>Total</b></td>
+                <td id="Actual_total" style="color: red;"><b>Actual data</b></td>
             </tr>
         </table>
 
@@ -99,12 +117,14 @@
             </select>
         </div>
 
-        <!-- More space -->
+        <!-- Space -->
         <br /><br /><br />
 
         <!-- Submit button -->
         <button onclick="email_record()" style="font-size: 15px;">Submit</button>
 
+        <!-- More space -->
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </div>
 
     <!-- Footer -->
@@ -148,5 +168,11 @@
         </div>
         <hr />
     </footer>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script src="Expense_data.js"></script>
 </body>
 </html>

@@ -79,7 +79,7 @@ function submitForm(e) {
         document.location.href = "/Expenses.html";
 
         // Pass values to be displayed on Expenses Page
-        disp_Expenses(user_email, name, loc, dep, ret, hot, air, tra);
+        //disp_Expenses(user_email, name, loc, dep, ret, hot, air, tra);
     }
     else if (user_email == "Unknown User") {
         document.location.href = "/Add_Trip.html";
@@ -111,19 +111,4 @@ function saveMessage(user_email, name, loc, dep, ret, hot, air, tra) {
         Airplane: air,
         Transportation: tra
     });
-}
-
-function disp_Expenses(email, name, loc, dep, ret, hot, air, tra)
-{
-    console.log("Testing succesful!");
-    console.log("Email: " + email);
-    console.log("Nickname: " + name);
-    console.log("Location: " + loc);
-    console.log("Depart: " + dep);
-    console.log("Return: " + ret);
-    console.log("Hotel: " + hot);
-    console.log("Airline: " + air);
-    console.log("Transportation: " + tra);
-
-    window.alert("Success with Email" + email + "; Nickname: " + name + "; Location: " + loc + "; Departure: " + dep + "; Return: " + ret + "; Hotel: " + hot + "; Airline: " + air + "; Transportation: " + tra);
 }
