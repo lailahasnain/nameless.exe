@@ -49,28 +49,27 @@ firebase.auth().onAuthStateChanged(function (user) {
 function submitForm(e) {
     e.preventDefault();
 
-    if (user_email == "Unknown User") {
-        document.location.href = "\Add_Trip.html";
-    }
-    else {
-        var name = getInputVal('nickname');
-        var loc = getInputVal('visiting_location');
-        var dep = getInputVal('depart');
-        var ret = getInputVal('return');
-        var hot = getInputVal('hotel');
-        var air = getInputVal('Airline');
-        var tra = getInputVal('transp');
+    var name = getInputVal('nickname');
+    var loc = getInputVal('visiting_location');
+    var dep = getInputVal('depart');
+    var ret = getInputVal('return');
+    var hot = getInputVal('hotel');
+    var air = getInputVal('Airline');
+    var tra = getInputVal('transp');
 
-        // Test to see if the values are working
-        console.log("User Email: " + user_email);
-        console.log("Name: " + name);
-        console.log("Location: " + loc);
-        console.log("Depart: " + dep);
-        console.log("Return: " + ret);
-        console.log("Hotel: " + hot);
-        console.log("Airplane: " + air);
-        console.log("Transportation: " + tra);
+    // Test to see if the values are working
+    console.log("User Email: " + user_email);
+    console.log("Name: " + name);
+    console.log("Location: " + loc);
+    console.log("Depart: " + dep);
+    console.log("Return: " + ret);
+    console.log("Hotel: " + hot);
+    console.log("Airplane: " + air);
+    console.log("Transportation: " + tra);
 
+
+    if ((user_email != "Unknown User") && (name != "") && (loc != "0") && (dep != "") && (ret != "") && (hot != "< Select an option >") && (hot != "< Please pick a location first >") && (air != "< Select an option >") && (tra != "< Select an option >"))
+    {
         // Save Message
         saveMessage(user_email, name, loc, dep, ret, hot, air, tra);
 
@@ -78,6 +77,14 @@ function submitForm(e) {
         document.getElementById('contact_form').reset();
 
         document.location.href = "/Expenses.html";
+    }
+    else if (user_email == "Unknown User") {
+        document.location.href = "/Add_Trip.html";
+    }
+    else
+    {
+        window.alert("Please fill out all information");
+        document.location.href = "/Add_Trip.html";
     }
 
 }
