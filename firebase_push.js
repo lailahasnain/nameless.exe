@@ -49,29 +49,37 @@ firebase.auth().onAuthStateChanged(function (user) {
 function submitForm(e) {
     e.preventDefault();
 
-    var name = getInputVal('nickname');
-    var loc = getInputVal('visiting_location');
-    var dep = getInputVal('depart');
-    var ret = getInputVal('return');
-    var hot = getInputVal('hotel');
-    var air = getInputVal('Airline');
-    var tra = getInputVal('transp');
+    if (user_email == "Unknown User") {
+        document.location.href = "\Add_Trip.html";
+    }
+    else {
+        var name = getInputVal('nickname');
+        var loc = getInputVal('visiting_location');
+        var dep = getInputVal('depart');
+        var ret = getInputVal('return');
+        var hot = getInputVal('hotel');
+        var air = getInputVal('Airline');
+        var tra = getInputVal('transp');
 
-    // Test to see if the values are working
-    console.log("User Email: " + user_email);
-    console.log("Name: " + name);
-    console.log("Location: " + loc);
-    console.log("Depart: " + dep);
-    console.log("Return: " + ret);
-    console.log("Hotel: " + hot);
-    console.log("Airplane: " + air);
-    console.log("Transportation: " + tra);
+        // Test to see if the values are working
+        console.log("User Email: " + user_email);
+        console.log("Name: " + name);
+        console.log("Location: " + loc);
+        console.log("Depart: " + dep);
+        console.log("Return: " + ret);
+        console.log("Hotel: " + hot);
+        console.log("Airplane: " + air);
+        console.log("Transportation: " + tra);
 
-    // Save Message
-    saveMessage(user_email, name, loc, dep, ret, hot, air, tra);
+        // Save Message
+        saveMessage(user_email, name, loc, dep, ret, hot, air, tra);
 
-    // Clears form
-    document.getElementById('contact_form').reset();
+        // Clears form
+        document.getElementById('contact_form').reset();
+
+        document.location.href = "/Expenses.html";
+    }
+
 }
 
 // Shorthand function for calling values by Ids.
