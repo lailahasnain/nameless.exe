@@ -14,14 +14,7 @@ firebase.initializeApp(firebaseConfig);
 
 // JavaScript source code for gathering data for Expense pages
 
-$(document).ready(function ())
-{
-    var rootRef = firebase.database().ref().child("Users");
 
-    rootRef.on("child_added", snap => {
-        alert(snap.val());
-    });
-};
 
 
 // Display values on Expenses Page

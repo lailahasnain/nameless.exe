@@ -13,7 +13,8 @@ firebase.initializeApp(firebaseConfig);
 // End - Your web app's Firebase configuration
 
 // Reference Add Trip Collection
-var AddTrip = firebase.database().ref('Add Trip');
+//var AddTrip = firebase.database().ref('Add Trip/' + user_email);
+
 
 // JavaScript source code
 document.getElementById('contact_form').addEventListener('submit', submitForm);
@@ -76,7 +77,7 @@ function submitForm(e) {
         // Clears form
         document.getElementById('contact_form').reset();
 
-        document.location.href = "/Expenses.html";
+        //document.location.href = "/Expenses.html";
 
         // Pass values to be displayed on Expenses Page
         //disp_Expenses(user_email, name, loc, dep, ret, hot, air, tra);
@@ -100,15 +101,28 @@ function getInputVal(id)
 
 // Save message to firebase
 function saveMessage(user_email, name, loc, dep, ret, hot, air, tra) {
-    var newMessageRef = AddTrip.push();
-    newMessageRef.set({
-        User_Email: user_email,
-        Name: name,
-        Location: loc,
-        Departure: dep,
-        Return: ret,
-        Hotel: hot,
-        Airplane: air,
-        Transportation: tra
-    });
+    var email_un = user_email.substr(0, user_email.indexOf('@'));
+    console.log("Stripped email is: " + email_un);
+    firebase.database().ref('Add_Trip/' + email_un).push(
+        {
+            User_Email: user_email,
+            Name: name,
+            Location: loc,
+            Departure: dep,
+            Return: ret,
+            Hotel: hot,
+            Airplane: air,
+            Transportation: tra
+        });
+    //var newMessageRef = AddTrip.push();
+    //newMessageRef.set({
+    //    User_Email: user_email,
+    //    Name: name,
+    //    Location: loc,
+    //    Departure: dep,
+    //    Return: ret,
+    //    Hotel: hot,
+    //    Airplane: air,
+    //    Transportation: tra
+    //});
 }
