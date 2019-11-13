@@ -26,7 +26,6 @@ var user_email = "Unknown User";
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
-
         var user = firebase.auth().currentUser;
 
         if (user != null) {
@@ -77,8 +76,6 @@ function submitForm(e) {
         // Clears form
         document.getElementById('contact_form').reset();
 
-        //document.location.href = "/Expenses.html";
-
         // Pass values to be displayed on Expenses Page
         //disp_Expenses(user_email, name, loc, dep, ret, hot, air, tra);
     }
@@ -101,7 +98,33 @@ function getInputVal(id)
 
 // Save message to firebase
 function saveMessage(user_email, name, loc, dep, ret, hot, air, tra) {
+    // Variables for pricing
+    var hot_price, air_price, trans_price, sub_tot, total, tax_rate
+
+    // Assign values to prices
+    hot_price = getRandomArbitrary(80, 125, date_diff_indays(dep, ret));
+    air_price = getRandomArbitrary(120, 380, 1);
+    trans_price = getRandomArbitrary(5, 30, date_diff_indays(dep, ret));
+
+    // Get subtotal and total
+    tax_rate = getRandomArbitrary(0.07, 0.0958, 1);
+    sub_tot = (hot_price + air_price + trans_price);
+    total = ((sub_tot * tax_rate) + sub_tot);
+
+    // Round values to USD $ equivalent
+    hot_price = hot_price.toFixed(2);
+    air_price = air_price.toFixed(2);
+    trans_price = trans_price.toFixed(2);
+
+    tax_rate = tax_rate.toFixed(5);
+    sub_tot = sub_tot.toFixed(2);
+    total = total.toFixed(2);
+
+    // Test results
+    window.alert("Your Results:\n\nDep: " + dep + "\nRet: " + ret + "\nTax Rate" + tax_rate + "\nSub Total: " + sub_tot + "\nTotal: " + total);
+
     var email_un = user_email.substr(0, user_email.indexOf('@'));
+
     console.log("Stripped email is: " + email_un);
     console.log("Nickname: " + name);
     firebase.database().ref('Add_Trip/' + email_un + "/" + name).push(
@@ -113,17 +136,24 @@ function saveMessage(user_email, name, loc, dep, ret, hot, air, tra) {
             Return: ret,
             Hotel: hot,
             Airplane: air,
-            Transportation: tra
+            Transportation: tra,
+            Hotel_Price: hot_price,
+            Airline_Price: air_price,
+            Transportation_Price: trans_price,
+            Sub_total: sub_tot,
+            Total: total,
+            Tax: tax_rate,
+            send_email: "temp"
         });
-    //var newMessageRef = AddTrip.push();
-    //newMessageRef.set({
-    //    User_Email: user_email,
-    //    Name: name,
-    //    Location: loc,
-    //    Departure: dep,
-    //    Return: ret,
-    //    Hotel: hot,
-    //    Airplane: air,
-    //    Transportation: tra
-    //});
+}
+
+// Get pricing by passing in three variables. A lower bound, upper bound, and number of days.
+function getRandomArbitrary(min, max, days) {
+    return ((Math.random() * (max - min) + min) * days);
+}
+
+function date_diff_indays(date1, date2) {
+    dt1 = new Date(date1);
+    dt2 = new Date(date2);
+    return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) / (1000 * 60 * 60 * 24));
 }

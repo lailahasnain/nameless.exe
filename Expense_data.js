@@ -12,7 +12,98 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 // End - Your web app's Firebase configuration
 
-// JavaScript source code for gathering data for Expense pages
+
+
+var user_email = "Unknown User";
+var email_un = "";
+var nickname = "Unknown";
+
+// Begin - Check for user login
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in.
+
+        var user = firebase.auth().currentUser;
+
+        if (user != null) {
+            user_email = user.email;
+            var email_un = user_email.substr(0, user_email.indexOf('@'));
+            
+        }
+    } else {
+        // If no user
+
+    }
+});
+// End - Check for user login
+
+
+function pass_loc() {
+    nickname = getInputVal('nickname');
+
+    window.alert("Successfully entered this page with nickname" + nickname);
+    console.log("Nickname retrieved: " + nickname);
+}
+
+// Shorthand function for calling values by Ids.
+function getInputVal(id) {
+    return document.getElementById(id).value;
+}
+
+
+
+
+
+
+
+
+// Reference to database
+var database = firebase.database();
+
+// Get elements
+const preobject = document.getElementById('Add_Trip/' + email_un + "/" + nickname);
+
+// Create references
+const dbRefObject = firebase.database().ref().child('Add_Trip/' + email_un + "/" + nickname);
+
+// Sync object changes
+dbRefObject.on('value', snap => console.log(snap.val()));
+
+console.log("Path we are entering: " + 'Add_Trip/' + email_un + "/" + nickname);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -20,19 +111,6 @@ firebase.initializeApp(firebaseConfig);
 // Display values on Expenses Page
 function disp_Expenses(email, name, loc, dep, ret, hot, air, tra) {
     window.alert("Success with Email" + email + "; Nickname: " + name + "; Location: " + loc + "; Departure: " + dep + "; Return: " + ret + "; Hotel: " + hot + "; Airline: " + air + "; Transportation: " + tra);
-
-    // Variables for pricing
-    var hot_price, air_price, trans_price, sub_tot, total, tax_rate
-
-    // Assign values to prices
-    hot_price = getRandomArbitrary(80, 125, date_diff_indays(dep, ret));
-    air_price = getRandomArbitrary(120, 380, 1);
-    trans_price = getRandomArbitrary(5, 30, date_diff_indays(dep, ret));
-
-    // Get subtotal and total
-    tax_rate = getRandomArbitrary(0.07, 0.0958, 1);
-    sub_tot = (hot_price + air_price + trans_price);
-    total = ((sub_tot * tax_rate) + sub_tot);
 
     // ----------------------------------------------------------
     //   Replace values on Expenses page with values from Trip
@@ -64,15 +142,4 @@ function disp_Expenses(email, name, loc, dep, ret, hot, air, tra) {
 
     // Update Total
     document.getElementById('Actual_total').innerHTML = ("$" + total);
-}
-
-// Get pricing by passing in three variables. A lower bound, upper bound, and number of days.
-function getRandomArbitrary(min, max, days) {
-    return ((Math.random() * (max - min) + min) * days);
-}
-
-function date_diff_indays(date1, date2) {
-    dt1 = new Date(date1);
-    dt2 = new Date(date2);
-    return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) / (1000 * 60 * 60 * 24));
 }
