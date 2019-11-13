@@ -36,6 +36,13 @@
         }
     </style>
 
+    <script>
+        function change_form()
+        {
+            document.location.href = "Expenses.html";
+        }
+    </script>
+
     <!-- This is for the favicon and Title that is displayed on the tab. Multiple links are for multiple devices. -->
     <meta charset="utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- Needed to make Javascript file run properly -->
@@ -81,79 +88,77 @@
             <p class="sign" align="center">Add Trip</p>
 
             <!-- Nickname -->
-            <form id="contact_form">
-                <div class="block">
-                    <label>Nickname</label>
-                    <input class="form_input" type="text" id="nickname" placeholder="< Enter your trip nickname >" />
-                </div>
-                <!-- Location - Use this name for JS function-->
-                <div class="block">
-                    <label>Location</label>
-                    <select class="form_input" name="location" id="visiting_location">
-                        <option value="0">< Select an option ></option>
-                        <option value="Seattle, Washington">Seattle, Washington</option>
-                        <option value="Bellingham, Washington">Bellingham, Washington</option>
-                        <option value="Portland, Oregon">Portland, Oregon</option>
-                        <option value="San Francisco, California">San Francisco, California</option>
-                        <option value="Los Angeles, California">Los Angeles, California</option>
-                        <option value="Phoenix, Arizona">Phoenix, Arizona</option>
-                        <option value="Las Vegas, Nevada">Las Vegas, Nevada</option>
-                        <option value="Reno, Nevada">Reno, Nevada</option>
-                    </select>
-                </div>
-                <!-- Depart -->
-                <div class="block">
-                    <label>Departure</label>
-                    <input type="datetime-local" class="form_input" id="depart" />
-                </div>
-                <!-- Return -->
-                <div class="block">
-                    <label>Return</label>
-                    <input type="datetime-local" class="form_input" id="return" />
-                </div>
-                <!-- Hotel -->
-                <div class="block">
-                    <label>Hotel</label>
-                    <select id="hotel" name="hotel" class="form_input">
-                        <option>< Please pick a location first ></option>
-                    </select>
-                </div>
-                <!-- Airline -->
-                <div class="block">
-                    <label>Airline</label>
-                    <select id="Airline" name="air" class="form_input">
-                        <option>< Select an option ></option>
-                        <option value="Allegiant Air">Allegiant Air</option>
-                        <option value="American Airlines">American Airlines</option>
-                        <option value="Delta Airlines">Delta Airlines</option>
-                        <option value="Frontier Airlines">Frontier Airlines</option>
-                        <option value="JetBlue">JetBlue</option>
-                        <option value="Southwest Airlines">Southwest Airlines</option>
-                    </select>
-                </div>
-                <!-- Transportation -->
-                <div class="block">
-                    <label>Transportation</label>
-                    <select id="transp" name="trans" class="form_input">
-                        <option>< Select an option ></option>
-                        <option value="Car">Car</option>
-                        <option value="Motorbike">Motorbike</option>
-                        <option value="Motorcycle">Motorcycle</option>
-                        <option value="Bus">Bus</option>
-                        <option value="Train">Train</option>
-                    </select>
-                </div>
+            <div class="block">
+                <label>Nickname</label>
+                <input class="form_input" type="text" id="nickname" placeholder="< Enter your trip nickname >" />
+            </div>
+            <!-- Location - Use this name for JS function-->
+            <div class="block">
+                <label>Location</label>
+                <select class="form_input" name="location" id="visiting_location">
+                    <option value="0">< Select an option ></option>
+                    <option value="Seattle, Washington">Seattle, Washington</option>
+                    <option value="Bellingham, Washington">Bellingham, Washington</option>
+                    <option value="Portland, Oregon">Portland, Oregon</option>
+                    <option value="San Francisco, California">San Francisco, California</option>
+                    <option value="Los Angeles, California">Los Angeles, California</option>
+                    <option value="Phoenix, Arizona">Phoenix, Arizona</option>
+                    <option value="Las Vegas, Nevada">Las Vegas, Nevada</option>
+                    <option value="Reno, Nevada">Reno, Nevada</option>
+                </select>
+            </div>
+            <!-- Depart -->
+            <div class="block">
+                <label>Departure</label>
+                <input type="datetime-local" class="form_input" id="depart" />
+            </div>
+            <!-- Return -->
+            <div class="block">
+                <label>Return</label>
+                <input type="datetime-local" class="form_input" id="return" />
+            </div>
+            <!-- Hotel -->
+            <div class="block">
+                <label>Hotel</label>
+                <select id="hotel" name="hotel" class="form_input">
+                    <option>< Please pick a location first ></option>
+                </select>
+            </div>
+            <!-- Airline -->
+            <div class="block">
+                <label>Airline</label>
+                <select id="Airline" name="air" class="form_input">
+                    <option>< Select an option ></option>
+                    <option value="Allegiant Air">Allegiant Air</option>
+                    <option value="American Airlines">American Airlines</option>
+                    <option value="Delta Airlines">Delta Airlines</option>
+                    <option value="Frontier Airlines">Frontier Airlines</option>
+                    <option value="JetBlue">JetBlue</option>
+                    <option value="Southwest Airlines">Southwest Airlines</option>
+                </select>
+            </div>
+            <!-- Transportation -->
+            <div class="block">
+                <label>Transportation</label>
+                <select id="transp" name="trans" class="form_input">
+                    <option>< Select an option ></option>
+                    <option value="Car">Car</option>
+                    <option value="Motorbike">Motorbike</option>
+                    <option value="Motorcycle">Motorcycle</option>
+                    <option value="Bus">Bus</option>
+                    <option value="Train">Train</option>
+                </select>
+            </div>
 
-                <!-- Add space between content and buttons -->
-                <br /><br />
+            <!-- Add space between content and buttons -->
+            <br /><br />
 
-                <!-- <a class="submit" align="center">Sign in</a><br /> -->
-                <div id="button_container">
-                    <button id="button1"><a href="Sign_In.html" style="color: white;">Sign In</a></button>
-                    <button id="button2">Submit</button>
-                </div>
-            </form>
-            
+            <!-- <a class="submit" align="center">Sign in</a><br /> -->
+            <div id="button_container">
+                <button id="button1" onclick="Sign_In.html()"><a href="Sign_In.html" style="color: white;">Sign In</a></button>
+                <button id="button2" onclick="submitForm()">Submit</button>
+            </div>
+
         </div>
     </div>
     <!-- /End main contenct -->
@@ -206,5 +211,6 @@
     <script src="firebase_push.js"></script>
     <script src="Expense_data.js"></script>
 
+    
 </body>
 </html>

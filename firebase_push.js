@@ -17,7 +17,7 @@ firebase.initializeApp(firebaseConfig);
 
 
 // JavaScript source code
-document.getElementById('contact_form').addEventListener('submit', submitForm);
+//document.getElementById('contact_form').addEventListener('submit', submitForm);
 
 var user_email = "Unknown User";
 
@@ -30,6 +30,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         if (user != null) {
             user_email = user.email;
+            console.log("User has been identified with email: " + user_email);
+        }
+        else {
+            console.log("User has not been identified with email: " + user_email);
         }
     } else {
         // If no user
@@ -47,7 +51,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 // Submit Form
 function submitForm(e) {
-    e.preventDefault();
+    //e.preventDefault();
 
     var name = getInputVal('nickname');
     var loc = getInputVal('visiting_location');
@@ -74,7 +78,7 @@ function submitForm(e) {
         saveMessage(user_email, name, loc, dep, ret, hot, air, tra);
 
         // Clears form
-        document.getElementById('contact_form').reset();
+        //document.getElementById('contact_form').reset();
 
         // Pass values to be displayed on Expenses Page
         //disp_Expenses(user_email, name, loc, dep, ret, hot, air, tra);
@@ -121,7 +125,7 @@ function saveMessage(user_email, name, loc, dep, ret, hot, air, tra) {
     total = total.toFixed(2);
 
     // Test results
-    window.alert("Your Results:\n\nDep: " + dep + "\nRet: " + ret + "\nTax Rate" + tax_rate + "\nSub Total: " + sub_tot + "\nTotal: " + total);
+    //window.alert("Your Results:\n\nDep: " + dep + "\nRet: " + ret + "\nTax Rate" + tax_rate + "\nSub Total: " + sub_tot + "\nTotal: " + total);
 
     var email_un = user_email.substr(0, user_email.indexOf('@'));
 
@@ -144,6 +148,13 @@ function saveMessage(user_email, name, loc, dep, ret, hot, air, tra) {
             Total: total,
             Tax: tax_rate,
             send_email: "temp"
+        }, function (error) {
+            if (error) {
+                window.alert("Data could not be saved." + error);
+            } else {
+                window.alert("Data saved successfully.");
+                document.location.href = "Expenses.html";
+            }
         });
 }
 
@@ -157,3 +168,4 @@ function date_diff_indays(date1, date2) {
     dt2 = new Date(date2);
     return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) / (1000 * 60 * 60 * 24));
 }
+

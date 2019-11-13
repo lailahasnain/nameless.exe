@@ -28,7 +28,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         if (user != null) {
             user_email = user.email;
             var email_un = user_email.substr(0, user_email.indexOf('@'));
-            
+            console.log("Your email is: " + user_email + " stripped name of: " + email_un);
         }
     } else {
         // If no user
