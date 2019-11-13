@@ -103,7 +103,8 @@ function getInputVal(id)
 function saveMessage(user_email, name, loc, dep, ret, hot, air, tra) {
     var email_un = user_email.substr(0, user_email.indexOf('@'));
     console.log("Stripped email is: " + email_un);
-    firebase.database().ref('Add_Trip/' + email_un).push(
+    console.log("Nickname: " + name);
+    firebase.database().ref('Add_Trip/' + email_un + "/" + name).push(
         {
             User_Email: user_email,
             Name: name,
