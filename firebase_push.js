@@ -131,7 +131,7 @@ function saveMessage(user_email, name, loc, dep, ret, hot, air, tra) {
 
     console.log("Stripped email is: " + email_un);
     console.log("Nickname: " + name);
-    firebase.database().ref('Add_Trip/' + email_un + "/" + name).push(
+    firebase.database().ref('Add_Trip/' + email_un).child(name).set(
         {
             User_Email: user_email,
             Name: name,
@@ -153,7 +153,9 @@ function saveMessage(user_email, name, loc, dep, ret, hot, air, tra) {
                 window.alert("Data could not be saved." + error);
             } else {
                 window.alert("Data saved successfully.");
-                document.location.href = "Expenses.html";
+
+                // Navigate to the Expenses page and append the nickname to the end of the URL
+                document.location.href = ("Expenses.html?/" + name);
             }
         });
 }
