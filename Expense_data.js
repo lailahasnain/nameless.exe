@@ -160,33 +160,44 @@ function update_email_send() {
         window.alert("You have chosen to have a copy emailed to you. Please be patient. An email will be sent shortly to: " + Use_email);
 
         // Update the database with new value - Yes
+        writeNewPost(Air_price, Air, Dep, Hot, Hot_Price, Loc, Nickname, Ret, Sub_Tot, Taxes, Tot, Trans, Trans_price, email_un, "Yes");
     }
     else if (up == "No") {
         window.alert("An email will not be sent out for this trip. You may navigate away from this window at your convenience.");
 
         // Update the database with the new value - No
+        writeNewPost(Air_price, Air, Dep, Hot, Hot_Price, Loc, Nickname, Ret, Sub_Tot, Taxes, Tot, Trans, Trans_price, email_un, "No");
     }
 }
 
 // Update variables
-function writeNewPost(uid, username, picture, title, body) {
+function writeNewPost(ap, a, d, h, hp, l, nn, r, sub, tax, tot, tr, trap, ue, se) {
     // A post entry.
     var postData = {
-        author: username,
-        uid: uid,
-        body: body,
-        title: title,
-        starCount: 0,
-        authorPic: picture
+        // Push data back to Firebase
+        Airline_Price: ap,
+        Airplane: a, 
+        Departure: d,
+        Hotel: h,
+        Hotel_Price: hp,
+        Location: l,
+        Name: nn,
+        Return: r,
+        Sub_total: sub,
+        Tax: tax,
+        Total: tot,
+        Transportation: tr,
+        Transportation_Price: trap,
+        User_Email: ue,
+        send_email: se
     };
 
-    // Get a key for a new Post.
-    var newPostKey = firebase.database().ref().child('posts').push().key;
+    // Get the same key for the update.
+    var newPostKey = nn;
 
     // Write the new post's data simultaneously in the posts list and the user's post list.
     var updates = {};
-    updates['/posts/' + newPostKey] = postData;
-    updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+    updates['Add_Trip/' + email_un + "/" + newPostKey] = postData;
 
     return firebase.database().ref().update(updates);
 }
