@@ -46,26 +46,11 @@ $(document).ready(function () {
             $("#hotel option:last-child").remove();
             $("#hotel option:last-child").remove();
             $("#hotel").append("   <option>< Select an option ></option>"); // Used for having a placeholder that matches the other dropdowns
-            $("#hotel").append("   <option>Holiday Inn (Portland)</option>");
-            $("#hotel").append("   <option>Hyatt Place (Portland)</option>");
-            $("#hotel").append("   <option>Stanford Court (Portland)</option>");
-            $("#hotel").append("   <option>Travelodge (Portland)</option>");
-            $("#hotel").append("   <option>Travelodge by Wyndam (Portland)</option>");
-        }
-        else if (el.val() === "San Francisco, California")
-        {
-            $("#hotel option:last-child").remove();
-            $("#hotel option:last-child").remove();
-            $("#hotel option:last-child").remove();
-            $("#hotel option:last-child").remove();
-            $("#hotel option:last-child").remove();
-            $("#hotel option:last-child").remove();
-            $("#hotel").append("   <option>< Select an option ></option>"); // Used for having a placeholder that matches the other dropdowns
-            $("#hotel").append("   <option>Samesun Venice Beach (San Francisco)</option>");
-            $("#hotel").append("   <option>Value Inn (San Francisco)</option>");
-            $("#hotel").append("   <option>Luxe City Center Hotel (San Francisco)</option>");
-            $("#hotel").append("   <option>Motel 6 (San Francisco)</option>");
-            $("#hotel").append("   <option>Hotel Crowne Plaza (San Francisco)</option>");
+            $("#hotel").append("   <option>Howard Johnson (Portland)</option>");
+            $("#hotel").append("   <option>Mark Spencer Hotel (Portland)</option>");
+            $("#hotel").append("   <option>Portland Northwest Hotel (Portland)</option>");
+            $("#hotel").append("   <option>Ramada (Portland)</option>");
+            $("#hotel").append("   <option>Society Hotel (Portland)</option>");
         }
         else if (el.val() === "Los Angeles, California")
         {
@@ -76,11 +61,11 @@ $(document).ready(function () {
             $("#hotel option:last-child").remove();
             $("#hotel option:last-child").remove();
             $("#hotel").append("   <option>< Select an option ></option>"); // Used for having a placeholder that matches the other dropdowns
-            $("#hotel").append("   <option>Vacation Inn (Los Angeles)</option>");
-            $("#hotel").append("   <option>EZ 8 Motel (Los Angeles)</option>");
-            $("#hotel").append("   <option>Premier Inn (Los Angeles)</option>");
-            $("#hotel").append("   <option>Lux Uptown Apts. (Los Angeles)</option>");
-            $("#hotel").append("   <option>Hotel Embassy (Los Angeles)</option>");
+            $("#hotel").append("   <option>Samesun Venice Beach (Los Angeles)</option>");
+            $("#hotel").append("   <option>Value Inn (Los Angeles)</option>");
+            $("#hotel").append("   <option>Luxe City Center Hotel (Los Angeles)</option>");
+            $("#hotel").append("   <option>Motel 6 (Los Angeles)</option>");
+            $("#hotel").append("   <option>Hotel Crowne Plaza (Los Angeles)</option>");
         }
         else if (el.val() === "Phoenix, Arizona")
         {
@@ -91,11 +76,26 @@ $(document).ready(function () {
             $("#hotel option:last-child").remove();
             $("#hotel option:last-child").remove();
             $("#hotel").append("   <option>< Select an option ></option>"); // Used for having a placeholder that matches the other dropdowns
-            $("#hotel").append("   <option>Shamrock Motel (Phoenix)</option>");
-            $("#hotel").append("   <option>Motel 6 (Phoenix)</option>");
-            $("#hotel").append("   <option>Chrysalis Inn and Spa (Phoenix)</option>");
-            $("#hotel").append("   <option>GuestHouse Inn (Phoenix)</option>");
-            $("#hotel").append("   <option>Holiday Inn (Phoenix)</option>");
+            $("#hotel").append("   <option>Vacation Inn (Phoenix)</option>");
+            $("#hotel").append("   <option>EZ 8 Motel (Phoenix)</option>");
+            $("#hotel").append("   <option>Premier Inn (Phoenix)</option>");
+            $("#hotel").append("   <option>Lux Uptown Apts. (Phoenix)</option>");
+            $("#hotel").append("   <option>Hotel Embassy (Phoenix)</option>");
+        }
+        else if (el.val() === "San Francisco, California")
+        {
+            $("#hotel option:last-child").remove();
+            $("#hotel option:last-child").remove();
+            $("#hotel option:last-child").remove();
+            $("#hotel option:last-child").remove();
+            $("#hotel option:last-child").remove();
+            $("#hotel option:last-child").remove();
+            $("#hotel").append("   <option>< Select an option ></option>"); // Used for having a placeholder that matches the other dropdowns
+            $("#hotel").append("   <option>Holiday Express Inn Hotel and Suites (San Francisco)</option>");
+            $("#hotel").append("   <option>Hyatt Place (San Francisco)</option>");
+            $("#hotel").append("   <option>Stanford Court (San Francisco)</option>");
+            $("#hotel").append("   <option>Travelodge by Wyndham (San Francisco)</option>");
+            $("#hotel").append("   <option>Travelodge (San Francisco)</option>");
         }
         else if (el.val() === "Las Vegas, Nevada")
         {
