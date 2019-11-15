@@ -15,20 +15,20 @@ Index,Card Name,Sprint Number,Story Points,Completed?
 14,Create database to store current and past user information in user accounts,1,5,1
 15,Create a burndown log program,2,10,1
 16,Add data to burndown log,2,10,1
-17,Expense Total UI,1,4,0
-18,Calculator - Expenses,1,5,0
+17,Expense Total UI,1,4,1
+18,Calculator - Expenses,1,5,1
 19,Create personalized data for a user,2,5,0
 20,Display personal recommendation for a user,2,3,0
 21,Compile data for an individual user,2,7,0
 22,Calculate individual user data,2,5,0
-23,Create method to send notification to user's email,2,8,0
-24,"Allow user to select or deselect notification option, i.e. check mark",2,7,0
-25,Compile list of current trip data,2,5,0
+23,Create method to send notification to user's email,2,8,1
+24,"Allow user to select or deselect notification option, i.e. check mark",2,7,1
+25,Compile list of current trip data,2,5,1
 26,Find image of hotel location that the user wants to stay at,2,6,0
-27,From all compiled data (plus image) into an email style format,2,4,0
-28,Test sending an email to a user,2,5,0
-29,Test sending an email with compiled data to a user,2,5,0
-30,Test over the course of multiple trips with multiple users (email trip info),2,7,0
+27,From all compiled data (plus image) into an email style format,2,4,1
+28,Test sending an email to a user,2,5,1
+29,Test sending an email with compiled data to a user,2,5,1
+30,Test over the course of multiple trips with multiple users (email trip info),2,7,1
 31,Allow for saving trip data per user,3,9,0
 32,Allow for preselecting trip information to save for later viewing,3,7,0
 33,Create a functional itinerary page,3,10,0
