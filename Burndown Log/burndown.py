@@ -40,6 +40,7 @@ total_days = 58.0
 total_sprints = 3.0
 total_sp_alloted = 0.0
 total_sp_completed = 0.0
+total_sp_catch_up = 0.0
 d1 = date(2019, 10, 14)
 d3 = date(2019, 12, 4)
 
@@ -285,9 +286,17 @@ def compute():
 #    print("alloted list", story_points_list)
 #    print("completed list", completed_list)
     
+    # Show how many days we have been working on the project.    
+    working_days = get_days()
+    remain = remaining_days()
+    
+    # Calculate catch up amount
+    total_sp_catch_up = (y_predicted[int(total_days - remain)])
+    
     space()
     print("Total allotted story points:", total_sp_alloted)
     print("Total completed story points:", total_sp_completed)
+    print("Total story points needed to catch up to where we should be:", round(total_sp_catch_up))
     
     # Create a graph from the data
     plt.plot(x_days_arr, y_predicted)
@@ -297,9 +306,7 @@ def compute():
     plt.xlabel('Days')
     plt.show()
     
-    # Show how many days we have been working on the project.    
-    working_days = get_days()
-    remain = remaining_days()
+
     
     print("We have been working on this project for a total of:", working_days, "days!")
     print("We have a total of:", remain, "remaining days!")
