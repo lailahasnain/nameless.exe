@@ -24,7 +24,7 @@ Index,Card Name,Sprint Number,Story Points,Completed?
 23,Create method to send notification to user's email,2,8,1
 24,"Allow user to select or deselect notification option, i.e. check mark",2,7,1
 25,Compile list of current trip data,2,5,1
-26,Find image of hotel location that the user wants to stay at,2,6,0
+26,Find image of hotel location that the user wants to stay at,2,6,1
 27,From all compiled data (plus image) into an email style format,2,4,1
 28,Test sending an email to a user,2,5,1
 29,Test sending an email with compiled data to a user,2,5,1
