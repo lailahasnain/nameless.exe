@@ -413,6 +413,8 @@ def display_choices():
 
     if(choice == 0):
         pass
+        #print("Story points list: ", story_points_list)
+
     else:
         # Update list to reflect change            
         completed_list[choice - 1] = "1"
@@ -425,16 +427,23 @@ def display_choices():
                 writer.writerow([str(index_list[i]), str(card_name_list[i]), str(sprint_list[i]), str(story_points_list[i]), str(completed_list[i])])
         
         # Update the days .csv file to reflect the change
-        space()
         which_day_update = ask_date()
-        date_sp_completed[which_day_update] = story_points_list[choice - 1]
+        add = 0
+        add = (int(date_sp_completed[which_day_update]) + int(story_points_list[choice - 1]))
+        space()
+        date_sp_completed[which_day_update] = str(add)
+        #print("date sp completed: ", date_sp_completed)
+        #print("Adding value: ", add, "to day: ", which_day_update)
+        
         
         # Update actual .csv file which it came from
         with open(path_days, "w", newline='') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(data_title_line)
             for i in range(len(date_sp_completed)):
-                writer.writerow(date_sp_completed[i])
+                temp = date_sp_completed[i]
+                #print("temp: ", str(temp))
+                writer.writerow([temp])
     Menu()
     
 def Menu():

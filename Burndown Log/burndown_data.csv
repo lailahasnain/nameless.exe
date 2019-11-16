@@ -13,8 +13,8 @@ Index,Card Name,Sprint Number,Story Points,Completed?
 12,Create UI for Add Trip,1,9,1
 13,Create a form for new user accounts,1,8,1
 14,Create database to store current and past user information in user accounts,1,5,1
-15,Create a burndown log program,2,10,1
-16,Add data to burndown log,2,10,1
+15,Create a burndown log program,2,10,0
+16,Add data to burndown log,2,10,0
 17,Expense Total UI,1,4,1
 18,Calculator - Expenses,1,5,1
 19,Create personalized data for a user,2,5,0
@@ -35,11 +35,11 @@ Index,Card Name,Sprint Number,Story Points,Completed?
 34,Create page to hold itineraries,3,10,0
 35,Create link on nav bar to itineraries,3,1,0
 36,Create HTML page that lists Tips/Advice,3,3,0
-37,Create navigator button for Tips/Advice,3,1,0
-38,Create data for sample trip,3,4,0
-39,Create a page for Sample Trip,3,7,0
-40,Enable functionality for Sample Trip,3,10,0
-41,Link page on nav bar for Sample Trip,3,1,0
+37,Create navigator button for Tips/Advice,3,1,1
+38,Create data for sample trip,3,4,1
+39,Create a page for Sample Trip,3,7,1
+40,Enable functionality for Sample Trip,3,10,1
+41,Link page on nav bar for Sample Trip,3,1,1
 42,"Create HTML pages for each city, listing all popular attractions",2,7,0
 43,Link sites that allow user to buy tickets off that website,2,3,0
 44,Link all cities in homepage to corresponding HTML page,2,2,0
