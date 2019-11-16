@@ -270,3 +270,11 @@ table.sample {
     font-weight: bold;
     font-size: 23px;
 }
+
+/* For image on Expenses page */
+.center_hotel {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

@@ -106,9 +106,17 @@ function saveMessage(user_email, name, loc, dep, ret, hot, air, tra) {
     var hot_price, air_price, trans_price, sub_tot, total, tax_rate
 
     // Assign values to prices
-    hot_price = getRandomArbitrary(80, 125, date_diff_indays(dep, ret));
-    air_price = getRandomArbitrary(120, 380, 1);
-    trans_price = getRandomArbitrary(5, 30, date_diff_indays(dep, ret));
+    if (date_diff_indays(dep, ret) == 0) {
+        hot_price = getRandomArbitrary(80, 125, 1);
+        air_price = getRandomArbitrary(120, 380, 1);
+        trans_price = getRandomArbitrary(5, 30, 1);
+    }
+    else {
+        hot_price = getRandomArbitrary(80, 125, date_diff_indays(dep, ret));
+        air_price = getRandomArbitrary(120, 380, 1);
+        trans_price = getRandomArbitrary(5, 30, date_diff_indays(dep, ret));
+    }
+
 
     // Get subtotal and total
     tax_rate = getRandomArbitrary(0.07, 0.0958, 1);
