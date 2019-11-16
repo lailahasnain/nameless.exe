@@ -6,18 +6,20 @@
         #footer_logo {
             position: absolute;
             left: 50%;
-            bottom: -100px;
+            bottom: -120px;
             width: 150px;
             height: 150px;
             margin-left: -70px;
         }
+
+
     </style>
 
     <!-- This is for the favicon and Title that is displayed on the tab. Multiple links are for multiple devices. -->
     <meta charset="utf-8" />
-    <script src="Sample_Trip.js"></script>
+    <script src = "Sample_Trip.js"></script>
     <link rel="stylesheet" href="Global.css" />
-    <title>My Trip</title>
+    <title>Sample Trip</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/Images/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon_io/favicon-16x16.png">
@@ -48,8 +50,50 @@
     <!-- Main Content -->
     <div class="content">
         <!-- All of the page's content goes here!!! -->
-        <button onclick="get_sample_trip_data()">Test</button>
+        <p class="sign" align="center" style="font-size:30px;">Sample Trip</p>
+
+        <!-- Setup page contents -->
+        <table class="sample">
+            <!-- Title: Nickname -->
+            <tr>
+                <td style="text-decoration: underline"><b>Nickname</b></td>
+                <td id="nn">Possible nickname</td>
+            </tr>
+            <!-- Row 0 - Location -->
+            <tr>
+                <td style="text-decoration: underline"><b>Location</b></td>
+                <td id="loca">Possible Location</td>
+            </tr>
+            <!-- Row 1 - Departure -->
+            <tr>
+                <td style="text-decoration: underline"><b>Departure</b></td>
+                <td id="depa">Possible Departure</td>
+            </tr>
+            <!-- Row 2 - Return-->
+            <tr>
+                <td style="text-decoration: underline"><b>Return</b></td>
+                <td id="ret">Possible Return</td>
+            </tr>
+            <!-- Row 3 - Hotel stuff -->
+            <tr>
+                <td style="text-decoration: underline"><b>Hotel</b></td>
+                <td id="Hotel_name">Possible Hotel</td>
+            </tr>
+            <!-- Row 4 - Airline stuff -->
+            <tr>
+                <td><b style="text-decoration: underline">Airline</b></td>
+                <td id="Airline_name">Possible Airline</td>
+            </tr>
+            <!-- Row 5 - Transportation stuff-->
+            <tr>
+                <td style="text-decoration: underline"><b>Transportation</b></td>
+                <td id="Trans_method">Possible Transportation</td>
+            </tr>
+        </table>
+        <br /><br /><br /><br />
+        <button style="margin-left: 730px; font-size: 30px;" onclick="get_sample_trip_data()">Randomize</button>
     </div>
+
 
     <!-- Footer -->
     <footer class="footer">

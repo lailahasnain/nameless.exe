@@ -43,7 +43,7 @@ nav ul
     margin: 0;
     padding: 0;
     list-style: none;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 nav li
@@ -245,4 +245,28 @@ table.test {
     font-size: 13px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
     align-content: center;
+}
+
+/* Sample Trip table */
+table.sample td {
+    margin: 12px 12px 12px 12px;
+    padding: 12px 12px 12px 12px;
+    width: 300px;
+    font-size: 20px;
+}
+
+table.sample {
+    border-collapse: separate;
+    border-spacing: 10px;
+    *border-collapse: expression('separate', cellSpacing = '10px');
+    margin-left: 550px;
+    margin-top: 80px;
+}
+
+.sign {
+    padding-top: 40px;
+    color: #8C55AA;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
 }

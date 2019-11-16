@@ -431,9 +431,4 @@ function get_loc_data(hotel_choice) {
         h_n = "Nugget";
         h_url = "https://world-wide-web-servers.com/static/hotels/us/nevada/sparks/nuggetcasinoresort15_44350676261.jpg";
     }
-    else
-    {
-        h_n = "Crap";
-        h_url = "https:://crap.jpg";
-    }
 }
