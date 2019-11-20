@@ -40,8 +40,8 @@ Index,Card Name,Sprint Number,Story Points,Completed?
 39,Create a page for Sample Trip,3,7,1
 40,Enable functionality for Sample Trip,3,10,1
 41,Link page on nav bar for Sample Trip,3,1,1
-42,"Create HTML pages for each city, listing all popular attractions",2,7,0
-43,Link sites that allow user to buy tickets off that website,2,3,0
-44,Link all cities in homepage to corresponding HTML page,2,2,0
+42,"Create HTML pages for each city, listing all popular attractions",2,7,1
+43,Link sites that allow user to buy tickets off that website,2,3,1
+44,Link all cities in homepage to corresponding HTML page,2,2,1
 45,Match form style for Sign-In page,2,3,1
 46,Link Pages,2,2,1
