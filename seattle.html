@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        #footer_logo {
+            position: absolute;
+            left: 50%;
+            bottom: -100px;
+            width: 150px;
+            height: 150px;
+            margin-left: -70px;
+        }
+		
+	
+    </style>
+	<link rel="stylesheet" href="tripdetails.css"/>
+
+    <!-- This is for the favicon and Title that is displayed on the tab. Multiple links are for multiple devices. -->
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- Needed to make Javascript file run properly -->
+    <script type="text/javascript" src="Global_JS.js"></script> <!-- External Javascript file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" /> <!-- For external CSS file-->
+    <link rel="stylesheet" href="Global.css" />
+    <title>Home</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/Images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/Images/favicon_io/site.webmanifest">
+</head>
+<body>
+    <!-- Navigator -->
+    <header>
+        <div class="container">
+            <a href="Home.html">
+                <img src="Images/logo.png" alt="logo" class="logo" />
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Trip_Planner.html">Trip Planner</a></li>
+                    <li><a href="Account.html">Account</a></li>
+                    <li><a href="My_Trip.html">My Trip</a></li>
+                    <li><a href="Add_Trip.html">Add Trip</a></li>
+                    <li><a href="Sign_in.html">Sign-in/Sign-up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+	<h2 style="text-align: center;"> Seattle, Washington </h2>
+    <div class="content">
+		<div class="row">
+			
+			<div class="column left">
+				<h2> Hotels to Visit </h2>
+				<div>
+					<ul>
+						<li class="hotels"><a target="_blank" class="hotels" href="https://hyatt.com/Olive8/‎"> Hyatt at Olive 8</a> </li>
+						<li class="hotels"><a target="_blank" class="hotels" href="https://cphotelseattle.com/"> Crowne Plaza Seattle</a> </li>
+						<li class="hotels"><a target="_blank" class="hotels" href="https://grandseattle.hyatt.com/‎"> Grand Hyatt Seattle</a> </li>
+						<li class="hotels"><a target="_blank" class="hotels" href="https://www.marriott.com/Sheraton/Seattle/"> Sheraton Grand Seattle</a> </li>
+						<li class="hotels"><a target="_blank" class="hotels" href="https://kimptonhotels.com/"> Kimpton Hotel Seattle</a> </li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="column right">
+
+				<h2> Popular Attractions </h2>
+
+				<div class="grid-container">
+					<div style="background-image: url(Images/seattle/skyviewobs.jpg); "> 
+						<a target="_blank" class="hotels" href="https:www.skyviewobservatory.com/"> Sky View Observatory</a></div>
+
+					<div style="background-image: url(Images/seattle/chihuly.jpg);"> 
+						<a target="_blank" class="hotels" href="https://www.chihulygardenandglass.com/"> Chihuly Garden And Glass</a></div>
+
+					<div style="background-image: url(Images/seattle/spaceneedle.jpg);"> 
+						<a target="_blank" class="hotels" href="https://www.spaceneedle.com/">Space Needle</a></div>
+
+					<div style="background-image: url(Images/seattle/seattleaqua.jpg);">
+						<a target="_blank" class="hotels" href="http://www.seattleaquarium.org/"> Seattle Aquarium</a></div>
+
+					<div style="background-image: url(Images/seattle/smithtow.jpg);"> 
+						<a target="_blank" class="hotels" href="https://www.smithseattle.com/"> Smith Tower</a></div>
+
+					<div style="background-image: url(Images/seattle/seaartmuseum.jpg);">
+						<a target="_blank" class="hotels" href="https://www.seattleartmuseum.org/"> Seattle Art Museum</a></div>
+					
+				</div>
+			
+			</div>
+		</div>
+	</div>
+		
+        <!-- Footer -->
+        <footer class="footer">
+            <!-- Left Div -->
+            <div id="foot_left" style="float: left;">
+                <p style="font-size: 50px; color: red;"><u>Nameless.exe</u></p>
+                <p style="font-size: 30px;">Sign up for our Newsletter</p>
+
+                <!-- Newsletter Sign-up -->
+                <form action="test.html" method="get">
+                    <input type="email" id="emailaddress" />
+                    <button onclick="disp_email()">Submit</button>
+                </form>
+                <button onclick="myFunction()">Try it</button>
+
+
+                <br />
+                <p>Copyright &copy; 2019-2020</p>
+            </div>
+
+            <!-- Center image -->
+           <!-- <img src="Images/logo.png" id="footer_logo" alt="Logo" width="200" height="200" />*/ -->
+
+            <!-- Right Div -->
+            <div id="foot_right" style="float:right;">
+                <p style="font-size: 50px; color: red;"><u>Explore More</u></p>
+
+                <!-- Side-by-Side list of our menu items -->
+                <div id='parent_div_1'>
+                    <ul>
+                        <li class="hotels" style="color: white;"><a href="Home.html">Home</a></li>
+                        <li><a href="Trip_Planner.html">Trip Planner</a></li>
+                        <li><a href="Account.html">Account</a></li>
+                    </ul>
+                </div>
+
+                <div id='parent_div_2'>
+                    <ul>
+                        <li><a href="My_Trip.html">My Trip</a></li>
+                        <li><a href="Add_Trip.html">Add Trip</a></li>
+                        <li><a href="Sign_in.html">Sign-in/Sign-up</a></li>
+                    </ul>
+                </div>
+                <p>400 W Big Springs Rd., Riverside, CA, 92507<br />Winston Chung Hall Rm. 133</p>
+            </div>
+            <hr />
+        </footer>
+</body>
+</html>
