@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,6 +10,27 @@
             width: 150px;
             height: 150px;
             margin-left: -70px;
+        }
+        /* Side-by-side buttons CSS */
+        #button1, #button2{
+            cursor: pointer;
+            border-radius: 5em;
+            color: #fff;
+            background: linear-gradient(to right, #9C27B0, #E040FB);
+            border: 0;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 13px;
+            box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+            width: 200px;
+            height: 40px;
+        }
+        
+        #button_container{
+            text-align: center;
         }
     </style>
 
@@ -49,6 +70,99 @@
     <div class="content">
         <!-- All of the page's content goes here!!! -->
         <button onclick="get_sample_trip_data()">Test</button>
+        <h1>Most Recent Trip</h1>
+        <!-- Past Trips -->
+        <table class="tripper" style="margin-left: 300px;">
+            <!-- Title: Nickname -->
+            <tr>
+                <td><!-- Remains empty for proper spacing --></td>
+                <td id="nn" style="text-decoration: underline"><b>Trip Nickname</b></td>
+                <td><!-- Remains empty for proper spacing --></td>
+            </tr>
+            <!-- Base information -->
+           
+            <!-- Row 0 - Base information -->
+            <tr>
+                <td id="loca"><b>Location</b></td>
+                <td id="depa"><b>Departure</b></td>
+                <td id="retu"><b>Return</b></td>
+            </tr>
+            <!-- Row 1 - Hotel stuff -->
+            <tr>
+                <td><b>Hotel Pricing</b></td>
+                <td id="Hotel_name">Hotel Name</td>
+                <td id="Hotel_price">Price</td>
+            </tr>
+            <!-- Row 2 - Airline stuff -->
+            <tr>
+                <td><b>Airline Pricing</b></td>
+                <td id="Airline_name">Airline Name</td>
+                <td id="Airline_Price">Price</td>
+            </tr>
+            <!-- Row 3 - Transportation stuff-->
+            <tr>
+                <td><b>Transportation</b></td>
+                <td id="Trans_method">Transportation method</td>
+                <td id="Trans_price">Price</td>
+            </tr>
+            <!-- Row 4 - Subtotal -->
+            <tr>
+                <td><b>Sub-Total</b></td>
+                <td id="Tax_rate">+ <%> Tax rate</td>
+                <td id="sub_total">Sub Total value</td>
+            </tr>
+            <!-- Total -->
+            <tr>
+                <td><!-- Remains empty for proper spacing --></td>
+                <td><b>Total</b></td>
+                <td id="Actual_total" style="color: red;"><b>Actual data</b></td>
+            </tr>
+        </table>
+        
+        
+       <h2>Recommendation trip location based off of past trip(s)</h2>
+        
+        <!-- Recommendation based off of location-->
+        <table class="location" style="margin-left: 300px;">
+            <!-- Title: Nickname -->
+            <tr>
+                <td><!-- Remains empty for proper spacing --></td>
+                <td id="nnl" style="text-decoration: underline"><b>Trip Nickname</b></td>
+                <td><!-- Remains empty for proper spacing --></td>
+            </tr>
+            <!-- Base information -->
+            
+            <!-- Row 0 - Base information -->
+            <tr>
+                <td id="local"><b>Location</b></td>
+                
+            </tr>
+            <!-- Row 1 - Hotel stuff -->
+            <tr>
+                <td><b>Hotel Pricing</b></td>
+                <td id="Hotel_namel">Hotel Name</td>
+                
+            </tr>
+            <!-- Row 2 - Airline stuff -->
+            <tr>
+                <td><b>Airline Pricing</b></td>
+                <td id="Airline_namel">Airline Name</td>
+                
+            </tr>
+            <!-- Row 3 - Transportation stuff-->
+            <tr>
+                <td><b>Transportation</b></td>
+                <td id="Trans_methodl">Transportation method</td>
+               
+            </tr>
+            <!-- Row 4 - Subtotal -->
+            
+            <!-- Total -->
+            <tr>
+                <td><!-- Remains empty for proper spacing --></td>
+                
+            </tr>
+        </table>
     </div>
 
     <!-- Footer -->
@@ -65,8 +179,7 @@
             <p>Copyright &copy; 2019-2020</p>
         </div>
 
-        <!-- Center image -->
-        <img src="/Images/logo.png" id="footer_logo" alt="Logo" width="200" height="200" />
+        
 
         <!-- Right Div -->
         <div id="foot_right" style="float:right;">
@@ -94,5 +207,11 @@
         </div>
         <hr />
     </footer>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script src = "My_Trip.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src = "recommend.js"></script>
 </body>
 </html>
