@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Travel Tips Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 18px;
+      color: #000;
+      line-height: 22px;
+      }
+      h1, h4 {
+      margin: 15px 0 4px;
+      }
+      h1 {
+      font-weight: 400;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 3px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 5px #ccc; 
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      vertical-align: middle;
+      }
+      input:hover {
+      border: 1px solid #1c87c9;
+      }
+      table {
+      width: 100%;
+      }
+      h4 {
+      padding: 15px 0 5px;
+      }
+      .question-answer label {
+      display: inline-block;
+      padding: 0 20px 15px 0;
+      }
+      .question-answer input {
+      width: auto;
+      }
+      th, td {
+      width: 17%;
+      padding: 15px 0;
+      text-align: center;
+      vertical-align: unset;
+      line-height: 18px;
+      font-weight: 400;
+      word-break: break-all;
+      border-bottom: 1px solid #095484;
+      color: #000;
+      }
+      .first-col {
+      width: 26%;
+      text-align: left;
+      }
+      .btn-block {
+      margin-top: 20px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      -webkit-border-radius: 5px; 
+      -moz-border-radius: 5px; 
+      border-radius: 5px; 
+      background-color: #000; 
+      font-size: 16px;
+      color: #FFF;
+      cursor: pointer;
+      }
+      button:hover {
+      background-color: #0666a3;
+      }
+      @media (min-width: 568px) {
+      th, td {
+      word-break: keep-all;
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="testbox">
+      <form action="/">
+        <h1>Travel Tips Form</h1>
+        <p class="">Please give us some tips that have made your travels easier! We have a list of suggestions, please tell us if these are be helpful for your particular city!</p>
+        <table>
+          <tr>
+            <th class="first-col"></th>
+            <th>Yes</th>
+            <th>No</th>
+          </tr>
+          <tr>
+            <td class="first-col">Buy travel insurance.</td>
+            <td><input type="radio" value="none" name="front" /></td>
+            <td><input type="radio" value="none" name="front" /></td>
+         </tr>
+          <tr>
+            <td class="first-col">Separate your sources of money.</td>
+            <td><input type="radio" value="none" name="name" /></td>
+            <td><input type="radio" value="none" name="name" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">Lock up your valuables.</td>
+            <td><input type="radio" value="none" name="find" /></td>
+            <td><input type="radio" value="none" name="find" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">Bring your passport or other forms of id.</td>
+            <td><input type="radio" value="none" name="keeping" /></td>
+            <td><input type="radio" value="none" name="keeping" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">Be aware of what items you can bring into the State.</td>
+            <td><input type="radio" value="none" name="ambiance" /></td>
+            <td><input type="radio" value="none" name="ambiance" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">Eat at local restaurants and bars.</td>
+            <td><input type="radio" value="none" name="restaurant's" /></td>
+            <td><input type="radio" value="none" name="restaurant's" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">Pack clothes for a colder or wetter climate.</td>
+            <td><input type="radio" value="none" name="rate" /></td>
+            <td><input type="radio" value="none" name="rate" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">Pack walking shoes.</td>
+            <td><input type="radio" value="none" name="Spa" /></td>
+            <td><input type="radio" value="none" name="Spa" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">Check out some local parks or hot spots.</td>
+            <td><input type="radio" value="none" name="hotel" /></td>
+            <td><input type="radio" value="none" name="hotel" /></td>
+          </tr>
+        </table>
+        <div class="btn-block">
+          <button type="submit" href="/">Send Feedback</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
