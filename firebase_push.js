@@ -43,12 +43,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 });
 // End - Check for user login
 
-
-
-
-
-
-
 // Submit Form
 function submitForm(e) {
     //e.preventDefault();
@@ -72,8 +66,7 @@ function submitForm(e) {
     console.log("Transportation: " + tra);
 
 
-    if ((user_email != "Unknown User") && (name != "") && (loc != "0") && (dep != "") && (ret != "") && (hot != "< Select an option >") && (hot != "< Please pick a location first >") && (air != "< Select an option >") && (tra != "< Select an option >"))
-    {
+    if ((user_email != "Unknown User") && (name != "") && (loc != "0") && (dep != "") && (ret != "") && (hot != "< Select an option >") && (hot != "< Please pick a location first >") && (air != "< Select an option >") && (tra != "< Select an option >")) {
         // Save Message
         saveMessage(user_email, name, loc, dep, ret, hot, air, tra);
 
@@ -86,8 +79,7 @@ function submitForm(e) {
     else if (user_email == "Unknown User") {
         document.location.href = "/Add_Trip.html";
     }
-    else
-    {
+    else {
         window.alert("Please fill out all information");
         document.location.href = "/Add_Trip.html";
     }
@@ -95,8 +87,7 @@ function submitForm(e) {
 }
 
 // Shorthand function for calling values by Ids.
-function getInputVal(id)
-{
+function getInputVal(id) {
     return document.getElementById(id).value;
 }
 
@@ -155,10 +146,8 @@ function saveMessage(user_email, name, loc, dep, ret, hot, air, tra) {
             Sub_total: sub_tot,
             Total: total,
             Tax: tax_rate,
-            send_email: "temp",
-
-            // Append Tips/Advice data to database - Push an array for current trip
-            // Test - array_test: [0, 2, 1, 5, 4]
+            Send_email: "temp",
+            Recommend: [0, 0, 0, 0, 0, 0, 0, 0, 0]
         }, function (error) {
             if (error) {
                 window.alert("Data could not be saved." + error);
@@ -166,8 +155,7 @@ function saveMessage(user_email, name, loc, dep, ret, hot, air, tra) {
                 window.alert("Data saved successfully.");
 
                 // Navigate to the Expenses page and append the nickname to the end of the URL
-                //document.location.href = ("Expenses.html?/" + name); -  Add after below!
-                document.location.href = ("tipsform.html");
+                document.location.href = ("tipsform.html?/" + name);
             }
         });
 }
@@ -183,30 +171,3 @@ function date_diff_indays(date1, date2) {
     return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) / (1000 * 60 * 60 * 24));
 }
 
-//Gather the tips data from tipsform.html to send to database, updating the counter for each tip
-//under the specified location
-function submitTips(e) {
-    var ins = getInputVal('insurance');
-    var mon = getInputVal('multiMoney');
-    var loc = getInputVal('lockValues');
-    var pas = getInputVal('passport');
-    var imp = getInputVal('import');
-    var res = getInputVal('restaurant');
-    var clo = getInputVal('climateClothes');
-    var sho = getInputVal('walkingShoes');
-    var lan = getInputVal('localLandmarks');
-
-    console.log("Insurance value: " + ins);
-    console.log("multiMoney value: " + mon);
-    console.log("lockValues value: " + loc);
-
-    saveTips(ins, mon, loc, pas, imp, res, clo, sho, lan);
-}
-
-//Child function to send input data to database as specified above
-function saveTips(ins, mon, loc, pas, imp, res, clo, sho, lan){
-
-
-
-
-}

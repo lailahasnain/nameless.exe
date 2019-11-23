@@ -186,7 +186,7 @@ function update_email_send() {
         writeNewPost(Air_price, Air, Dep, Hot, Hot_Price, Loc, Nickname, Ret, Sub_Tot, Taxes, Tot, Trans, Trans_price, email_un, "Yes");
 
         // Send email
-        send_email(email_un, Nickname, h_n, Hot_Price, Air, Air_price, Trans, Trans_price, user_email, h_url, h_n, Dep_d, Dep_t, Ret_d, Ret_t, tax_percentage, Sub_Tot, Tot, Loc);
+        Send_email(email_un, Nickname, h_n, Hot_Price, Air, Air_price, Trans, Trans_price, user_email, h_url, h_n, Dep_d, Dep_t, Ret_d, Ret_t, tax_percentage, Sub_Tot, Tot, Loc);
     }
     else if (up == "No") {
         window.alert("An email will not be sent out for this trip. You may navigate away from this window at your convenience.");
@@ -215,7 +215,7 @@ function writeNewPost(ap, a, d, h, hp, l, nn, r, sub, tax, tot, tr, trap, ue, se
         Transportation: tr,
         Transportation_Price: trap,
         User_Email: ue,
-        send_email: se
+        Send_email: se
     };
 
     // Get the same key for the update.
