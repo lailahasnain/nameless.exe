@@ -12,10 +12,8 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 // End - Your web app's Firebase configuration
 
-
-
 var user_email, email_un, nickname
-var Air_price, Air, Dep, Hot, Hot_Price, Loc , Nickname , Ret, Sub_Tot, Tot, Trans , Trans_price, Use_email, Send_em, Taxes
+var Air_price, Air, Dep, Hot, Hot_Price, Loc , Nickname , Ret, Sub_Tot, Tot, Trans , Trans_price, Use_email, Send_em, Taxes, hotel_only
 
 
 // Begin - Check for user login
@@ -29,73 +27,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             user_email = user.email;
             email_un = user_email.substr(0, user_email.indexOf('@'));
             
-            //console.log("Your email is: " + user_email + " stripped name of: " + email_un);
-            //pull_data_Expenses(email_un);
-
-            var temp = String(email_un);
-            console.log(temp);
-            database = firebase.database();
-
-            var ref = database.ref('Add_Trip');
-            var ref1 = ref.child(temp);
-            ref1.on('value', Data , Err);
-
-            function Data(data){
-                console.log(data.val());
-
-                var dataval = data.val();
-                var keys = Object.keys(dataval);
-
-                for(var i = 0; i < keys.length; i++){
-                    var k = keys[i];
-                    var Airline_Price = dataval[k].Airline_Price;
-                    var Airplane = dataval[k].Airplane;
-                    var Departure = dataval[k].Departure;
-                    var Hotel = dataval[k].Hotel;
-                    var Hotel_Price = dataval[k].Hotel_Price;
-                    var Location = dataval[k].Location;
-                    var Name = dataval[k].Name;
-                    var Return = dataval[k].Return;
-                    var Sub_total = dataval[k].Sub_total;
-                    var Total = dataval[k].Total;
-                    var Transportation = dataval[k].Transportation;
-                    var Transportation_Price = dataval[k].Transportation_Price;
-                    var User_Email = dataval[k].User_Email;
-                    
-                    console.log(Hotel_Price);
-                    console.log(Hotel);
-                    console.log(Total);
-
-                    document.getElementById('Hotel_name').innerHTML = Hotel;
-                    document.getElementById('Hotel_price').innerHTML = ("$" + Hotel_Price);
-                    document.getElementById('loca').innerHTML = Location;
-                    document.getElementById('depa').innerHTML = Departure;
-                    document.getElementById('retu').innerHTML = Return;
-                    document.getElementById('Airline_name').innerHTML = Airplane;
-                    document.getElementById('Airline_Price').innerHTML = Airline_Price;
-                    document.getElementById('Trans_method').innerHTML = Transportation;
-                    document.getElementById('Trans_price').innerHTML = Transportation_Price;
-                    document.getElementById('sub_total').innerHTML = Sub_total;
-                    document.getElementById('Actual_total').innerHTML = Total;
-                    document.getElementById('nn').innerHTML = Name;
-                    
-                }
-                console.log(temp);
-                
-                console.log(keys);
-
-
-                
-
-
-            }
-
-            function Err(err){
-            console.log('Error!');
-            console.log(err);
-            }
-            
-
+            get_user_past_data();
         }
     } else {
         // If no user
@@ -105,3 +37,84 @@ firebase.auth().onAuthStateChanged(function (user) {
     
 });
 // End - Check for user login
+
+function get_user_past_data() {
+    // Attempt to get data by calling a reference once
+    var i = 0;  // Keep count
+    var ref = firebase.database().ref('Add_Trip/' + email_un);
+    ref.on('child_added', snapshot => {
+        Air_price = snapshot.child('Airline_Price').val();      // Airline_Price
+        Air = snapshot.child('Airplane').val();      // Airplane
+        Dep = snapshot.child('Departure').val();      // Departure
+        Hot = snapshot.child('Hotel').val();      // Hotel
+        Hot_Price = snapshot.child('Hotel_Price').val();      // Hotel_Price
+        Loc = snapshot.child('Location').val();      // Location
+        Nickname = snapshot.child('Name').val();      // Name
+        Ret = snapshot.child('Return').val();      // Return
+        Sub_Tot = snapshot.child('Sub_total').val();      // Sub_total
+        Taxes = snapshot.child('Tax').val();      // Tax
+        Tot = snapshot.child('Total').val();      // Total
+        Trans = snapshot.child('Transportation').val();      // Transportation
+        Trans_price = snapshot.child('Transportation_Price').val();      // Transportation_Price
+        Use_email = snapshot.child('User_Email').val();      // User_Email
+        Send_em = snapshot.child('send_email').val();      // send_email
+
+        // Strip the location off the hotel and display that
+        hotel_only = Hot.substr(0, Hot.indexOf('('));
+
+        // Increment count
+        i += 1;
+
+        // Push to body of html
+        //$("#table_body").append("<tr><td>" + Air + "</td><td>" + Air_price + "</td></tr>")
+        $("#table_body").append("<tr><td>" + i + "</td><td>" + Nickname + "</td><td>" + Loc + "</td><td>" + Dep + "</td><td>" + Ret + "</td><td>" + hotel_only + "</td><td>" + Air + "</td><td>" + Trans + "</td><td>$" + Tot + "</td></tr>")
+
+    });
+    //ref.on('value', gotData, errData);
+}
+
+
+function gotData(data) {
+    //console.log(data.val());
+    var trip_data = data.val();
+    var trip_name = Object.keys(trip_data);
+    //console.log(trip_name);
+
+    if (trip_name.length > 0) {
+        for (var i = 0; i < trip_name.length; i++) {
+            var index = trip_name[i]
+
+            // Get User trip data - w/o what they were bringing
+            Air_price = trip_data[index].Airline_Price;      // Airline_Price
+            Air = trip_data[index].Airplane;      // Airplane
+            Dep = trip_data[index].Departure;      // Departure
+            Hot = trip_data[index].Hotel;      // Hotel
+            Hot_Price = trip_data[index].Hotel_Price;      // Hotel_Price
+            Loc = trip_data[index].Location;      // Location
+            Nickname = trip_data[index].Name;      // Name
+            Ret = trip_data[index].Return;      // Return
+            Sub_Tot = trip_data[index].Sub_total;      // Sub_total
+            Taxes = trip_data[index].Tax;      // Tax
+            Tot = trip_data[index].Total;      // Total
+            Trans = trip_data[index].Transportation;      // Transportation
+            Trans_price = trip_data[index].Transportation_Price;      // Transportation_Price
+            Use_email = trip_data[index].User_Email;      // User_Email
+            Send_em = trip_data[index].send_email;      // Send Email
+
+            // Change to user's email address
+            document.getElementById('email_addr').innerHTML = ("User email: " + Use_email);
+
+            // Append user data
+            var ele = document.createElement("p");
+            var node_data = document.createTextNode((i + 1) + ") Trip Name: " + Nickname + "; Location: " + Loc + "; Departure: " + Dep + "; Return: " + Ret + "; Hotel: " + hotel_only + "; Airline: " + Air + "; Transportation: " + Trans);
+            ele.appendChild(node_data);
+            var element = document.getElementById("user_trips");
+            element.appendChild(ele);
+        }
+    }
+}
+
+function errData(err) {
+    console.log("Error!!!");
+    console.log(err);
+}
