@@ -88,7 +88,7 @@ nav a:hover::before
 footer 
 {
     display: block;
-    background-color: black;
+    background-image: url("repos/Capture.JPG");
     color: white;
     height: 320px;
 }
