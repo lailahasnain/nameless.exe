@@ -17,8 +17,8 @@ firebase.initializeApp(firebaseConfig);
 // Variables
 var user_email, email_un, nickname  // Grabbed from the page loading and checking Firebase
 var Air_price, Air, Dep, Hot, Hot_Price, Loc, Nickname, Ret, Sub_Tot, Tot, Trans, Trans_price, Use_email, Send_em, Taxes, Dep_d, Dep_t, Ret_d, Ret_t, arr // Assigned from Firebase asynchronous returns
-var h_n, h_url, get_image_path, tax_percentage
-
+var user_rec_update, loc_under_db
+var update_arr = [];
 
 
 // Begin - Check for user login
@@ -82,6 +82,10 @@ function pull_data_Expenses(email_front) {
         //console.log("Airline" + Air_price);
         //console.log("Before: " + Dep_d);
         //console.log("Before: " + Ret_d);
+
+        // Get updated location name
+        loc_under_db = get_updated_loc_for_db(Loc);
+        console.log("Updated location name: " + loc_under_db);
 
         // Get date and time for each date seperately.
         Dep_d = Dep.substr(0, 10);
@@ -178,10 +182,66 @@ var dataArray = []; //initialize empty array
     writeNewPost(Air_price, Air, Dep, Hot, Hot_Price, Loc, Nickname, Ret, Sub_Tot, Taxes, Tot, Trans, Trans_price, email_un, "temp", dataArray);
 
     // Gather current count for location and increment based off of user's recommendations. Push back to database with updated values.
+    // Attempt to get data by calling a reference once
+    //console.log("Our current location: " + Loc);
+    //console.log("Location name update: " + loc_under_db);
+    var ref = firebase.database().ref('Recommendation');
+    ref.on('value', snapshot => {
+        user_rec_update = snapshot.child(loc_under_db).val();      // Airline_Price
 
+        //console.log("The value is (inner): " + user_rec_update);
+
+        // Get the current values of form and update the counts in the global count
+        //console.log("Fourth value in array: " + dataArray[3]);
+
+        // Update counts in global array and push to array
+        for (var i = 0; i < dataArray.length; i++) {
+            var global, update
+
+            // Get current global value
+            global = Number(user_rec_update[i]);
+
+            // Get current update value
+            update = Number(dataArray[i]);
+
+            // Calculate the total value
+            var int_val = (global + update);
+
+            // Convert val to string
+            str_val = int_val.toString();
+
+            //console.log("Current string val being pushed into array: " + str_val);
+
+            // Push values to update array
+            update_arr.push(str_val);
+
+            //Number(user_rec_update[i]) += Number(dataArray[i]);
+        }
+        // Push data to the Expenses Page
+        // Display test results
+        //console.log("The new array is: " + update_arr);
+
+        // Push new array into global array
+        writeNewPostRec(loc_under_db, update_arr);
+
+        // Test
+        //console.log("We are before the array clearing");
+
+        // Clear the array
+        update_arr = [];
+
+        // Test location in program
+        //window.alert("Write updated in both locations succeeded?\nCheck Firebase!");
+
+        // Navigate to the Expenses page and append the nickname to the end of the URL
+        //console.log("Expenses.html?/" + nickname);
+        document.location.href = ("Expenses.html?/" + nickname);
+    });
+
+    //console.log("The value is (outer): " + user_rec_update); - outer doesn't work because of asynchronous nature: undefined
 }
 
-// Update variables
+// Update variables - Add Trip
 function writeNewPost(ap, a, d, h, hp, l, nn, r, sub, tax, tot, tr, trap, ue, se, rec) {
     // A post entry.
     var postData = {
@@ -212,4 +272,62 @@ function writeNewPost(ap, a, d, h, hp, l, nn, r, sub, tax, tot, tr, trap, ue, se
     updates['Add_Trip/' + email_un + "/" + newPostKey] = postData;
 
     return firebase.database().ref().update(updates);
+}
+
+// Update variables - Recommendations
+function writeNewPostRec(loc, arr) {
+    // A post entry.
+    var postData = {
+        // Push data back to Firebase
+        0: arr[0],
+        1: arr[1],
+        2: arr[2],
+        3: arr[3],
+        4: arr[4],
+        5: arr[5],
+        6: arr[6],
+        7: arr[7],
+        8: arr[8]
+    };
+    // Get the same key for the update.
+    var newPostKey = 'Recommendation';
+
+    // Write the new post's data simultaneously in the posts list and the user's post list.
+    var updates = {};
+    updates[newPostKey + '/' + loc] = postData;
+
+    return firebase.database().ref().update(updates);
+}
+
+function get_updated_loc_for_db(loc) {
+    //console.log("We are here with loc val: " + loc);
+    // Find location for key value
+    if (loc == "Bellingham, Washington") {
+        return "Bellingham_Washington";
+    }
+    else if (loc == "Seattle, Washington") {
+        return "Seattle_Washington";
+    }
+    else if (loc == "Portland, Oregon") {
+        return "Portland_Oregon";
+    }
+    else if (loc == "San Francisco, California") {
+        return "San_Francisco_California";
+    }
+    else if (loc == "Los Angeles, California") {
+        return "Los_Angeles_California";
+    }
+    else if (loc == "Phoenix, Arizona") {
+        return "Phoenix_Arizona";
+    }
+    else if (loc == "Las Vegas, Nevada") {
+        return "Las_Vegas_Nevada";
+    }
+    else if (loc == "Reno, Nevada") {
+        return "Reno_Nevada";
+    }
+    else {
+        window.alert("Bad location: " + loc);
+        return "Null";
+    }
 }
