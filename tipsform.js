@@ -172,7 +172,10 @@ var dataArray = []; //initialize empty array
             dataArray.push(array[k].value);// if true, push value '1' into dataArray
         }else if (array1[k].checked == true){   //checks to see if 'No' is clicked
             dataArray.push(array1[k].value);// if true, push value '0' into dataArray
+        }else{
+            dataArray.push('0');
         }
+        
     }
     //window.alert(dataArray); test case ignore
     //localStorage.setItem("dbArray",dataArray);//save locally
