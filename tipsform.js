@@ -132,8 +132,17 @@ function pull_data_Expenses(email_front) {
         //console.log("send_email: " + Send_em);
         //console.log("Array: " + arr);
 
-        // Send data to disp_Expenses
-        //disp_Expenses(Air_price, Air, Dep_d, Dep_t, h_n, Hot_Price, Loc, Nickname, Ret_d, Ret_t, Sub_Tot, tax_percentage, Tot, Trans, Trans_price, user_email)
+        // Gather location data for recommendations
+        var ref = firebase.database().ref('Recommendation');
+        ref.on('value', snapshot => {
+            user_rec_update = snapshot.child(loc_under_db).val();      // Airline_Price
+            console.log("The array we pulled is: " + user_rec_update);
+
+        /* Todo */
+            // Use this array --> user_rec_update <-- to parse and display to page.
+            // Note: Do not leave this field. You will be messing with the asynchronous nature of the db and it will become undefined.
+            
+        });
     });
 }
 
