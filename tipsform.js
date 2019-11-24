@@ -85,7 +85,7 @@ function pull_data_Expenses(email_front) {
 
         // Get updated location name
         loc_under_db = get_updated_loc_for_db(Loc);
-        console.log("Updated location name: " + loc_under_db);
+        //console.log("Updated location name: " + loc_under_db);
 
         // Get date and time for each date seperately.
         Dep_d = Dep.substr(0, 10);

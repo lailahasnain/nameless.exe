@@ -12,7 +12,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 // End - Your web app's Firebase configuration
 
-var user_email, email_un, nickname
+var user_email, email_un, nickname, user_rec_update
 var Air_price, Air, Dep, Hot, Hot_Price, Loc , Nickname , Ret, Sub_Tot, Tot, Trans , Trans_price, Use_email, Send_em, Taxes, hotel_only
 
 
@@ -69,6 +69,12 @@ function get_user_past_data() {
         //$("#table_body").append("<tr><td>" + Air + "</td><td>" + Air_price + "</td></tr>")
         $("#table_body").append("<tr><td>" + i + "</td><td>" + Nickname + "</td><td>" + Loc + "</td><td>" + Dep + "</td><td>" + Ret + "</td><td>" + hotel_only + "</td><td>" + Air + "</td><td>" + Trans + "</td><td>$" + Tot + "</td></tr>")
 
+        // Get current location name
+        console.log("Current location: " + Loc);
+
+    /* To-do */
+        // Javascript to grab each name that is executed for each trip a user has, then keep a count and push to an array [preferbly]
+        // Note: This count must be accurate as the data being pulled using this is the recommended items from the database
     });
     //ref.on('value', gotData, errData);
 }
@@ -117,4 +123,37 @@ function gotData(data) {
 function errData(err) {
     console.log("Error!!!");
     console.log(err);
+}
+
+function get_updated_loc_for_db(loc) {
+    //console.log("We are here with loc val: " + loc);
+    // Find location for key value
+    if (loc == "Bellingham, Washington") {
+        return "Bellingham_Washington";
+    }
+    else if (loc == "Seattle, Washington") {
+        return "Seattle_Washington";
+    }
+    else if (loc == "Portland, Oregon") {
+        return "Portland_Oregon";
+    }
+    else if (loc == "San Francisco, California") {
+        return "San_Francisco_California";
+    }
+    else if (loc == "Los Angeles, California") {
+        return "Los_Angeles_California";
+    }
+    else if (loc == "Phoenix, Arizona") {
+        return "Phoenix_Arizona";
+    }
+    else if (loc == "Las Vegas, Nevada") {
+        return "Las_Vegas_Nevada";
+    }
+    else if (loc == "Reno, Nevada") {
+        return "Reno_Nevada";
+    }
+    else {
+        window.alert("Bad location: " + loc);
+        return "Null";
+    }
 }
