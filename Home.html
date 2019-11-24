@@ -11,7 +11,7 @@
             height: 150px;
             margin-left: -70px;
         }
-
+		
 		div.gallery {
 			display: flex;
 			flex-wrap: wrap;
@@ -23,17 +23,59 @@
 
 		flex: 50%;
 		max-width: 25%;
-		padding: 0 4px;
-		margin: auto;
+		
 		}
 
 		div.column img {
+			
 			margin-top: 8px;
 			vertical-align: middle;
 			width: 100%;
-	
+			height auto;
 		}
+		.container {
+  position: relative;
+  width: 50%;
+}
+.container:hover .image {
+		opacity: 0.3;
+}
+.container:hover .image {
+		opacity: 0.3;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  
+  
 
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+
+.text {
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+		
+
+
+
+		
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   div.column {
@@ -62,7 +104,7 @@
     <header>
         <div class="container">
             <a href="Home.html">
-                <img src="Images/logo.png" alt="logo" class="logo" />
+                <img src="Images/logo.png" alt="logo" class="logo" /> 
             </a>
             <nav>
                 <ul>
@@ -72,7 +114,7 @@
                     <li><a href="My_Trip.html">My Trip</a></li>
                     <li><a href="Add_Trip.html">Add Trip</a></li>
                     <li><a href="Sign_in.html">Sign-in/Sign-up</a></li>
-                    <li><a href="#">Tips/Advice</a></li>
+                    <li><a href="tips.html">Tips/Advice</a></li>
                     <li><a href="Sample_Trip.html">Sample Trip</a></li>
                 </ul>
             </nav>
@@ -83,40 +125,61 @@
 	<div class="gallery">
 		
 		<div class="column">
-		<a href="lasvegas.html">
-			<img src="repos/lasvegas.jpg"/>
-		</a>
+
+		<div class="container">
 		
-		<a href="reno.html">
-			<img src="repos/reno.jpg" />
-		</a>
-
-		<a href="portland.html">
-			<img src="repos/portland.jpg" />
+				
+				<img src="repos/lasvegas.jpg"/ class="image"> 
+				<a href="lasvegas.html"><div class="overlay"><div class="text">Las Vegas</div></div> </a>
+				
 			
-		</a>
+		
+		</div>
+		
+		<div class="container">
+		
+			    <img src="repos/reno.jpg" class="image"/>
+				<a href="reno.html"><div class="overlay"><div class="text">Reno</div></div></a>
+		</div>
 
-		<a href="phoenix.html">
-			<img src="repos/phoenix.jpeg" />
-		</a>
+		<div class="container">
+
+			<img src="repos/portland.jpg" class="image" />
+			
+			
+			<a href="portland.html"><div class="overlay"><div class="text">Portland</div></div></a>
+		</div>
+
+		<div class="container">
+			<img src="repos/phoenix.jpeg" class="image"/>
+				<a href="phoenix.html"><div class="overlay"><div class="text">Phoenix</div></div></a>
+		</div>
+
+
 		</div>
 
 		<div class="column">
-		<a href="sanfrancisco.html">
-			<img src="repos/sanfrancisco.jpg" />
-		</a>
 
-		<a href="bellingham.html">
-			<img src="repos/bellingham.jpg" />
-		</a>
+			<div class="container">
+			<img src="repos/sanfrancisco.jpg" class="image" />
+
+			<a href="sanfrancisco.html"><div class="overlay"><div class="text">San Francisco</div></div></a>
+			</div>
+
+			<div class="container">
+			<img src="repos/bellingham.jpg" class="image" />
+			<a href="bellingham.html"><div class="overlay"><div class="text">Bellingham</div></div></a>
+			</div>
 	
-		<a href="seattle.html">
-			<img src="repos/seattle.jpg" />
-		</a>
+			<div class="container">
+			<img src="repos/seattle.jpg" class="image" />
+			<a href="seattle.html"><div class="overlay"><div class="text">Seattle</div></div></a>
+			</div>
 
-		<a href="losangeles.html">
-			<img src="repos/Capture1.JPG" />
-		</a>
+			<div class="container">
+					<img src="repos/Capture1.JPG" class="image"/>
+						<a href="losangeles.html"><div class="overlay"><div class="text">Los Angeles></div></div></a>
+			</div>
 		</div>
 	</div>
 	
