@@ -30,7 +30,7 @@
 		}
 	}
 	a.hotels {
-		color: white;
+		color: black;
 		text-align: center;
 		text-decoration: none;
 	
@@ -51,7 +51,7 @@
 	.grid-container {
 		display: grid;
 		grid-template-columns: auto auto auto;
-		grid-template-rows: auto auto;
+		grid-template-rows: 300px 300px;
 		grid-gap: 0;
 		background-color: white;
 		padding: 10px;
@@ -62,10 +62,24 @@
 		background-size: cover;
 		text-align: center;
 		color: white;
-		padding: 70px 0px;
+		padding: 90px 0px;
 		font-size: 30px;
 		f
 	}
-	a.hotels {
-		background-color: #87CEFA; 
+	
+
+	.cities:hover {
+	
+		opacity: 0.6;
+	}
+
+	.overlay {
+		opacity: 0;
+		color: black;
+		font-weight: bold;
+	}
+
+	.cities:hover .overlay {
+	
+		opacity: 1;
 	}
