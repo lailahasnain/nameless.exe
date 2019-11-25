@@ -15,6 +15,7 @@ firebase.initializeApp(firebaseConfig);
 var user_email, email_un, nickname, user_rec_update, high_string_loc
 var Air_price, Air, Dep, Hot, Hot_Price, Loc , Nickname , Ret, Sub_Tot, Tot, Trans , Trans_price, Use_email, Send_em, Taxes, hotel_only
 var iter_stop = true;
+var tot_count_arr = one_iter_count_arr = check = 0;
 
 
 
@@ -48,22 +49,20 @@ function get_user_past_data() {
     var data_air = [0];
     var data_hotel = [[],[0]];
     var data_tran = [0];
-    var string_loc = ["Bellingham, Washington","Las Vegas, Nevada", "Los Angeles, California", 
-                        "Phoenix, Arizona", "Portland, Oregon", "Reno, Nevada", 
-                            "San Francisco, California", "Seattle, Washingtion"]
+    var string_loc = ["Seattle, Washington", "Bellingham, Washington", "Portland, Oregon", "San Francisco, California",
+                        "Los Angeles, California", "Phoenix, Arizona", "Las Vegas, Nevada", "Reno, Nevada",]
     var string_air = ["Allegiant Air", "American Airlines", "Delta Airlines", "Frontier Airlines"
                         , "JetBlue", "Southwest Airlines"];
-    var string_hotel = [ ["Shamrock Motel (Bellingham)", "Motel 6 (Bellingham)", "Chrysalis Inn and Spa (Bellingham)", "GuestHouse Inn (Bellingham)", "Holiday Inn (Bellingham)"], 
-                        ["Tru (Las Vegas)", "The LINQ (Las Vegas)", "Travelodge (Las Vegas)", "Four Queens (Las Vegas)", "The Venetian (Las Vegas)"], 
+    var string_hotel = [["Kimpton Hotel (Seattle)", "Sheraton Grand Seattle (Seattle)", "Grandy Hyatt Seattle (Seattle)", "Crowne Plaza (Seattle)", "Hyatt at Olive 8 (Seattle)"],
+                        ["Shamrock Motel (Bellingham)", "Motel 6 (Bellingham)", "Chrysalis Inn and Spa (Bellingham)", "GuestHouse Inn (Bellingham)", "Holiday Inn (Bellingham)"], 
+                        ["Howard Johnson (Portland)", "Mark Spencer Hotel (Portland)", "Portland Northwest Hotel (Portland)", "Ramada (Portland)", "Society Hotel (Portland)"],
+                        ["Holiday Express Inn Hotel and Suites (San Francisco)", "Hyatt Place (San Francisco)", "Stanford Court (San Francisco)", "Travelodge by Wyndham (San Francisco)", "Travelodge (San Francisco)"],
                         ["Samesun Venice Beach (Los Angeles)", "Value Inn (Los Angeles)", "Luxe City Center Hotel (Los Angeles)", "Motel 6 (Los Angeles)", "Hotel Crowne Plaza (Los Angeles)"], 
-                        ["Vacation Inn (Phoenix)","EZ 8 Motel (Phoenix)","Premier Inn (Phoenix)","Lux Uptown Apts. (Phoenix)","Hotel Embassy (Phoenix)"], 
-                        ["Howard Johnson (Portland)","Mark Spencer Hotel (Portland)","Portland Northwest Hotel (Portland)","Ramada (Portland)","Society Hotel (Portland)"],
-                        ["Circus Circus (Reno)","Motel 6 (Reno)","Sands Regency (Reno)","Baymont Inn (Reno)","Nugget (Reno)"],
-                        ["Holiday Express Inn Hotel and Suites (San Francisco)","Hyatt Place (San Francisco)","Stanford Court (San Francisco)","Travelodge by Wyndham (San Francisco)","Travelodge (San Francisco)"],
-                        ["Kimpton Hotel (Seattle)","Sheraton Grand Seattle (Seattle)","Grandy Hyatt Seattle (Seattle)","Crowne Plaza (Seattle)","Hyatt at Olive 8 (Seattle)"]
-                     ];
+                        ["Vacation Inn (Phoenix)", "EZ 8 Motel (Phoenix)", "Premier Inn (Phoenix)", "Lux Uptown Apts. (Phoenix)", "Hotel Embassy (Phoenix)"], 
+                        ["Tru (Las Vegas)", "The LINQ (Las Vegas)", "Travelodge (Las Vegas)", "Four Queens (Las Vegas)", "The Venetian (Las Vegas)"], 
+                        ["Circus Circus (Reno)","Motel 6 (Reno)","Sands Regency (Reno)","Baymont Inn (Reno)","Nugget (Reno)"]];
     
-    var string_tran = ["Car", "Mototbike", "Motorcycle", "Bus", "Train"];
+    var string_tran = ["Car", "Motorbike", "Motorcycle", "Bus", "Train"];
 
     var length_loc = 8;
     var length_air = 6;
@@ -206,6 +205,7 @@ function get_user_past_data() {
             }
         }
         high_string_loc = string_loc[high_index_loc];
+        console.log("Test Location: " + high_string_loc);
 
         //search for highest airline count 
         // var high_count_air = 0;
@@ -219,7 +219,7 @@ function get_user_past_data() {
             }
         }
         high_string_air = string_air[high_index_air];
-        console.log(high_string_air);
+        console.log("Test Air: " + high_string_air);
 
 
         //search for highest hotel count
@@ -241,7 +241,7 @@ function get_user_past_data() {
             }
         }
         high_string_hot = string_hotel[high_loc_index_hot][high_index_hot];
-        console.log(high_string_hot);
+        console.log("Test hotel: " + high_string_hot);
         
         //search for highest transporation count 
         // var high_count_tran = 0;
@@ -255,8 +255,10 @@ function get_user_past_data() {
             }
         }
         high_string_tran = string_tran[high_index_tran];
-        console.log(high_string_tran);
+        console.log("Test trans: " + high_string_tran);
 
+        // Test Names
+        console.log("The Location with the highest count: " + high_string_loc);
 
         // Convert location to recommended database location
         var high_loc_db_name = get_updated_loc_for_db(high_string_loc);
@@ -273,14 +275,49 @@ function get_user_past_data() {
                                 "Bring your passport or other forms of id.", "Be aware of what items you can bring into the State.",
                                     "Eat at local restaurants and bars.", "Pack clothes for a colder or wetter climate.",
                                         "Pack walking shoes.", "Check out some local parks or hot spots."];
-            for(var c = 0; c < user_rec_update.length; c++){
+
+            // Get length of one array (length needed to parse)
+            for (var c = 0; c < user_rec_update.length; c++){
                 if ((user_rec_update[c] > 0) && (iter_stop == true)){
-                    $('#table_tip_recs').append ("<tr><td></td><td></td><td>" + tipArray[c] +"</td>" + "<td>" + user_rec_update[c] + "</td><td></td><td></td></tr>");
+                    //$('#table_tip_recs').append("<tr><td></td><td></td><td>" + tipArray[c] + "</td>" + "<td>" + user_rec_update[c] + "</td><td></td><td></td></tr>");
+
+                    one_iter_count_arr += 1;
+                    //console.log("Iter one: " + one_iter_count_arr);
                 }
             }
 
             // Stop the iteration after one cycle of data
             iter_stop = false;
+
+            //// Get total count of entire array
+            //for (var c = 0; c < user_rec_update.length; c++){
+            //    if ((user_rec_update[c] > 0)){
+            //       // $('#table_tip_recs').append("<tr><td></td><td></td><td>" + tipArray[c] + "</td>" + "<td>" + user_rec_update[c] + "</td><td></td><td></td></tr>");
+
+            //        tot_count_arr += 1;
+            //        //console.log("Iter tot: " + tot_count_arr);
+            //    }
+            //}
+
+            check += 1;
+            console.log("Number of entries: " + i + "; Number of checks: " + check);
+            //console.log("tot count using val: " + user_rec_update.length);
+
+            if (check == i) {
+                console.log("At the end with value: " + check);
+                //var last_arr = (tot_count_arr - one_iter_count_arr);
+                console.log("We are printing at index: " + user_rec_update);
+
+                for (var j = 0; j < user_rec_update.length; j++) {
+                    if ((user_rec_update[j] > 0)) {
+                        $('#table_tip_recs').append("<tr><td></td><td></td><td>" + tipArray[j] + "</td>" + "<td>" + user_rec_update[j] + "</td><td></td><td></td></tr>");
+                        console.log("Iter displayed: " + j);
+                    }
+                }
+            }
+
+
+
             
         });
 
