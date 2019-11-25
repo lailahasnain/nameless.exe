@@ -155,7 +155,7 @@ function saveMessage(user_email, name, loc, dep, ret, hot, air, tra) {
                 window.alert("Data saved successfully.");
 
                 // Navigate to the Expenses page and append the nickname to the end of the URL
-                document.location.href = ("tipsform.html?/" + name);
+                document.location.href = ("tips.html?/" + name);
             }
         });
 }

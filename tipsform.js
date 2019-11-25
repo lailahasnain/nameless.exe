@@ -87,6 +87,9 @@ function pull_data_Expenses(email_front) {
         loc_under_db = get_updated_loc_for_db(Loc);
         //console.log("Updated location name: " + loc_under_db);
 
+        // Replace trip location on the tips/advice form
+        document.getElementById('Location').innerHTML = Loc;
+
         // Get date and time for each date seperately.
         Dep_d = Dep.substr(0, 10);
         Ret_d = Ret.substr(0, 10);
