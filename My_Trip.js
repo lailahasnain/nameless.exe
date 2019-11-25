@@ -247,6 +247,8 @@ function get_user_past_data() {
 }
 function noDisplay(){
     $('#table_body').hide();
+    $('#table_recs').hide();
+    $('#table_tip_recs').hide();
     $('b').hide();
 }
 function display(){
@@ -255,19 +257,26 @@ function display(){
     console.log(values);
     if(values == '0'){
         $('#table_body').hide();
+        $('#table_recs').hide();
+        $('#table_tip_recs').hide();
         $('b').hide();
     }else if(values == '1'){
         console.log(values);
         //get_user_past_data();
         //gotData(data);
         $('#table_body').show();
+        $('#table_recs').hide();
+        $('#table_tip_recs').hide();
         $('b').show();
-       
     } else if(values == '2'){
         $('#table_body').hide();
+        $('#table_recs').show();
+        $('#table_tip_recs').show();
         $('b').hide();
     }else if(values == '3'){
         $('#table_body').show();
+        $('#table_recs').show();
+        $('#table_tip_recs').show();
         $('b').show();
     }
 }
