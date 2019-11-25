@@ -102,23 +102,37 @@
         </table>
 
         <!-- Recommendation section -->
-        <table class="test" style="margin-left: 50px;"><center>Trip Recommendation</center>
-            <thead>
+        <div id="reco">
+            <center><h1>Trip Recommendation</h1></center>
+            
+            <p style="width:91%; margin-left:4.5%;">Based on your entire past trip history, we are recommending a future trip to you below. As part of this recommendation, we have provided you with recommendations of what to bring/do based on the data of all our users, for your recommended location.<br /><br />Thank you for being our loyal customer.</p>
+            <table class="test" style="margin-left: 50px;">
+                <thead>
+                <td><!-- Used to push values over one column --></td>
                 <td>Location</td>
                 <td>Hotel</td>
                 <td>Airplane</td>
                 <td>Transportation</td>
-            </thead>
-            <tbody id="table_recs"></tbody>
-        </table>
+                <td><!-- Used to push values over one column --></td>
+                </thead>
+                <tbody id="table_recs"></tbody>
+            </table>
 
-        <table class="test" style="margin-left: 50px;">
-            <thead>
+            <!-- Create space between the two tables -->
+            <br /><br /><br /><br /><br />
+
+            <table class="test" style="margin-left: 50px;">
+                <thead>
+                <td><!-- Used to push values over one column --></td>
+                <td><!-- Used to push values over one column --></td>
                 <td>Tips and Advice</td>
                 <td>User votes</td>
-            </thead>
-            <tbody id="table_tip_recs"></tbody>
-        </table>
+                <td><!-- Used to push values over one column --></td>
+                <td><!-- Used to push values over one column --></td>
+                </thead>
+                <tbody id="table_tip_recs"></tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Footer -->
