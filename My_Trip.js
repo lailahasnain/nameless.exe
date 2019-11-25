@@ -230,6 +230,20 @@ function get_user_past_data() {
         ref.on('value', snapshot => {
             user_rec_update = snapshot.child(high_loc_db_name).val();      // Airline_Price
             console.log("The array we pulled is: " + user_rec_update);
+
+
+            var tipArray = ["Buy travel insurance.", "Separate your sources of money." , "Lock up your valuables.",
+                                "Bring your passport or other forms of id.", "Be aware of what items you can bring into the State.",
+                                    "Eat at local restaurants and bars.", "Pack clothes for a colder or wetter climate.",
+                                        "Pack walking shoes.", "Check out some local parks or hot spots."];
+            for(var c = 0; c < user_rec_update.length; c++){
+                if(user_rec_update[c] > 0){
+                    $('#table_tip_recs').append ("<tr><td></td><td></td><td>" + tipArray[c] +"</td>" + "<td>" + user_rec_update[c] + "</td><td></td><td></td></tr>");
+                    
+                }
+                
+            }
+            
         });
 
         //needs to make sure it doesn't append every loop, done by if statement
@@ -247,19 +261,23 @@ function get_user_past_data() {
         //Sending Tips Recommendations to HTML
         //maybe this'll work part 2
 
-        var tipArray = ["Buy travel insurance.", "Separate your sources of money." , "Lock up your valuables.",
-                                "Bring your passport or other forms of id.", "Be aware of what items you can bring into the State.",
-                                    "Eat at local restaurants and bars.", "Pack clothes for a colder or wetter climate.",
-                                        "Pack walking shoes.", "Check out some local parks or hot spots."];
-        for(var c = 0; c < user_rec_update.length; c++){
-            if(user_rec_update[c] > 0){
-                $('#table_tip_recs').append ("<tr><td></td><td></td><td>" + tipArray[c] +"</td>" + "<td>" + user_rec_update[c] + "</td><td></td><td></td></tr>");
-            }
-        }
+        // var tipArray = ["Buy travel insurance.", "Separate your sources of money." , "Lock up your valuables.",
+        //                         "Bring your passport or other forms of id.", "Be aware of what items you can bring into the State.",
+        //                             "Eat at local restaurants and bars.", "Pack clothes for a colder or wetter climate.",
+        //                                 "Pack walking shoes.", "Check out some local parks or hot spots."];
+        // for(var c = 0; c < user_rec_update.length; c++){
+        //     if(user_rec_update[c] > 0){
+        //         $('#table_tip_recs').append ("<tr><td></td><td></td><td>" + tipArray[c] +"</td>" + "<td>" + user_rec_update[c] + "</td><td></td><td></td></tr>");
+        //         console.log("yay we pushed an array");
+        //     }
+        //     console.log("yay we looped");
+        // }
+        // console.log("this should run")
 
         //window.alert("Last array: " + user_rec_update);
 
     }); //end ref
+    
     
 
     //save highest count and  for location
