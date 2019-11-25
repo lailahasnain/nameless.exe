@@ -241,7 +241,7 @@ function send_email(un, nn, h, hp, a, ap, t, tp, email, image_url, image_name, d
         //Password: "password",
         To: email,
         From: "email@email.com",   // Remove before push
-        Subject: "Nameless.exe's Trip Planner",
+        Subject: "Voyage Trip Planner",
         Body: ("Greetings " + un + ",<br><br>This email is in regards to your recent plans for: <b>" + nn + "</b><br>Below are the details for your trip, as per your request.<br><br><b>Location:</b> " + loc + "<br><b>Departure:</b> " + dep_d + " at " + dep_t + "&nbsp;&nbsp;&nbsp;&nbsp;<b>Return:</b> " + ret_d + " at " + ret_t + "<br><br><b>Hotel:</b> " + h + "&nbsp;&nbsp;&nbsp;&nbsp;<b>Hotel Price:</b> $" + hp + "<br><b>Airplane:</b> " + a + "&nbsp;&nbsp;&nbsp;&nbsp;<b>Airplane Price:</b> $" + ap + "<br><b>Transportation:</b> " + t + "&nbsp;&nbsp;&nbsp;&nbsp;<b>Transportation Price:</b> $" + tp + "<br><br><b>Sub-Total:</b> $" + st + "<br><b>Tax:</b> " + tax + "%<br><b>Total:</b> $" + tot + "<br><br><b>Note:</b> The attached image is of your chosen hotel, for your convenience.<br>You can also click here: " + h_url + "<br><br>Thank you for using our Travel Planner for your trip plannings. We hope to see you in future plannings soon.<br><br>Sincerely,<br><b>The Nameless.exe team</b>"),
         Attachments: [
             {
