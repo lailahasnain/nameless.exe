@@ -234,9 +234,9 @@ function get_user_past_data() {
 
         //needs to make sure it doesn't append every loop, done by if statement
         //Sending Trip Recommendations to HTML
-        if (i == number_trips){
+        //if (i == number_trips){
             $('#table_recs').append ("<tr><td>"+"</td>"+"<td>" + high_string_loc +"</td>" + "<td>" + high_string_hot + "</td>" + "<td>" + high_string_air + "</td>" + "<td>" + high_string_tran + "<td></td></td></tr>");
-        }
+        //}
 
         //Sending Tips Recommendations to HTML
         //maybe this'll work part 2
