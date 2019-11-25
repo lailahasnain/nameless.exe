@@ -257,7 +257,7 @@ table.sample {
     border-collapse: separate;
     border-spacing: 10px;
     *border-collapse: expression('separate', cellSpacing = '10px');
-    margin-left: 550px;
+    margin-left: 33%;
     margin-top: 80px;
 }
 

@@ -6,7 +6,7 @@
         #footer_logo {
             position: absolute;
             left: 50%;
-            bottom: -200px;
+            bottom: -420px;
             width: 150px;
             height: 150px;
             margin-left: -70px;
@@ -45,8 +45,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/Images/favicon_io/site.webmanifest">
 </head>
-<body onpageshow = 'noDisplay()'>
-    
+<body onpageshow='noDisplay()'>
+
     <!-- Navigator -->
     <header>
         <div class="container">
@@ -68,36 +68,36 @@
     <!-- Main Content -->
     <div class="content">
 
-        
+
 
         <!-- Title -->
         <h1 style="margin: 20px; color: #8C55AA; padding-top: 50px;"><center>My Trip</center></h1>
-        
+
         <!-- dropdown menu for selecting what to display -->
         <div class="Select My Trip" id="select_div" style="margin-left: 40%; width: 30%;">
-                <p class="sign" style="align-content:center;"></p>
-                    <div class="block">
-                        <select class="form_input" onclick = 'display()' name="displayTrip" id="display_Trip">
-                            <option value="0"> Select display </option>
-                            <option value="1">Past Trips</option>
-                            <option value="2">Recommendations</option>
-                            <option value="3">Both</option>
-                        </select>
-                    </div>
+            <p class="sign" style="align-content:center;"></p>
+            <div class="block">
+                <select class="form_input" onclick='display()' name="displayTrip" id="display_Trip">
+                    <option value="0"> Select display </option>
+                    <option value="1">Past Trips</option>
+                    <option value="2">Recommendations</option>
+                    <option value="3">Both</option>
+                </select>
             </div>
+        </div>
 
         <!-- Past Trip section -->
         <table class="test" style="margin-left: 50px;">
             <thead>
-                <td><b>Past Trip Number</b></td>
-                <td><b>Nickname</b></td>
-                <td><b>Location</b></td>
-                <td><b>Depart</b></td>
-                <td><b>Return</b></td>
-                <td><b>Hotel</b></td>
-                <td><b>Airplane</b></td>
-                <td><b>Transportation</b></td>
-                <td><b>Total</b></td>
+            <td><b>Past Trip Number</b></td>
+            <td><b>Nickname</b></td>
+            <td><b>Location</b></td>
+            <td><b>Depart</b></td>
+            <td><b>Return</b></td>
+            <td><b>Hotel</b></td>
+            <td><b>Airplane</b></td>
+            <td><b>Transportation</b></td>
+            <td><b>Total</b></td>
             </thead>
             <tbody id="table_body"></tbody>
         </table>
@@ -105,7 +105,7 @@
         <!-- Recommendation section -->
         <div id="reco">
             <center><h1 id="rec_title" style="color:#8C55AA;">Trip Recommendation</h1></center>
-            
+
             <p style="width:91%; margin-left:4.5%;" id="table_rec_head">Based on your entire past trip history, we are recommending a future trip to you below. As part of this recommendation, we have provided you with recommendations of what to bring/do based on the data of all our users, for your recommended location.<br /><br />Thank you for being our loyal customer.</p>
             <table class="test" style="margin-left: 50px;">
                 <thead>
@@ -142,6 +142,9 @@
             </table>
         </div>
     </div>
+
+    <!-- Create space -->
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
     <!-- Footer -->
     <footer class="footer">
