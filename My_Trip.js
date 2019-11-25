@@ -194,11 +194,13 @@ function get_user_past_data() {
         var high_index_hot = 0;
         var high_string_hot = "";
         for(var x = 0; x < length_hotel_loc; x++) {
-            for (var j = 0; j < length_hotel; j++) {
-                if (data_hotel[x][j] > high_count_hot){
-                    high_count_hot = data_hotel[x][j];
-                    high_loc_index_hot = x;
-                    high_index_hot = j;
+            if(string_loc[x] == high_string_loc){
+                for (var j = 0; j < length_hotel; j++) {
+                    if (data_hotel[x][j] > high_count_hot){
+                        high_count_hot = data_hotel[x][j];
+                        high_loc_index_hot = x;
+                        high_index_hot = j;
+                    }
                 }
             }
         }
@@ -311,6 +313,25 @@ function gotData(data) {
 
         }
     }
+
+    //maybe this'll work 
+    //probably not
+    var ref = firebase.database().ref('Recommendation');
+        ref.on('value', snapshot => {
+            user_rec_update = snapshot.child(loc_under_db).val();      // Airline_Price
+            console.log("The array we pulled is: " + user_rec_update);
+
+    var tipArray = ["Buy travel insurance.", "Separate your sources of money." , "Lock up your valuables.",
+                                "Bring your passport or other forms of id.", "Be aware of what items you can bring into the State.",
+                                    "Eat at local restaurants and bars.", "Pack clothes for a colder or wetter climate.",
+                                        "Pack walking shoes.", "Check out some local parks or hot spots."];
+            for(var c = 0; c < user_rec_update.length; c++){
+                if(user_rec_update[c] > 0){
+                    $('#table_tip_recs').append ("<tr><td>" + tipArray[c] +"</td>" + "<td>" + user_rec_update[c] + "</td></tr>");
+                }
+            
+                }
+    });
 }
 
 function errData(err) {
