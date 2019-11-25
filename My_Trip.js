@@ -53,10 +53,15 @@ function get_user_past_data() {
                             "San Francisco, California", "Seattle, Washingtion"]
     var string_air = ["Allegiant Air", "American Airlines", "Delta Airlines", "Frontier Airlines"
                         , "JetBlue", "Southwest Airlines"];
-    var string_hotel = [ ["Shamrock Motel"], [""], [], [], [] 
-
-
-                        ]
+    var string_hotel = [ ["Shamrock Motel ()", "Motel 6", "Chrysalis Inn and Spa", "GuestHouse Inn", "Holiday Inn"], 
+                        ["Tru (Las Vegas)", "The LINQ (Las Vegas)", "Travelodge (Las Vegas)", "Four Queens (Las Vegas)"], 
+                        [], 
+                        [], 
+                        [],
+                        [],
+                        [],
+                        []
+                     ];
     
     var string_tran = [];
 

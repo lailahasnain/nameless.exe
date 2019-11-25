@@ -144,7 +144,16 @@ function pull_data_Expenses(email_front) {
         /* Todo */
             // Use this array --> user_rec_update <-- to parse and display to page.
             // Note: Do not leave this field. You will be messing with the asynchronous nature of the db and it will become undefined.
+            var tipArray = ["Buy travel insurance.", "Separate your sources of money." , "Lock up your valuables.",
+                                "Bring your passport or other forms of id.", "Be aware of what items you can bring into the State.",
+                                    "Eat at local restaurants and bars.", "Pack clothes for a colder or wetter climate.",
+                                        "Pack walking shoes.", "Check out some local parks or hot spots."];
+            for(var c = 0; c < user_rec_update.length; c++){
+                if(user_rec_update[c] > 0){
+                    $('#table').append ("<tr><td>" + tipArray[c] +"</td>" +"<td> + </td>");
+                }
             
+                }
         });
     });
 }
