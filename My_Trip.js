@@ -235,8 +235,14 @@ function get_user_past_data() {
         //needs to make sure it doesn't append every loop, done by if statement
         //Sending Trip Recommendations to HTML
         //if (i == number_trips){
-            $('#table_recs').append ("<tr><td>"+"</td>"+"<td>" + high_string_loc +"</td>" + "<td>" + high_string_hot + "</td>" + "<td>" + high_string_air + "</td>" + "<td>" + high_string_tran + "<td></td></td></tr>");
+            //$('#table_recs').append ("<tr><td>"+"</td>"+"<td>" + high_string_loc +"</td>" + "<td>" + high_string_hot + "</td>" + "<td>" + high_string_air + "</td>" + "<td>" + high_string_tran + "<td></td></td></tr>");
         //}
+
+        // Place updated values here - create function: ret doc.getelebyid()
+        document.getElementById('up_loc').innerHTML = high_string_loc;
+        document.getElementById('up_hot').innerHTML = high_string_hot;
+        document.getElementById('up_air').innerHTML = high_string_air;
+        document.getElementById('up_tra').innerHTML = high_string_tran;
 
         //Sending Tips Recommendations to HTML
         //maybe this'll work part 2
@@ -265,6 +271,7 @@ function get_user_past_data() {
 
 
 }
+
 function noDisplay(){
     $('#table_body').hide();
     $('#table_recs').hide();
