@@ -12,7 +12,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 // End - Your web app's Firebase configuration
 
-var user_email, email_un, nickname, user_rec_update
+var user_email, email_un, nickname, user_rec_update, high_string_loc
 var Air_price, Air, Dep, Hot, Hot_Price, Loc , Nickname , Ret, Sub_Tot, Tot, Trans , Trans_price, Use_email, Send_em, Taxes, hotel_only
 
 
@@ -157,7 +157,7 @@ function get_user_past_data() {
         //search for highest location count 
         var high_count_loc = 0;
         var high_index_loc = 0;
-        var high_string_loc = "";
+        high_string_loc = "";
         for(var x = 0; x < length_loc; x++) {
             if (data_loc[x] > high_count_loc){
                 high_count_loc = data_loc[x];
@@ -191,12 +191,31 @@ function get_user_past_data() {
         }
         high_string_tran = string_tran[high_index_tran];
         console.log(high_string_tran);
+
+
+        // Convert location to recommended database location
+        var high_loc_db_name = get_updated_loc_for_db(high_string_loc);
+        console.log("New name: " + high_loc_db_name);
+
+        // Gather location data for recommendations
+        var ref = firebase.database().ref('Recommendation');
+        ref.on('value', snapshot => {
+            user_rec_update = snapshot.child(high_loc_db_name).val();      // Airline_Price
+            console.log("The array we pulled is: " + user_rec_update);
+        });
+
+        //window.alert("Last array: " + user_rec_update);
+
     }); //end ref
 
     //save highest count and  for location
     
 
     //ref.on('value', gotData, errData);
+
+    // Pull array for highest location - recommended trip (location)
+
+
 }
 function noDisplay(){
     $('#table_body').hide();
