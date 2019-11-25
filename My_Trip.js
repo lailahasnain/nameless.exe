@@ -53,14 +53,12 @@ function get_user_past_data() {
                             "San Francisco, California", "Seattle, Washingtion"]
     var string_air = ["Allegiant Air", "American Airlines", "Delta Airlines", "Frontier Airlines"
                         , "JetBlue", "Southwest Airlines"];
-    var string_hotel = [ ["Bellingham, Washington","Las Vegas, Nevada", "Los Angeles, California", 
-    "Phoenix, Arizona", "Portland, Oregon", "Reno, Nevada", 
-        "San Francisco, California", "Seattle, Washingtion"], [""] 
+    var string_hotel = [ ["Shamrock Motel"], [""], [], [], [] 
 
 
                         ]
     
-    var length_tran = [];
+    var string_tran = [];
 
     var length_loc = 8;
     var length_air = 6;
@@ -79,10 +77,10 @@ function get_user_past_data() {
     
     //length of 2d array = # of hotels
     //height of 2d array = # of location
-    // for(var i = 0; i < length_hotel_loc; i++) {
-    //     data_hotel.push(0);
+    // for(var x = 0; x < length_hotel_loc; x++) {
+    //     data_hotel.push([0]);
     //     for(var j = 0; j < length_hotel; j++) {
-    //         data_hotel[i].push(0);
+    //         data_hotel[x].push(0);
     //     }
     // }
     
@@ -133,38 +131,66 @@ function get_user_past_data() {
             }
         }
 
-        // update airlines
-        // for(var x = 0; x < length_air; x++) {
-        //     data_air.push(0);
-        // }
+        //update airlines
+        for(var x = 0; x < length_air; x++) {
+            if (string_air[x] == Air){
+                data_air[x] += 1;
+            }
+        }
         
         // // update hotel locations
         // // update hotel
         // for(var x = 0; x < length_hotel_loc; x++) {
-        //     data_hotel.push(0);
+        //     data_hotel.push([0]);
         //     for(var j = 0; j < length_hotel; j++) {
         //         data_hotel[x].push(0);
         //     }
         // }
         
-        // // update transportation
-        // for(var x = 0; x < length_tran; x++) {
-        //     if (){
-        //         data_tran[x] = 
-        //     }
-        // }
-        var high_count = 0;
-        var high_index = 0;
-        var high_string = "";
-        for(var x = 0; x < length_loc; x++) {
-            if (data_loc[x] > high_count){
-                high_count = data_loc[x];
-                high_index = x;
+        // update transportation
+        for(var x = 0; x < length_tran; x++) {
+            if (string_tran[x] == Trans){
+                data_tran[x] += 1;
             }
         }
-        high_string = string_loc[high_index];
-        console.log(high_string);
+
+        //search for highest location count 
+        var high_count_loc = 0;
+        var high_index_loc = 0;
+        var high_string_loc = "";
+        for(var x = 0; x < length_loc; x++) {
+            if (data_loc[x] > high_count_loc){
+                high_count_loc = data_loc[x];
+                high_index_loc = x;
+            }
+        }
+        high_string_loc = string_loc[high_index_loc];
+
+        //search for highest airline count 
+        var high_count_air = 0;
+        var high_index_air = 0;
+        var high_string_air = "";
+        for(var x = 0; x < length_air; x++) {
+            if (data_air[x] > high_count_air){
+                high_count_air = data_air[x];
+                high_index_air = x;
+            }
+        }
+        high_string_air = string_air[high_index_air];
+        console.log(high_string_air);
         
+        //search for highest transporation count 
+        var high_count_tran = 0;
+        var high_index_tran = 0;
+        var high_string_tran = "";
+        for(var x = 0; x < length_tran; x++) {
+            if (data_tran[x] > high_count_tran){
+                high_count_tran = data_tran[x];
+                high_index_tran = x;
+            }
+        }
+        high_string_tran = string_tran[high_index_tran];
+        console.log(high_string_tran);
     }); //end ref
 
     //save highest count and  for location
