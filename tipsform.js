@@ -150,7 +150,7 @@ function pull_data_Expenses(email_front) {
                                         "Pack walking shoes.", "Check out some local parks or hot spots."];
             for(var c = 0; c < user_rec_update.length; c++){
                 if(user_rec_update[c] > 0){
-                    $('#table').append ("<tr><td>" + tipArray[c] +"</td>" +"<td> + </td>");
+                    $('#rec_table').append ("<tr><td>" + tipArray[c] +"</td>" + "<td>" + user_rec_update[c] + "</td></tr>");
                 }
             
                 }
