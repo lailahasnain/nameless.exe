@@ -13,14 +13,14 @@ Index,Card Name,Sprint Number,Story Points,Completed?
 12,Create UI for Add Trip,1,9,1
 13,Create a form for new user accounts,1,8,1
 14,Create database to store current and past user information in user accounts,1,5,1
-15,Create a burndown log program,2,10,0
-16,Add data to burndown log,2,10,0
+15,Create a burndown log program,2,10,1
+16,Add data to burndown log,2,10,1
 17,Expense Total UI,1,4,1
 18,Calculator - Expenses,1,5,1
-19,Create personalized data for a user,2,5,0
-20,Display personal recommendation for a user,2,3,0
-21,Compile data for an individual user,2,7,0
-22,Calculate individual user data,2,5,0
+19,Create personalized data for a user,2,5,1
+20,Display personal recommendation for a user,2,3,1
+21,Compile data for an individual user,2,7,1
+22,Calculate individual user data,2,5,1
 23,Create method to send notification to user's email,2,8,1
 24,"Allow user to select or deselect notification option, i.e. check mark",2,7,1
 25,Compile list of current trip data,2,5,1
@@ -29,12 +29,12 @@ Index,Card Name,Sprint Number,Story Points,Completed?
 28,Test sending an email to a user,2,5,1
 29,Test sending an email with compiled data to a user,2,5,1
 30,Test over the course of multiple trips with multiple users (email trip info),2,7,1
-31,Allow for saving trip data per user,3,9,0
-32,Allow for preselecting trip information to save for later viewing,3,7,0
-33,Create a functional itinerary page,3,10,0
-34,Create page to hold itineraries,3,10,0
-35,Create link on nav bar to itineraries,3,1,0
-36,Create HTML page that lists Tips/Advice,3,3,0
+31,Allow for saving trip data per user,3,9,1
+32,Allow for preselecting trip information to save for later viewing,3,7,1
+33,Create a functional itinerary page,3,10,1
+34,Create page to hold itineraries,3,10,1
+35,Create link on nav bar to itineraries,3,1,1
+36,Create HTML page that lists Tips/Advice,3,3,1
 37,Create navigator button for Tips/Advice,3,1,1
 38,Create data for sample trip,3,4,1
 39,Create a page for Sample Trip,3,7,1
