@@ -72,25 +72,37 @@ function get_user_past_data() {
     var length_tran = 5;
 
     var high_count_loc = 0;
-    var high_index_loc = Math.floor(Math.random() * (length_loc - 0)) + 0;
-    console.log("This is a random loc number " + high_index_loc);
+    // var high_index_loc = Math.floor(Math.random() * (length_loc - 0)) + 0;
+    var high_index_loc = 0;
+    // console.log("This is a random loc number " + high_index_loc);
     high_string_loc = "";
     
     var high_count_air = 0;
-    var high_index_air = Math.floor(Math.random() * (length_air - 0)) + 0;
-    console.log("This is a random air number " + high_index_air);
+    //var high_index_air = Math.floor(Math.random() * (length_air - 0)) + 0;
+    var high_index_air = 0;
+    //console.log("This is a random air number " + high_index_air);
     var high_string_air = "";
     
     var high_count_hot = 0;
+    // var high_loc_index_hot = high_index_loc;
+    // var high_index_hot = Math.floor(Math.random() * (length_hotel - 0)) + 0;
     var high_loc_index_hot = high_index_loc;
-    var high_index_hot = Math.floor(Math.random() * (length_hotel - 0)) + 0;
-    console.log("This is a loc number " + high_loc_index_hot);
-    console.log("This is a random hotel2 number " + high_index_hot);
+    var high_index_hot = 0;
+    //console.log("This is a loc number " + high_loc_index_hot);
+    //console.log("This is a random hotel2 number " + high_index_hot);
+    var high_string_hot = "";
+
     var high_count_tran = 0;
-    var high_index_tran = Math.floor(Math.random() * (length_tran - 0)) + 0;
-    console.log("This is a random trans number " + high_index_tran);
+    // var high_index_tran = Math.floor(Math.random() * (length_tran - 0)) + 0;
+    var high_index_tran = 0;
+    //console.log("This is a random trans number " + high_index_tran);
     var high_string_tran = "";
     
+    document.getElementById('up_loc').innerHTML = high_string_loc;
+    document.getElementById('up_hot').innerHTML = high_string_hot;
+    document.getElementById('up_air').innerHTML = high_string_air;
+    document.getElementById('up_tra').innerHTML = high_string_tran;
+
     //length of array = # of location
     for(var x = 0; x < length_loc; x++) {
         data_loc.push(0);
@@ -216,7 +228,7 @@ function get_user_past_data() {
         // var high_index_hot = Math.floor(Math.random() * (length_hotel - 0)) + 0;
         // console.log("This is a loc number " + high_loc_index_hot);
         // console.log("This is a random hotel2 number " + high_index_hot);
-        var high_string_hot = "";
+        // var high_string_hot = "";
         for(var x = 0; x < length_hotel_loc; x++) {
             if(string_loc[x] == high_string_loc){
                 for (var j = 0; j < length_hotel; j++) {
@@ -277,16 +289,13 @@ function get_user_past_data() {
         //if (i == number_trips){
             //$('#table_recs').append ("<tr><td>"+"</td>"+"<td>" + high_string_loc +"</td>" + "<td>" + high_string_hot + "</td>" + "<td>" + high_string_air + "</td>" + "<td>" + high_string_tran + "<td></td></td></tr>");
         //}
-
-        // Place updated values here - create function: ret doc.getelebyid()
         document.getElementById('up_loc').innerHTML = high_string_loc;
         document.getElementById('up_hot').innerHTML = high_string_hot;
         document.getElementById('up_air').innerHTML = high_string_air;
         document.getElementById('up_tra').innerHTML = high_string_tran;
 
-        //Sending Tips Recommendations to HTML
-        //maybe this'll work part 2
 
+        //Sending Tips Recommendations to HTML //Moved above; inside the "Gather location data for recommendations"
         // var tipArray = ["Buy travel insurance.", "Separate your sources of money." , "Lock up your valuables.",
         //                         "Bring your passport or other forms of id.", "Be aware of what items you can bring into the State.",
         //                             "Eat at local restaurants and bars.", "Pack clothes for a colder or wetter climate.",
