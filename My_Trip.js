@@ -16,6 +16,8 @@ var user_email, email_un, nickname, user_rec_update
 var Air_price, Air, Dep, Hot, Hot_Price, Loc , Nickname , Ret, Sub_Tot, Tot, Trans , Trans_price, Use_email, Send_em, Taxes, hotel_only
 
 
+
+
 // Begin - Check for user login
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -42,6 +44,53 @@ function get_user_past_data() {
     // Attempt to get data by calling a reference once
     var i = 0;  // Keep count
     var ref = firebase.database().ref('Add_Trip/' + email_un);
+    var data_loc = [0];
+    var data_air = [0];
+    var data_hotel = [[],[0]];
+    var data_tran = [0];
+    var string_loc = ["Bellingham, Washington","Las Vegas, Nevada", "Los Angeles, California", 
+                        "Phoenix, Arizona", "Portland, Oregon", "Reno, Nevada", 
+                            "San Francisco, California", "Seattle, Washingtion"]
+    var string_air = ["Allegiant Air", "American Airlines", "Delta Airlines", "Frontier Airlines"
+                        , "JetBlue", "Southwest Airlines"];
+    var string_hotel = [ ["Bellingham, Washington","Las Vegas, Nevada", "Los Angeles, California", 
+    "Phoenix, Arizona", "Portland, Oregon", "Reno, Nevada", 
+        "San Francisco, California", "Seattle, Washingtion"], [""] 
+
+
+                        ]
+    
+    var length_tran = [];
+
+    var length_loc = 8;
+    var length_air = 6;
+    var length_hotel_loc = 8;
+    var length_hotel = 5;
+    var length_tran = 5;
+    
+    //length of array = # of location
+    for(var x = 0; x < length_loc; x++) {
+        data_loc.push(0);
+    }
+    //length of array = # of airlines
+    for(var x = 0; x < length_air; x++) {
+        data_air.push(0);
+    }
+    
+    //length of 2d array = # of hotels
+    //height of 2d array = # of location
+    // for(var i = 0; i < length_hotel_loc; i++) {
+    //     data_hotel.push(0);
+    //     for(var j = 0; j < length_hotel; j++) {
+    //         data_hotel[i].push(0);
+    //     }
+    // }
+    
+    //length of array = # of transportation options
+    for(var x = 0; x < length_tran; x++) {
+        data_tran.push(0);
+    }
+
     ref.on('child_added', snapshot => {
         Air_price = snapshot.child('Airline_Price').val();      // Airline_Price
         Air = snapshot.child('Airplane').val();      // Airplane
@@ -75,8 +124,79 @@ function get_user_past_data() {
     /* To-do */
         // Javascript to grab each name that is executed for each trip a user has, then keep a count and push to an array [preferbly]
         // Note: This count must be accurate as the data being pulled using this is the recommended items from the database
-    });
+        // Count the user's information and put into an array 
+        
+        // update locations
+        for(var x = 0; x < length_loc; x++) {
+            if (string_loc[x] == Loc){
+                data_loc[x] += 1;
+            }
+        }
+
+        // update airlines
+        // for(var x = 0; x < length_air; x++) {
+        //     data_air.push(0);
+        // }
+        
+        // // update hotel locations
+        // // update hotel
+        // for(var x = 0; x < length_hotel_loc; x++) {
+        //     data_hotel.push(0);
+        //     for(var j = 0; j < length_hotel; j++) {
+        //         data_hotel[x].push(0);
+        //     }
+        // }
+        
+        // // update transportation
+        // for(var x = 0; x < length_tran; x++) {
+        //     if (){
+        //         data_tran[x] = 
+        //     }
+        // }
+        var high_count = 0;
+        var high_index = 0;
+        var high_string = "";
+        for(var x = 0; x < length_loc; x++) {
+            if (data_loc[x] > high_count){
+                high_count = data_loc[x];
+                high_index = x;
+            }
+        }
+        high_string = string_loc[high_index];
+        console.log(high_string);
+        
+    }); //end ref
+
+    //save highest count and  for location
+    
+
     //ref.on('value', gotData, errData);
+}
+function noDisplay(){
+    $('#table_body').hide();
+    $('b').hide();
+}
+function display(){
+    var values = document.getElementById('display_Trip').value;
+    
+    console.log(values);
+    if(values == '0'){
+        $('#table_body').hide();
+        $('b').hide();
+    }else if(values == '1'){
+        console.log(values);
+        //get_user_past_data();
+        //gotData(data);
+        $('#table_body').show();
+        $('b').show();
+       
+    } else if(values == '2'){
+        $('#table_body').hide();
+        $('b').hide();
+    }else if(values == '3'){
+        $('#table_body').show();
+        $('b').show();
+    }
 }
 
 
@@ -116,6 +236,8 @@ function gotData(data) {
             ele.appendChild(node_data);
             var element = document.getElementById("user_trips");
             element.appendChild(ele);
+
+
         }
     }
 }
@@ -157,3 +279,4 @@ function get_updated_loc_for_db(loc) {
         return "Null";
     }
 }
+

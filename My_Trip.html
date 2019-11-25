@@ -45,7 +45,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/Images/favicon_io/site.webmanifest">
 </head>
-<body>
+<body onpageshow = 'noDisplay()'>
+    
     <!-- Navigator -->
     <header>
         <div class="container">
@@ -74,11 +75,11 @@
         <div class="Select My Trip" id="select_div">
             <p class="sign" align="center"></p>
                 <div class="block">
-                    <select class="form_input" name="displayTrip" id="display_Trip">
-                        <option value="0">< Select display ></option>
-                        <option value="pastTrips">Past Trips</option>
-                        <option value="Recommendations">Recommendations</option>
-                        <option value="Both">Both</option>
+                    <select class="form_input" onclick = 'display()' name="displayTrip" id="display_Trip">
+                        <option value="0"> Select display ></option>
+                        <option value="1">Past Trips</option>
+                        <option value="2">Recommendations</option>
+                        <option value="3">Both</option>
                     </select>
                 </div>
         </div>
@@ -147,6 +148,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="My_Trip.js"></script>
 </body>
 </html>
