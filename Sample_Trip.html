@@ -12,7 +12,23 @@
             margin-left: -70px;
         }
 
-
+                /* Side-by-side buttons CSS */
+        #button1{
+            cursor: pointer;
+            border-radius: 5em;
+            color: #fff;
+            background: #000;
+            border: 0;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 15px;
+            box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+            width: 200px;
+            height: 40px;
+        }
     </style>
 
     <!-- This is for the favicon and Title that is displayed on the tab. Multiple links are for multiple devices. -->
@@ -88,7 +104,7 @@
             </tr>
         </table>
         <br /><br /><br /><br />
-        <button style="margin-left: 730px; font-size: 30px;" onclick="get_sample_trip_data()">Randomize</button>
+        <button id="button1" style="margin-left: 730px;" onclick="get_sample_trip_data()">Randomize</button>
     </div>
 
 
