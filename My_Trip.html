@@ -103,16 +103,16 @@
 
         <!-- Recommendation section -->
         <div id="reco">
-            <center><h1>Trip Recommendation</h1></center>
+            <center><h1 id="rec_title">Trip Recommendation</h1></center>
             
-            <p style="width:91%; margin-left:4.5%;">Based on your entire past trip history, we are recommending a future trip to you below. As part of this recommendation, we have provided you with recommendations of what to bring/do based on the data of all our users, for your recommended location.<br /><br />Thank you for being our loyal customer.</p>
+            <p style="width:91%; margin-left:4.5%;" id="table_rec_head">Based on your entire past trip history, we are recommending a future trip to you below. As part of this recommendation, we have provided you with recommendations of what to bring/do based on the data of all our users, for your recommended location.<br /><br />Thank you for being our loyal customer.</p>
             <table class="test" style="margin-left: 50px;">
                 <thead>
                 <td><!-- Used to push values over one column --></td>
-                <td>Location</td>
-                <td>Hotel</td>
-                <td>Airplane</td>
-                <td>Transportation</td>
+                <td id="table_rec_head1">Location</td>
+                <td id="table_rec_head2">Hotel</td>
+                <td id="table_rec_head3">Airplane</td>
+                <td id="table_rec_head4">Transportation</td>
                 <td><!-- Used to push values over one column --></td>
                 </thead>
                 <tbody id="table_recs"></tbody>
@@ -125,8 +125,8 @@
                 <thead>
                 <td><!-- Used to push values over one column --></td>
                 <td><!-- Used to push values over one column --></td>
-                <td>Tips and Advice</td>
-                <td>User votes</td>
+                <td id="table_tip_rec_head">Tips and Advice</td>
+                <td id="table_tip_rec_head2">User votes</td>
                 <td><!-- Used to push values over one column --></td>
                 <td><!-- Used to push values over one column --></td>
                 </thead>

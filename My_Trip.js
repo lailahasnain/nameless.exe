@@ -232,9 +232,29 @@ function get_user_past_data() {
             console.log("The array we pulled is: " + user_rec_update);
         });
 
+        //needs to make sure it doesn't append every loop, done by if statement
+        //Sending Trip Recommendations to HTML
+        if (i == number_trips){
+            $('#table_recs').append ("<tr><td>"+"</td>"+"<td>" + high_string_loc +"</td>" + "<td>" + high_string_hot + "</td>" + "<td>" + high_string_air + "</td>" + "<td>" + high_string_tran + "<td></td></td></tr>");
+        }
+
+        //Sending Tips Recommendations to HTML
+        //maybe this'll work part 2
+
+        var tipArray = ["Buy travel insurance.", "Separate your sources of money." , "Lock up your valuables.",
+                                "Bring your passport or other forms of id.", "Be aware of what items you can bring into the State.",
+                                    "Eat at local restaurants and bars.", "Pack clothes for a colder or wetter climate.",
+                                        "Pack walking shoes.", "Check out some local parks or hot spots."];
+        for(var c = 0; c < user_rec_update.length; c++){
+            if(user_rec_update[c] > 0){
+                $('#table_tip_recs').append ("<tr><td></td><td></td><td>" + tipArray[c] +"</td>" + "<td>" + user_rec_update[c] + "</td><td></td><td></td></tr>");
+            }
+        }
+
         //window.alert("Last array: " + user_rec_update);
 
     }); //end ref
+    
 
     //save highest count and  for location
     
@@ -249,6 +269,14 @@ function noDisplay(){
     $('#table_body').hide();
     $('#table_recs').hide();
     $('#table_tip_recs').hide();
+    $('#table_tip_rec_head').hide();
+    $('#table_tip_rec_head2').hide();
+    $('#table_rec_head').hide();
+    $('#table_rec_head1').hide();
+    $('#table_rec_head2').hide();
+    $('#table_rec_head3').hide();
+    $('#table_rec_head4').hide();
+    $('#rec_title').hide();
     $('b').hide();
 }
 function display(){
@@ -259,6 +287,14 @@ function display(){
         $('#table_body').hide();
         $('#table_recs').hide();
         $('#table_tip_recs').hide();
+        $('#table_tip_rec_head').hide();
+        $('#table_tip_rec_head2').hide();
+        $('#table_rec_head').hide();
+        $('#table_rec_head1').hide();
+        $('#table_rec_head2').hide();
+        $('#table_rec_head3').hide();
+        $('#table_rec_head4').hide();
+        $('#rec_title').hide();
         $('b').hide();
     }else if(values == '1'){
         console.log(values);
@@ -267,16 +303,40 @@ function display(){
         $('#table_body').show();
         $('#table_recs').hide();
         $('#table_tip_recs').hide();
+        $('#table_tip_rec_head').hide();
+        $('#table_tip_rec_head2').hide();
+        $('#table_rec_head').hide();
+        $('#table_rec_head1').hide();
+        $('#table_rec_head2').hide();
+        $('#table_rec_head3').hide();
+        $('#table_rec_head4').hide();
+        $('#rec_title').hide();
         $('b').show();
     } else if(values == '2'){
         $('#table_body').hide();
         $('#table_recs').show();
         $('#table_tip_recs').show();
+        $('#table_tip_rec_head').show();
+        $('#table_tip_rec_head2').show();
+        $('#table_rec_head').show();
+        $('#table_rec_head1').show();
+        $('#table_rec_head2').show();
+        $('#table_rec_head3').show();
+        $('#table_rec_head4').show();
+        $('#rec_title').show();
         $('b').hide();
     }else if(values == '3'){
         $('#table_body').show();
         $('#table_recs').show();
         $('#table_tip_recs').show();
+        $('#table_tip_rec_head').show();
+        $('#table_tip_rec_head2').show();
+        $('#table_rec_head').show();
+        $('#table_rec_head1').show();
+        $('#table_rec_head2').show();
+        $('#table_rec_head3').show();
+        $('#table_rec_head4').show();
+        $('#rec_title').show();
         $('b').show();
     }
 }
@@ -322,25 +382,6 @@ function gotData(data) {
 
         }
     }
-
-    //maybe this'll work 
-    //probably not
-    var ref = firebase.database().ref('Recommendation');
-        ref.on('value', snapshot => {
-            user_rec_update = snapshot.child(loc_under_db).val();      // Airline_Price
-            console.log("The array we pulled is: " + user_rec_update);
-
-    var tipArray = ["Buy travel insurance.", "Separate your sources of money." , "Lock up your valuables.",
-                                "Bring your passport or other forms of id.", "Be aware of what items you can bring into the State.",
-                                    "Eat at local restaurants and bars.", "Pack clothes for a colder or wetter climate.",
-                                        "Pack walking shoes.", "Check out some local parks or hot spots."];
-            for(var c = 0; c < user_rec_update.length; c++){
-                if(user_rec_update[c] > 0){
-                    $('#table_tip_recs').append ("<tr><td>" + tipArray[c] +"</td>" + "<td>" + user_rec_update[c] + "</td></tr>");
-                }
-            
-                }
-    });
 }
 
 function errData(err) {
