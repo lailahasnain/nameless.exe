@@ -6,7 +6,7 @@
         #footer_logo {
             position: absolute;
             left: 50%;
-            bottom: -1100px;
+            bottom: -1480px;
             width: 150px;
             height: 150px;
             margin-left: -70px;
@@ -15,14 +15,14 @@
 		div.gallery {
 			display: flex;
 			flex-wrap: wrap;
-			justify-content: center;
-			padding: 0 4px;
+			/*justify-content: center;
+			padding: 0 4px;*/
 		}
 		
 		div.column {
 
-		flex: 50%;
-		max-width: 25%;
+		flex: 30%;
+		max-width:50%;
 		
 		}
 
@@ -30,12 +30,12 @@
 			
 			margin: 0px;
 			vertical-align: middle;
-			width: 100%;
-			height auto;
+            width: 100%;
+            height: 500px;
 		}
 		.container1 {
   position: relative;
-  width: 90%;
+  width: 100%;
 }
 .container1:hover .image {
 		opacity: 0.3;
@@ -118,71 +118,68 @@
         </div>
     </header>
 	
-	<!-- Image Gallery -->
-	<div class="gallery">
-		
-		<div class="column">
-
-		<div class="container1">
-		
-				
-				<img src="repos/lasvegas.jpg"/ class="image"> 
-				<a href="lasvegas.html"><div class="overlay"><div class="text">Las Vegas</div></div> </a>
-				
-			
-		
-		</div>
-		
-		<div class="container1">
-		
-			    <img src="repos/reno.jpg" class="image"/>
-				<a href="reno.html"><div class="overlay"><div class="text">Reno</div></div></a>
-		</div>
-
-		<div class="container1">
-
-			<img src="repos/portland.jpg" class="image" />
-			
-			
-			<a href="portland.html"><div class="overlay"><div class="text">Portland</div></div></a>
-		</div>
-
-		<div class="container1">
-			<img src="repos/phoenix.jpeg" class="image"/>
-				<a href="phoenix.html"><div class="overlay"><div class="text">Phoenix</div></div></a>
-		</div>
-
-
-		</div>
-
-		<div class="column">
-
-			<div class="container1">
-			<img src="repos/sanfrancisco.jpg" class="image" />
-
-			<a href="sanfrancisco.html"><div class="overlay"><div class="text">San Francisco</div></div></a>
-			</div>
-
-			<div class="container1">
-			<img src="repos/bellingham.jpg" class="image" />
-			<a href="bellingham.html"><div class="overlay"><div class="text">Bellingham</div></div></a>
-			</div>
-	
-			<div class="container1">
-			<img src="repos/seattle.jpg" class="image" />
-			<a href="seattle.html"><div class="overlay"><div class="text">Seattle</div></div></a>
-			</div>
-
-			<div class="container1">
-					<img src="repos/Capture1.JPG" class="image"/>
-						<a href="losangeles.html"><div class="overlay"><div class="text">Los Angeles></div></div></a>
-			</div>
-		</div>
-	</div>
-	
     <!-- Main Content -->
     <div class="content">
+        <!-- Image Gallery -->
+        <div class="gallery">
+
+            <div class="column">
+
+                <div class="container1">
+                    <img src="repos/lasvegas.jpg" class="image">
+                    <a href="lasvegas.html"><div class="overlay"><div class="text">Las Vegas</div></div> </a>
+                </div>
+
+                <div class="container1">
+
+                    <img src="repos/reno.jpg" class="image" />
+                    <a href="reno.html"><div class="overlay"><div class="text">Reno</div></div></a>
+                </div>
+
+                <div class="container1">
+
+                    <img src="repos/portland.jpg" class="image" />
+
+
+                    <a href="portland.html"><div class="overlay"><div class="text">Portland</div></div></a>
+                </div>
+
+                <div class="container1">
+                    <img src="repos/phoenix.jpeg" class="image" />
+                    <a href="phoenix.html"><div class="overlay"><div class="text">Phoenix</div></div></a>
+                </div>
+
+
+            </div>
+
+            <div class="column">
+
+                <div class="container1">
+                    <img src="repos/sanfrancisco.jpg" class="image" />
+
+                    <a href="sanfrancisco.html"><div class="overlay"><div class="text">San Francisco</div></div></a>
+                </div>
+
+                <div class="container1">
+                    <img src="repos/bellingham.jpg" class="image" />
+                    <a href="bellingham.html"><div class="overlay"><div class="text">Bellingham</div></div></a>
+                </div>
+
+                <div class="container1">
+                    <img src="repos/seattle.jpg" class="image" />
+                    <a href="seattle.html"><div class="overlay"><div class="text">Seattle</div></div></a>
+                </div>
+
+                <div class="container1">
+                    <img src="repos/Capture1.JPG" class="image" />
+                    <a href="losangeles.html"><div class="overlay"><div class="text">Los Angeles</div></div></a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Create space between the images and the footer --
+    <br /><br />
 
         <!-- Footer -->
         <footer class="footer">
@@ -230,7 +227,6 @@
                 </div>
                 <p>400 W Big Springs Rd., Riverside, CA, 92507<br />Winston Chung Hall Rm. 133</p>
             </div>
-            <hr />
-        </footer>
+          </footer>
 </body>
 </html>
