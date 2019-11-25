@@ -14,7 +14,7 @@ firebase.initializeApp(firebaseConfig);
 
 var user_email, email_un, nickname, user_rec_update, high_string_loc
 var Air_price, Air, Dep, Hot, Hot_Price, Loc , Nickname , Ret, Sub_Tot, Tot, Trans , Trans_price, Use_email, Send_em, Taxes, hotel_only
-
+var iter_stop = true;
 
 
 
@@ -237,12 +237,13 @@ function get_user_past_data() {
                                     "Eat at local restaurants and bars.", "Pack clothes for a colder or wetter climate.",
                                         "Pack walking shoes.", "Check out some local parks or hot spots."];
             for(var c = 0; c < user_rec_update.length; c++){
-                if(user_rec_update[c] > 0){
+                if ((user_rec_update[c] > 0) && (iter_stop == true)){
                     $('#table_tip_recs').append ("<tr><td></td><td></td><td>" + tipArray[c] +"</td>" + "<td>" + user_rec_update[c] + "</td><td></td><td></td></tr>");
-                    
                 }
-                
             }
+
+            // Stop the iteration after one cycle of data
+            iter_stop = false;
             
         });
 
