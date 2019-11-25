@@ -53,17 +53,17 @@ function get_user_past_data() {
                             "San Francisco, California", "Seattle, Washingtion"]
     var string_air = ["Allegiant Air", "American Airlines", "Delta Airlines", "Frontier Airlines"
                         , "JetBlue", "Southwest Airlines"];
-    var string_hotel = [ ["Shamrock Motel ()", "Motel 6", "Chrysalis Inn and Spa", "GuestHouse Inn", "Holiday Inn"], 
-                        ["Tru (Las Vegas)", "The LINQ (Las Vegas)", "Travelodge (Las Vegas)", "Four Queens (Las Vegas)"], 
-                        [], 
-                        [], 
-                        [],
-                        [],
-                        [],
-                        []
+    var string_hotel = [ ["Shamrock Motel (Bellingham)", "Motel 6 (Bellingham)", "Chrysalis Inn and Spa (Bellingham)", "GuestHouse Inn (Bellingham)", "Holiday Inn (Bellingham)"], 
+                        ["Tru (Las Vegas)", "The LINQ (Las Vegas)", "Travelodge (Las Vegas)", "Four Queens (Las Vegas)", "The Venetian (Las Vegas)"], 
+                        ["Samesun Venice Beach (Los Angeles)", "Value Inn (Los Angeles)", "Luxe City Center Hotel (Los Angeles)", "Motel 6 (Los Angeles)", "Hotel Crowne Plaza (Los Angeles)"], 
+                        ["Vacation Inn (Phoenix)","EZ 8 Motel (Phoenix)","Premier Inn (Phoenix)","Lux Uptown Apts. (Phoenix)","Hotel Embassy (Phoenix)"], 
+                        ["Howard Johnson (Portland)","Mark Spencer Hotel (Portland)","Portland Northwest Hotel (Portland)","Ramada (Portland)","Society Hotel (Portland)"],
+                        ["Circus Circus (Reno)","Motel 6 (Reno)","Sands Regency (Reno)","Baymont Inn (Reno)","Nugget (Reno)"],
+                        ["Holiday Express Inn Hotel and Suites (San Francisco)","Hyatt Place (San Francisco)","Stanford Court (San Francisco)","Travelodge by Wyndham (San Francisco)","Travelodge (San Francisco)"],
+                        ["Kimpton Hotel (Seattle)","Sheraton Grand Seattle (Seattle)","Grandy Hyatt Seattle (Seattle)","Crowne Plaza (Seattle)","Hyatt at Olive 8 (Seattle)"]
                      ];
     
-    var string_tran = [];
+    var string_tran = ["Car", "Mototbike", "Motorcycle", "Bus", "Train"];
 
     var length_loc = 8;
     var length_air = 6;
@@ -82,12 +82,12 @@ function get_user_past_data() {
     
     //length of 2d array = # of hotels
     //height of 2d array = # of location
-    // for(var x = 0; x < length_hotel_loc; x++) {
-    //     data_hotel.push([0]);
-    //     for(var j = 0; j < length_hotel; j++) {
-    //         data_hotel[x].push(0);
-    //     }
-    // }
+    for(var x = 0; x < length_hotel_loc; x++) {
+        data_hotel.push([0]);
+        for(var j = 0; j < length_hotel; j++) {
+            data_hotel[x].push(0);
+        }
+    }
     
     //length of array = # of transportation options
     for(var x = 0; x < length_tran; x++) {
@@ -143,14 +143,17 @@ function get_user_past_data() {
             }
         }
         
-        // // update hotel locations
-        // // update hotel
-        // for(var x = 0; x < length_hotel_loc; x++) {
-        //     data_hotel.push([0]);
-        //     for(var j = 0; j < length_hotel; j++) {
-        //         data_hotel[x].push(0);
-        //     }
-        // }
+        // update hotel locations
+        // update hotel
+        for(var x = 0; x < length_hotel_loc; x++) {
+            if (string_loc[x] == Loc){
+                for(var j = 0; j < length_hotel; j++) {
+                    if (string_hotel[x][j] == Hot){
+                        data_hotel[x][j] += 1;
+                    }
+                }
+            }
+        }
         
         // update transportation
         for(var x = 0; x < length_tran; x++) {
@@ -183,6 +186,24 @@ function get_user_past_data() {
         }
         high_string_air = string_air[high_index_air];
         console.log(high_string_air);
+
+
+        //search for highest hotel count
+        var high_count_hot = 0;
+        var high_loc_index_hot = 0;
+        var high_index_hot = 0;
+        var high_string_hot = "";
+        for(var x = 0; x < length_hotel_loc; x++) {
+            for (var j = 0; j < length_hotel; j++) {
+                if (data_hotel[x][j] > high_count_hot){
+                    high_count_hot = data_hotel[x][j];
+                    high_loc_index_hot = x;
+                    high_index_hot = j;
+                }
+            }
+        }
+        high_string_hot = string_hotel[high_loc_index_hot][high_index_hot];
+        console.log(high_string_hot);
         
         //search for highest transporation count 
         var high_count_tran = 0;
