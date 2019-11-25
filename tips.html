@@ -2,6 +2,9 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        
     <style>
         #footer_logo {
             position: absolute;
@@ -11,7 +14,9 @@
             height: 150px;
             margin-left: -70px;
         }
-
+        input {
+            margin-bottom: 30px;
+        }
 		
 	
     </style>
@@ -28,6 +33,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/Images/favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="tips.css" />
 </head>
 <body>
     <!-- Navigator -->
@@ -54,7 +60,81 @@
     <!-- Main Content -->
 	<h2 style="text-align: center;"></h2>
     <div class="content">
-		
+        <div style="border: 3px solid lightblue; padding: 10px; height: auto;  max-width: 400px; margin:auto;">
+                You have selected to visit:
+        </div>
+
+        <div style="border: 3px solid lightblue; padding: 10px; height: auto; max-width: 400px; margin: auto; margin-top: 30px;">
+        Other users recommend these for your trip location:</div>
+
+        <div style="padding: 10px; height: auto; max-width: 400px; margin: auto; margin-top: 30px;">
+            
+        </div>
+        <p>Please give us some tips that have made your travels easier! We have a list of suggestions, please tell us if these are be helpful for your particular city!</p>
+
+      <div class="testbox">
+          <table>
+              <tr>
+                  <th class="first-col"></th>
+                  <th>Yes</th>
+                  <th>No</th>
+              </tr>
+              <tr>
+                  <td class="first-col" id="insurance">Buy travel insurance.</td>
+                  <td><input type="radio" value="1" name="front" /></td>
+                  <td><input type="radio" value="-1" name="front" /></td>
+              </tr>
+              <tr>
+                  <td class="first-col" id="multiMoney"> Separate your sources of money.</td>
+                  <td><input type="radio" value="1" name="name" /></td>
+                  <td><input type="radio" value="-1" name="name" /></td>
+              </tr>
+              <tr>
+                  <td class="first-col" id="lockValues">Lock up your valuables.</td>
+                  <td><input type="radio" value="1" name="find" /></td>
+                  <td><input type="radio" value="-1" name="find" /></td>
+              </tr>
+              <tr>
+                  <td class="first-col" id="passport">Bring your passport or other forms of id.</td>
+                  <td><input type="radio" value="1" name="keeping" /></td>
+                  <td><input type="radio" value="-1" name="keeping" /></td>
+              </tr>
+              <tr>
+                  <td class="first-col" id="import">Be aware of what items you can bring into the State.</td>
+                  <td><input type="radio" value="1" name="ambiance" /></td>
+                  <td><input type="radio" value="-1" name="ambiance" /></td>
+              </tr>
+              <tr>
+                  <td class="first-col" id="restaurant">Eat at local restaurants and bars.</td>
+                  <td><input type="radio" value="1" name="restaurant's" /></td>
+                  <td><input type="radio" value="-1" name="restaurant's" /></td>
+              </tr>
+              <tr>
+                  <td class="first-col" id="climateClothes">Pack clothes for a colder or wetter climate.</td>
+                  <td><input type="radio" value="1" name="rate" /></td>
+                  <td><input type="radio" value="-1" name="rate" /></td>
+              </tr>
+              <tr>
+                  <td class="first-col" id="walkingShoes">Pack walking shoes.</td>
+                  <td><input type="radio" value="1" name="Spa" /></td>
+                  <td><input type="radio" value="-1" name="Spa" /></td>
+              </tr>
+              <tr>
+                  <td class="first-col" id="localLandmarks">Check out some local parks or hot spots.</td>
+                  <td><input type="radio" value="1" name="hotel" /></td>
+                  <td><input type="radio" value="-1" name="hotel" /></td>
+              </tr>
+          </table>
+      </div>
+      <div class="btn-block">
+          <button onclick="dataGather()" class="form">Send Feedback</button>
+      </div>
+
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+      <script src="tipsform.js"></script>
 	</div>
 		
         <!-- Footer -->
