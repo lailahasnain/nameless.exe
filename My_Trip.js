@@ -70,6 +70,26 @@ function get_user_past_data() {
     var length_hotel_loc = 8;
     var length_hotel = 5;
     var length_tran = 5;
+
+    var high_count_loc = 0;
+    var high_index_loc = Math.floor(Math.random() * (length_loc - 0)) + 0;
+    console.log("This is a random loc number " + high_index_loc);
+    high_string_loc = "";
+    
+    var high_count_air = 0;
+    var high_index_air = Math.floor(Math.random() * (length_air - 0)) + 0;
+    console.log("This is a random air number " + high_index_air);
+    var high_string_air = "";
+    
+    var high_count_hot = 0;
+    var high_loc_index_hot = high_index_loc;
+    var high_index_hot = Math.floor(Math.random() * (length_hotel - 0)) + 0;
+    console.log("This is a loc number " + high_loc_index_hot);
+    console.log("This is a random hotel2 number " + high_index_hot);
+    var high_count_tran = 0;
+    var high_index_tran = Math.floor(Math.random() * (length_tran - 0)) + 0;
+    console.log("This is a random trans number " + high_index_tran);
+    var high_string_tran = "";
     
     //length of array = # of location
     for(var x = 0; x < length_loc; x++) {
@@ -163,10 +183,10 @@ function get_user_past_data() {
         }
 
         //search for highest location count 
-        var high_count_loc = 0;
-        var high_index_loc = Math.floor(Math.random() * (length_loc - 0)) + 0;
-        console.log("This is a random loc number " + high_index_loc);
-        high_string_loc = "";
+        // var high_count_loc = 0;
+        // var high_index_loc = Math.floor(Math.random() * (length_loc - 0)) + 0;
+        // console.log("This is a random loc number " + high_index_loc);
+        // high_string_loc = "";
         for(var x = 0; x < length_loc; x++) {
             if (data_loc[x] > high_count_loc){
                 high_count_loc = data_loc[x];
@@ -176,10 +196,10 @@ function get_user_past_data() {
         high_string_loc = string_loc[high_index_loc];
 
         //search for highest airline count 
-        var high_count_air = 0;
-        var high_index_air = Math.floor(Math.random() * (length_air - 0)) + 0;
-        console.log("This is a random air number " + high_index_air);
-        var high_string_air = "";
+        // var high_count_air = 0;
+        // var high_index_air = Math.floor(Math.random() * (length_air - 0)) + 0;
+        // console.log("This is a random air number " + high_index_air);
+        // var high_string_air = "";
         for(var x = 0; x < length_air; x++) {
             if (data_air[x] > high_count_air){
                 high_count_air = data_air[x];
@@ -191,11 +211,11 @@ function get_user_past_data() {
 
 
         //search for highest hotel count
-        var high_count_hot = 0;
-        var high_loc_index_hot = high_index_loc;
-        var high_index_hot = Math.floor(Math.random() * (length_hotel - 0)) + 0;
-        console.log("This is a loc number " + high_loc_index_hot);
-        console.log("This is a random hotel2 number " + high_index_hot);
+        // var high_count_hot = 0;
+        // var high_loc_index_hot = high_index_loc;
+        // var high_index_hot = Math.floor(Math.random() * (length_hotel - 0)) + 0;
+        // console.log("This is a loc number " + high_loc_index_hot);
+        // console.log("This is a random hotel2 number " + high_index_hot);
         var high_string_hot = "";
         for(var x = 0; x < length_hotel_loc; x++) {
             if(string_loc[x] == high_string_loc){
@@ -212,10 +232,10 @@ function get_user_past_data() {
         console.log(high_string_hot);
         
         //search for highest transporation count 
-        var high_count_tran = 0;
-        var high_index_tran = Math.floor(Math.random() * (length_tran - 0)) + 0;
-        console.log("This is a random trans number " + high_index_tran);
-        var high_string_tran = "";
+        // var high_count_tran = 0;
+        // var high_index_tran = Math.floor(Math.random() * (length_tran - 0)) + 0;
+        // console.log("This is a random trans number " + high_index_tran);
+        // var high_string_tran = "";
         for(var x = 0; x < length_tran; x++) {
             if (data_tran[x] > high_count_tran){
                 high_count_tran = data_tran[x];
